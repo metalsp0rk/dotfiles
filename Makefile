@@ -57,3 +57,11 @@ enabled: assert-stow_configs
 	for config in $$(echo $$stow_configs | sed "s/,/ /g"); do \
 		echo " - $${config}"; \
 	done;
+
+configure: assert-stow_configs
+	@[ -f "$${HOME}/.zenv.d/stow.env" ] && source ~/.zenv.d/stow.env; \
+	echo "running configuration scripts..."; \
+	for config in $$(echo $$stow_configs | sed "s/,/ /g"); do \
+		echo "Running $${config}.sh"; \
+		~/.local/stow-run.d/$${config}.sh; \
+	done; \
