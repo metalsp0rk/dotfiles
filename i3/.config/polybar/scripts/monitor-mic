@@ -1,0 +1,24 @@
+#!/bin/bash
+
+
+printoutput() {
+	OUT=$(pactl list sources | grep -A99 Source\ \#1 | grep Mute)
+    if [[ $OUT == *"yes"* ]] ; then
+        echo ""
+    else
+        echo ""
+    fi
+}
+
+printoutput
+
+for_each_line() {
+    while IFS= read -r line; do
+        if [[ $line != *"source #1"  ]]; then
+            continue
+        fi
+        printoutput
+    done
+}
+
+pactl subscribe | for_each_line

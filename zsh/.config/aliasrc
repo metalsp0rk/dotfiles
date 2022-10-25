@@ -1,0 +1,35 @@
+alias \
+    cp="cp -iv" \
+    mv="mv -iv" \
+    mkd="mkdir -pv" \
+    ffmpeg="ffmpeg -hide_banner" \
+    ls="ls -hN --color=auto --group-directories-first" \
+    grep="grep --color=auto" \
+    diff="diff --color=auto" \
+    ccat="highlight --out-format=ansi" \
+    ka="killall" \
+    z="zathura" \
+    kc="/home/kbrennan/.krew/store/ctx/v0.9.4/kubectx" \
+    kctl="kubectl" \
+    kn="/home/kbrennan/.krew/store/ns/v0.9.4/kubens" \
+    awsp="source _awsp" \
+    bofh="fortune bofh-excuses" \
+    se="sudo -E" \
+    pbcopy="xclip -selection clipboard" \
+    pbpaste="xclip -selection clipboard -o" \
+    gpuo="git push -u origin \$(git rev-parse --abbrev-ref HEAD)" \
+    gcyolo="git commit -m \"\$(curl https://whatthecommit.com/index.txt)\"" \
+    gus="pushd \$(git rev-parse --show-toplevel); git restore --staged \$(git diff --name-only --cached); popd" \
+    resticprof="resticprofile -c profiles.yml" \
+    gsur="git submodule update --recursive" \
+    tl="tempo l" \
+    tls="tempo ls" \
+    td="tempo d" \
+    tal="tempo alias:list" \
+    taa="tempo alias:add" \
+    tad="tempo alias:delete" \
+    ti="terraform init" \
+    tp="terraform plan --out=.terraform.tfstate" \
+    ta="terraform apply .terraform.tfstate"\
+    tip="terraform init && terraform plan --out=.terraform.tfstate" \
+    gclb="git clone --bare "

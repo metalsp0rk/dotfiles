@@ -1,0 +1,11 @@
+#!/bin/bash
+
+new=$(find $HOME/.local/share/mail/{fastmail,outlook,velo}/INBOX/new/ "$HOME/.local/share/mail/outlook/Inbox/new/" "$HOME/.local/share/mail/\*/inbox/new/" -type f 2> /dev/null)
+newcount=$(echo "$new" | sed '/^\s*$/d' | wc -l)
+if [ "$newcount" -gt "0" ]; then
+    OUT=" $newcount"
+else
+    OUT=" 0"
+fi
+
+echo $OUT

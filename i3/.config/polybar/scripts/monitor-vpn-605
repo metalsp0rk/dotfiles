@@ -1,0 +1,14 @@
+#!/bin/bash
+
+OUT=""
+
+STAT=$(ip addr show vpn0 2>&1 | grep "inet ")
+if [ $(wc -c <<< $STAT) -gt "5" ]; then
+    OUT+=""
+    OUT+=" V:$(echo $STAT | awk ' {print $2} ')"
+else
+    OUT+=" V:N/C"
+fi
+
+#echo $STAT | awk ' {print $2} '
+echo $OUT
