@@ -36,20 +36,21 @@ install-base:
 
 install: assert-stow_configs
 	@source ~/.zenv.d/stow.env; \
-	for i in $${stow_configs}; do \
+	for i in $$(echo $$stow_configs | sed "s/,/ /g"); do \
 		stow -v $i; \
 	done
 
 uninstall: assert-stow_configs
 	@source ~/.zenv.d/stow.env; \
-	for i in $${stow_configs}; do \
+	for i in $$(echo $$stow_configs | sed "s/,/ /g"); do \
 		stow -v $i; \
 	done
 
 update: assert-stow_configs
 	@source ~/.zenv.d/stow.env; \
-	for i in $${stow_configs}; do \
-		stow R -v $i; \
+	for i in $$(echo $$stow_configs | sed "s/,/ /g"); do \
+		echo "$$i"; \
+		stow -R -v $$i; \
 	done
 
 add:
