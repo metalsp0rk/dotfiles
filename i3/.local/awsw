@@ -1,0 +1,92 @@
+#!/usr/bin/ruby
+
+ENV['GOOGLE_APPLICATION_CREDENTIALS'] = "/home/kbrennan/.config/gcloud/legacy_credentials/kyle.brennan@velopayments.com/adc.json"
+
+# AWS CLI proxy that handles temporary authentication
+
+User = 'kyle'
+ApiSecretId = 'AKIAYGOCUDTKTKZUZRGD'  # The credentials to use as the user login to try to then get the CLI admin role.
+ApiSecret = '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'    #   if nil, don't export -- let the configured ones from the normal `aws` tool be used.
+
+# TryTokenCommand = '~/bin/2fa -q aws'  # Command that may return the 6-digit TOTP token on this machine
+TryTokenCommand = false # set this if you want to manually do things
+RealAwsCommand = '/usr/bin/aws' # path to your aws command e.g '/Users/roland/Library/Python/2.7/bin/aws'
+
+MfaTokenArn = "arn:aws:iam::563585752277:mfa/kyle"
+RoleArn = "arn:aws:iam::#{ENV['AWS_ACCT'] || '155782053665'}:role/AdminAccessRole"  # /NormalHumanAccessRole if dev not devops
+
+RemainingSecsThreshold = 5*60
+
+SessionFile = '~/.aws-session_' + RoleArn.gsub(/[\/:_]+/, '-')
+
+
+require 'json'
+require 'date'
+
+def tryLogIn
+	raise "Must specify user name" if User.nil? or User.empty?
+	ok = false
+	if TryTokenCommand
+		token = `#{TryTokenCommand}`.strip
+		ok = $?.success?
+	end
+	until ok and /^\d{6}$/ =~ token
+		$stderr.print "Enter TOTP token: "
+		token = $stdin.gets.strip
+		ok = true
+	end
+
+	if ApiSecretId and ApiSecret
+		ENV['AWS_ACCESS_KEY_ID'] = ApiSecretId
+		ENV['AWS_SECRET_ACCESS_KEY'] = ApiSecret
+		ENV.delete('AWS_SESSION_TOKEN')
+	end
+
+	`#{RealAwsCommand} sts assume-role --role-arn '#{RoleArn}' --role-session-name '#{User}-cli' --serial-number '#{MfaTokenArn}' --token-code '#{token}'`
+end
+
+def logIn
+	tries = 0
+	awsResponse = "No response from assume-role call:\\"
+	begin
+		tries += 1
+		awsResponse = tryLogIn
+		parsed = JSON.load(awsResponse)['Credentials']
+		File.open(File.expand_path(SessionFile), 'w') do |sessionFile|
+			sessionFile.chmod(0600)
+			sessionFile.write(JSON.dump(parsed))
+		end
+		return parsed
+	rescue
+		$stderr.puts awsResponse unless awsResponse.nil? or awsResponse.empty?
+		$stderr.puts "Retrying login..."
+		retry unless tries >= 3
+		raise $!
+	end
+end
+
+begin
+	creds = JSON.load(File.read(File.expand_path(SessionFile)))
+	expires = DateTime.strptime(creds['Expiration'])
+	must_expire_after = DateTime.now + Rational(RemainingSecsThreshold, 60*60*24)
+	raise "Too Late" unless expires > must_expire_after
+rescue
+	creds = logIn
+	raise "Credentials weren't returned" unless creds
+end
+
+# TODO what are the old-fashioned variables?; set them too
+
+ENV['AWS_ACCESS_KEY_ID'] = creds['AccessKeyId'] || raise
+ENV['AWS_SECRET_ACCESS_KEY'] = creds['SecretAccessKey'] || raise
+ENV['AWS_SESSION_TOKEN'] = creds['SessionToken'] || raise
+expires = DateTime.strptime(creds['Expiration'])
+
+if ARGV.empty?
+	remaining_secs = ((expires - DateTime.now) * 24 * 60 * 60).to_i
+	puts "Logged in. Session expires in #{remaining_secs/60}m#{remaining_secs%60}s."
+elsif ['-','--'].include? ARGV[0]
+	exec(*ARGV[1..-1])
+else
+	exec(File.expand_path(RealAwsCommand), *ARGV)
+end

@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# Select display layout from pre-defined scripts in
+# .screenlayout.
+
+screenlayouts="$(ls ~/.screenlayout/)"
+
+if [ -z "$screenlayouts" ] ; then
+    echo "ERR: no screen layouts"
+else
+    echo "layouts detected"
+    chosen="$(echo "$screenlayouts" | dmenu -i -p "Which screen layout to switch to?")" || exit 1
+    chosen="$(echo "$HOME/.screenlayout/$chosen" )"
+    echo $chosen > ~/.screenlayout/.chosen
+    echo executing: $chosen
+    $chosen
+    sleep 3;
+    # reload polybar because it's fucking autistic.
+    echo cmd:restart > /tmp/polybar_mqueue.$(pgrep polybar)
+    nitrogen --restore
+fi

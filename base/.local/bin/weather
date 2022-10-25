@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# Set $LOCATION environment variable to get your current locations weather.
+
+print_help () {
+  cat <<EOF
+sdf
+EOF
+}
+
+
+BASEURL="wttr.in"
+
+if [ $# -eq 0 ]; then
+  print_help
+  exit 1
+fi
+
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    -h|--help)
+      print_help
+      exit 0
+      ;;
+    -v2)
+      BASEURL="v2.wttr.in"
+      shift
+      ;;
+    *)
+      LOCATION=$1
+      shift
+      ;;
+  esac
+done
+
+
+curl -s $BASEURL/$LOCATION
