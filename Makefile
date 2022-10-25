@@ -13,20 +13,9 @@ assert-stow_configs:
 		exit 1; \
 	fi
 
-install-base:
-	stow base
-
-install: assert-stow_configs
-	stow
-
-uninstall: assert-stow_configs
-	stow -D
-
-update: assert-stow_configs
-	stow -r
-
-add:
-	@[ -f "$${HOME}/.zenv.d/stow.env" ] && source ~/.zenv.d/stow.env; \
+adopt-config: assert-config
+	@stow -v --adopt $${config}; \
+	[ -f "$${HOME}/.zenv.d/stow.env" ] && source ~/.zenv.d/stow.env; \
 	x=""; if [ -z "$${stow_configs+x}" ]; then \
 		echo "export stow_configs=${config}" > ~/.zenv.d/stow.env; \
 		echo "enabling config ${config}"; \
@@ -40,6 +29,46 @@ add:
 	echo "export stow_configs=$${stow_configs},$${config}" > ~/.zenv.d/stow.env; \
 	source ~/.zenv.d/stow.env
 
+
+
+install-base:
+	@stow -v base;
+
+install: assert-stow_configs
+	@source ~/.zenv.d/stow.env; \
+	for i in $${stow_configs}; do \
+		stow -v $i; \
+	done
+
+uninstall: assert-stow_configs
+	@source ~/.zenv.d/stow.env; \
+	for i in $${stow_configs}; do \
+		stow -v $i; \
+	done
+
+update: assert-stow_configs
+	@source ~/.zenv.d/stow.env; \
+	for i in $${stow_configs}; do \
+		stow R -v $i; \
+	done
+
+add:
+	@[ -f "$${HOME}/.zenv.d/stow.env" ] && source ~/.zenv.d/stow.env; \
+	x=""; if [ -z "$${stow_configs+x}" ]; then \
+		echo "export stow_configs=${config}" > ~/.zenv.d/stow.env; \
+		echo "enabling config ${config}"; \
+		stow -v $${config}; \
+		exit 0; \
+	fi; \
+	if echo "$${stow_configs}" | grep "$${config}">/dev/null; then \
+		echo "config already enabled"; \
+		exit 0; \
+	fi; \
+	echo "enabling config ${config}"; \
+	echo "export stow_configs=$${stow_configs},$${config}" > ~/.zenv.d/stow.env; \
+	stow -v $${config}; \
+	source ~/.zenv.d/stow.env
+
 delete: rm
 remove: rm
 rm: assert-config
@@ -47,6 +76,8 @@ rm: assert-config
 	if echo "$${stow_configs}" | grep "$${config}">/dev/null; then \
 		echo "disabling config ${config}"; \
 		echo "export stow_configs=$$(echo $${stow_configs} | sed -E "s/$${config}[,]?//g")" > ~/.zenv.d/stow.env; \
+		echo "destowing..."; \
+		stow -D $${config}; \
 		exit 0; \
 	fi; \
 	echo "config already disabled"; \
