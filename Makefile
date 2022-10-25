@@ -65,3 +65,25 @@ configure: assert-stow_configs
 		echo "Running $${config}.sh"; \
 		~/.local/stow-run.d/$${config}.sh; \
 	done; \
+
+###############################################################################
+# BEGIN: Boilerplate and makefile-target `help` and `list`:
+###############################################################################
+# This causes `make help` and `make list` to publish all the make-target names
+# to stdout.  This mostly works correctly even with usage of makefile-includes.
+.PHONY: no_targets__ list
+no_targets__:
+_help-helper:
+	@sh -c "\
+	$(MAKE) -p no_targets__ | \
+	awk -F':' '/^[a-zA-Z0-9][^\$$#\/\\t=]*:([^=]|$$)/ {split(\$$1,A,/ /);\
+	for(i in A)print A[i]}' | grep -v '__\$$' | grep -v '\[' | sort"
+
+help:
+	$(call _announce_target, $@, listing makefile targets)
+	@make _help-helper \
+	| python3 -c"\
+	import sys; \
+	[print(x.strip()) for x in sys.stdin.readlines() \
+	if x.strip() not in 'Makefile list fail i in not if else for'.split() \
+	and not any([x.startswith(y) for y in 'NotImplementedError qassert assert range('.split()])]"
