@@ -39,6 +39,7 @@ exec --no-startup-id xcompmgr
 exec_always --no-startup-id nitrogen --restore
 exec_always --no-startup-id xinput --set-prop "TPPS/2 Elan TrackPoint" "libinput Accel Speed" 1.0
 exec --no-startup-id dunst
+exec --no-startup-id redshift
 exec --no-startup-id mpd
 exec --no-startup-id xss-lock --transfer-sleep-lock -- blurlock
 exec --no-startup-id flameshot
@@ -267,7 +268,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 mode "(e)xit, (r)estart (s)hutdown s(l)eep" {
-    bindsym e exec i3-msg exit 
+    bindsym e exec i3-msg exit
     bindsym r exec reboot
     bindsym s exec shutdown -h now
     bindsym l exec notify-send "unable to sleep" "NOT YET IMPLEMENTED"
