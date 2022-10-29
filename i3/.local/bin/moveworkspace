@@ -1,0 +1,19 @@
+#!/bin/bash
+# Scrit to move i3 workspace to another monitor
+
+# Alias the displays to a nice human-readable name
+DISPLAYALIASES=("eDP-1-1/Internal" "DP-1.2/External")
+ACTIVEDISPLAYS="$(xrandr | awk '/\ connected/{print $1 } ')"
+for dispalias in "${DISPLAYALIASES[@]}"
+do
+    ACTIVEDISPLAYS=$(echo "$ACTIVEDISPLAYS" | sed "s/$dispalias/g")
+done
+chosen="$(echo "$ACTIVEDISPLAYS" | dmenu -i -p "Move to which display?")" || exit 1
+for dispalias in "${DISPLAYALIASES[@]}"
+do
+    IFS='/' read -ra segments <<< "$dispalias"
+    sub="${segments[1]}/${segments[0]}"
+    chosen=$(echo "$chosen" | sed "s/$sub/g")
+done
+
+i3-msg "move workspace to output $chosen"
