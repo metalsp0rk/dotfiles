@@ -11,10 +11,13 @@
 
 
 default_border pixel 2
+default_floating_border pixel 2
 hide_edge_borders smart
-#gaps inner 3
-#gaps outer -2
+gaps inner 3
+gaps outer -2
 
+## Workaround for bugged default_border
+for_window [all] border pixel 2
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -267,7 +270,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 mode "(e)xit, (r)estart (s)hutdown s(l)eep" {
-    bindsym e exec i3-msg exit 
+    bindsym e exec i3-msg exit
     bindsym r exec reboot
     bindsym s exec shutdown -h now
     bindsym l exec notify-send "unable to sleep" "NOT YET IMPLEMENTED"
