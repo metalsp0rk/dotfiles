@@ -81,7 +81,7 @@ plugins=(
   fzf
   virtualenv
   gitignore
-  fast-syntax-highlighting
+  # fast-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -128,7 +128,7 @@ autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /home/kbrennan/bin/vault vault
 
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
-source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+source /usr/bin/virtualenvwrapper.sh
 
 alias bofh="fortune bofh-excuses"
 alias se="sudo -E"
@@ -137,10 +137,12 @@ alias kcupdate='echo "mv -v ~/.kube/config ~/.kube/oldconfigs/$(date '"'"'+%s'"'
 
 export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
 
-source ~/.config/shortcutrc
+# source ~/.config/shortcutrc
 source ~/.config/aliasrc
 
 alias vim=nvim
+
+export PINENTRY_USER_DATA="USE_CURSES=1"
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"

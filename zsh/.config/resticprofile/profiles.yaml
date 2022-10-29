@@ -1,0 +1,130 @@
+global:
+    priority: low
+    restic-binary: /home/kbrennan/github/metalsp0rk/restic/restic
+
+no:
+    initialize: true
+    env:
+        tmp: /tmp
+    backup:
+        exclude-caches: true
+        verbose: true
+        one-file-system: false
+        exclude:
+          - /mnt
+          - /media
+          - /run
+          - /proc
+          - /dev
+          - /tmp
+          - /sys
+          - /home/kbrennan/snap/
+
+default:
+    repository: "sftp:backup:/media/storage/restic"
+    password-command: "echo \"F33dTh3R1ghtW0lf\""
+
+    backup:
+
+        exclude-caches: true
+        verbose: true
+        one-file-system: false
+        schedule: "Mon..Fri *:00"
+        schedule-permission: user
+        source:
+            - /home
+            - /etc/
+            - /usr/local
+            - /var/lib
+            - /var/log
+        tag:
+            - quick
+            - work
+    retention:
+        keep-daily: 7
+        keep-weekly: 8
+        keep-monthly: 24
+        keep-yearly: 4
+        keep-tag: "HOLD"
+        tag:
+            - quick
+    forget:
+        compact: true
+
+offsite:
+    env:
+        B2_ACCOUNT_ID: "0026f81e00fdd8e0000000005"
+        B2_ACCOUNT_KEY: "K002DYtP8u38SK7zBkfE1EI4Y5jn/lg"
+    repository: "b2:metalspork-backups:/"
+    password-command: "echo \"F33dTh3R1ghtW0lf\""
+    backup:
+        exclude-caches: true
+        verbose: true
+        one-file-system: false
+        schedule: "Mon..Fri 12:30"
+        schedule-permission: user
+        source:
+            - /
+        tag:
+            - complete
+            - work
+        exclude:
+          - /home/kbrennan/flash/
+          - /home/kbrennan/mount/
+          - /home/kbrennan/snap/
+          - /.snapshots
+          - /mnt
+          - /media
+          - /run
+          - /proc
+          - /dev
+          - /tmp
+          - /sys
+    retention:
+        keep-daily: 7
+        keep-weekly: 8
+        keep-monthly: 24
+        keep-yearly: 4
+        keep-tag: "HOLD"
+        tag:
+            - complete
+    forget:
+        compact: true
+
+full:
+    repository: "sftp:backup:/media/storage/restic"
+    password-command: "echo \"F33dTh3R1ghtW0lf\""
+    backup:
+        exclude-caches: true
+        verbose: true
+        one-file-system: false
+        schedule: "Mon..Fri 12:30"
+        schedule-permission: user
+        source:
+            - /
+        tag:
+            - complete
+            - work
+        exclude:
+          - /home/kbrennan/flash/
+          - /home/kbrennan/mount/
+          - /home/kbrennan/snap/
+          - /.snapshots
+          - /mnt
+          - /media
+          - /run
+          - /proc
+          - /dev
+          - /tmp
+          - /sys
+    retention:
+        keep-daily: 7
+        keep-weekly: 8
+        keep-monthly: 24
+        keep-yearly: 4
+        keep-tag: "HOLD"
+        tag:
+            - complete
+    forget:
+        compact: true
+
