@@ -1,3 +1,10 @@
 #!/usr/bin/env bash
 
-git clone git@github.com:ohmyzsh/ohmyzsh.git ~/.oh-my-zsh -b master
+if [ -d "$HOME/.oh-my-zsh/.git" ]; then
+  echo "already installed oh-my-zsh"
+  pushd .oh-my-zsh
+  git pull
+  popd
+else
+  git clone git@github.com:ohmyzsh/ohmyzsh.git ~/.oh-my-zsh -b master
+fi
