@@ -41,9 +41,10 @@ end
 
 M.search_dotfiles = function()
 	require("telescope.builtin").find_files({
-		prompt_title = "< VimRC >",
+		prompt_title = "< DotFiles >",
 		cwd = vim.env.DOTFILES,
 		hidden = true,
+    file_ignore_patterns = { ".git/.*" }
 	})
 end
 
@@ -74,9 +75,9 @@ nnoremap("<leader>vh", function()
     require('telescope.builtin').help_tags()
 end)
 
--- nnoremap("<leader>vrc", function()
-    -- M.search_dotfiles({ hidden = true })
--- end)
+nnoremap("<leader>vd", function()
+    M.search_dotfiles()
+end)
 
 nnoremap("<leader>gc", function()
     M.git_branches()
