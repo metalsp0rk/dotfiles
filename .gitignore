@@ -1,2 +1,3 @@
 ssh-gpg/.gnupg/private-keys-v1.d/
 ssh-gpg/.gnupg/reader_0.status
+ssh-gpg/.gnupg/.*
