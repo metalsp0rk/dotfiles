@@ -32,7 +32,8 @@ adopt-config: assert-config
 
 
 install-base:
-	@stow -v base;
+	@mkdir ~/.zenv.d/
+	@mkdir ~/.local/stow-run.d/ || true
 
 install: assert-stow_configs
 	@source ~/.zenv.d/stow.env; \
@@ -95,7 +96,7 @@ configure: assert-stow_configs
 	echo "running configuration scripts..."; \
 	for config in $$(echo $$stow_configs | sed "s/,/ /g"); do \
 		echo "Running $${config}.sh"; \
-		~/.local/stow-run.d/$${config}.sh; \
+		[ -f "$${HOME}/.local/stow-run.d/$${config}.sh" ] && ~/.local/stow-run.d/$${config}.sh; \
 	done; \
 
 ###############################################################################
