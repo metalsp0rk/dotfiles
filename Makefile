@@ -38,7 +38,8 @@ install-base:
 install: assert-stow_configs
 	@source ~/.zenv.d/stow.env; \
 	for i in $$(echo $$stow_configs | sed "s/,/ /g"); do \
-		stow -v $$i; \
+		echo "Stowing $$i"; \
+		stow -S -v $$i; \
 	done
 
 uninstall: assert-stow_configs
@@ -59,7 +60,7 @@ add:
 	x=""; if [ -z "$${stow_configs+x}" ]; then \
 		echo "export stow_configs=${config}" > ~/.zenv.d/stow.env; \
 		echo "enabling config ${config}"; \
-		stow -v $${config}; \
+		stow -S -v $${config}; \
 		exit 0; \
 	fi; \
 	if echo "$${stow_configs}" | grep "$${config}">/dev/null; then \
@@ -68,7 +69,7 @@ add:
 	fi; \
 	echo "enabling config ${config}"; \
 	echo "export stow_configs=$${stow_configs},$${config}" > ~/.zenv.d/stow.env; \
-	stow -v $${config}; \
+	stow -v -S $${config}; \
 	source ~/.zenv.d/stow.env
 
 delete: rm
