@@ -1,3 +1,13 @@
+import:
+  - ~/.config/alacritty/605.yml
+  - ~/.config/alacritty/framework.yml
+  - ~/.config/alacritty/xps.yml
+  - ~/.config/alacritty/custom.yml
+
+
+env:
+  TERM: xterm-256color
+
 font:
     normal:
         family: Source Code Pro
@@ -8,7 +18,6 @@ font:
     italic:
         family: Source Code Pro
         style: Italic
-    size: 9
 window:
   opacity: 0.85
 
