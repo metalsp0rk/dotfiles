@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-sudo pacman -S --needed xcape xorg-xmodmap polybar
+sudo pacman -S --needed xcape xorg-xmodmap polybar nitrogen

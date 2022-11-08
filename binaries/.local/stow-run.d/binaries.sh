@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 sudo pacman -S --needed base-devel git
-if [ -z "$(which yay)" ]; then
+if command -v yay &> /dev/null; then
   echo "yay installed"
 else
   mkdir -pv builds
