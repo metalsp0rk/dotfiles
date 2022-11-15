@@ -5,5 +5,5 @@ vim.g.gruvbox_baby_highlights = {
 vim.g.gruvbox_baby_background_color = "dark"
 
 vim.cmd [[colorscheme gruvbox-baby]]
-vim.highlight.create("Folded", { guifg = "#d65d0e", guibg = "#171717", gui = "italic,bold", ctermfg = 45,
-    cterm = "bold,underline" })
+-- vim.highlight.create("Folded", { guifg = "#d65d0e", guibg = "#171717", gui = "italic,bold", ctermfg = 45,
+    -- cterm = "bold,underline" })

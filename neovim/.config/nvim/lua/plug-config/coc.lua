@@ -12,18 +12,18 @@ vim.g["coc_global_extensions"] = {
     "coc-vimlsp",
     "coc-lists",
     "coc-sh",
-    "coc-sumneko-lua"
+    "coc-sumneko-lua",
 }
 
 -- highlight
 -- for custom pop menu
-vim.highlight.create("CocCustomPopup", { guifg = "#ebdbb2", guibg = "#282828" })
+-- vim.highlight.create("CocCustomPopup", { guifg = "#ebdbb2", guibg = "#282828" })
 -- border
-vim.highlight.create("CocCustomPopupBoder", { guifg = "#5F5F5F", gui = "bold" })
+-- vim.highlight.create("CocCustomPopupBoder", { guifg = "#5F5F5F", gui = "bold" })
 -- selected row
-vim.highlight.create("CocMenuSel", { guibg = "#3c3836", gui = "bold" })
+-- vim.highlight.create("CocMenuSel", { guibg = "#3c3836", gui = "bold" })
 -- matched_text
-vim.highlight.create("CocSearch", { guifg = "#fabd2f" })
+-- vim.highlight.create("CocSearch", { guifg = "#fabd2f" })
 
 -- AutoCmds
 -- highlight the symbol and its references when holding the cursor.
