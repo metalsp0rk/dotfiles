@@ -1,0 +1,30 @@
+[general]
+#A cache path where the current status of vdirsyncer will be stored
+status_path = "~/.config/vdirsyncer/status/"
+
+#Create a new sync connection between two storages we will define
+[pair nextcloud_contacts]
+a = "nextcloud_contacts_local"
+b = "nextcloud_contacts_remote"
+collections = ["from a", "from b"]
+metadata = ["displayname"]
+
+# A local storage to store the contacts
+[storage nextcloud_contacts_local]
+type = "filesystem"
+# Path to where to store the vcards
+path = "~/.contacts/"
+fileext = ".vcf"
+
+# A remote storage to nextcloud
+[storage nextcloud_contacts_remote]
+type = "carddav"
+# Can be obtained from nextcloud
+url = "https://nextcloud.metalspork.xyz/remote.php/dav/addressbooks/users/metalspork/"
+username = "metalspork"
+# Shell command which calls the external command pass and reads the password nextcloud
+password.fetch = ["command", "pass", "nextcloud"]
+# SSL certificate fingerprint
+verify_fingerprint = "9A:37:A1:F3:25:B2:C2:1B:78:2F:51:0F:0C:E9:F3:91:F2:50:50:B5"
+#Verify ssl certificate. Set to false if it is self signed and not installed on local machine
+verify = true
