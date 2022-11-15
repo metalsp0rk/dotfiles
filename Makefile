@@ -1,5 +1,8 @@
 SHELL := zsh -euo pipefail -c
 
+RED := \033[0;31m
+NC := \033[0m
+
 assert-config:
 	@x=""; if [ -z "$${config+x}" ]; then \
 		echo "missing variable for 'config'" 1>&2; \
@@ -96,8 +99,10 @@ configure: assert-stow_configs
 	@[ -f "$${HOME}/.zenv.d/stow.env" ] && source ~/.zenv.d/stow.env; \
 	echo "running configuration scripts..."; \
 	for config in $$(echo $$stow_configs | sed "s/,/ /g"); do \
-		echo "Running $${config}.sh"; \
-		[ -f "$${HOME}/.local/stow-run.d/$${config}.sh" ] && ~/.local/stow-run.d/$${config}.sh; \
+		if [ -f "$${HOME}/.local/stow-run.d/$${config}.sh" ]; then \
+			echo "${RED}Running $${config}.sh ${NC}"; \
+			~/.local/stow-run.d/$${config}.sh; \
+		fi; \
 	done; \
 
 ###############################################################################
