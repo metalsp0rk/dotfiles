@@ -135,7 +135,7 @@ alias se="sudo -E"
 
 alias kcupdate='echo "mv -v ~/.kube/config ~/.kube/oldconfigs/$(date '"'"'+%s'"'"')_config" | bash ; export awsacc=( 605-client-prod 605-client-qa 605-client-dev 605-management 605-shared-services 605-qa 605-production 605-dev) ; for i in "${awsacc[@]}"; do AWS_PROFILE="$i" aws eks list-clusters --profile "$i" | jq -S '"'"'.clusters| .'"'"' | grep '"'"'"'"'"' | tr -d '"'"'" '"'"' | tr -d "," | awk -v acc="$i" '"'"'{print "AWS_PROFILE="acc,"aws eks update-kubeconfig --name "$1" --profile "acc" --alias "acc"-"$1}'"'"' ; done  | bash'
 
-export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
+export JAVA_HOME="/home/kbrennan/wpilib/2022/jdk/"
 
 # source ~/.config/shortcutrc
 source ~/.config/aliasrc
