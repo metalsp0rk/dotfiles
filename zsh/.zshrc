@@ -115,27 +115,19 @@ export EDITOR='nvim'
 #
 
 bindkey -s ^f "tmux-sessionizer\n"
+bindkey -s '^[d' "tmuxdots\n"
 
 export GOPATH=$HOME/go
 export PATH=${KREW_ROOT:-$HOME/.krew}/bin:~/bin:$HOME/go/bin:$PATH:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.yarn/bin/:$HOME/.gem/ruby/2.7.0/bin:$HOME/.tfenv/bin
 
 export WORKON_HOME=$HOME/.virtualenvs
 
-export GPG_TTY=$(tty)
-
 autoload -U +X bashcompinit && bashcompinit
-
-complete -o nospace -C /home/kbrennan/bin/vault vault
 
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
 source /usr/bin/virtualenvwrapper.sh
 
-alias bofh="fortune bofh-excuses"
 alias se="sudo -E"
-
-alias kcupdate='echo "mv -v ~/.kube/config ~/.kube/oldconfigs/$(date '"'"'+%s'"'"')_config" | bash ; export awsacc=( 605-client-prod 605-client-qa 605-client-dev 605-management 605-shared-services 605-qa 605-production 605-dev) ; for i in "${awsacc[@]}"; do AWS_PROFILE="$i" aws eks list-clusters --profile "$i" | jq -S '"'"'.clusters| .'"'"' | grep '"'"'"'"'"' | tr -d '"'"'" '"'"' | tr -d "," | awk -v acc="$i" '"'"'{print "AWS_PROFILE="acc,"aws eks update-kubeconfig --name "$1" --profile "acc" --alias "acc"-"$1}'"'"' ; done  | bash'
-
-export JAVA_HOME="/home/kbrennan/wpilib/2022/jdk/"
 
 # source ~/.config/shortcutrc
 source ~/.config/aliasrc
@@ -173,7 +165,4 @@ EOT
         sed 's/"$//' |
         jq
 }
-if [ -e /home/kbrennan/.nix-profile/etc/profile.d/nix.sh ]; then . /home/kbrennan/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
-
-export GITHUB_USERNAME="metalsp0rk"
-export ECR_URL="870326185936.dkr.ecr.us-east-2.amazonaws.com"
+export GITHUB_USERNAME="kyleb-planetart"
