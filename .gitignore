@@ -6,5 +6,7 @@ ssh-gpg/.gnupg/pubring.kbx
 ssh-gpg/.gnupg/pubring.kbx~
 ssh-gpg/.gnupg/tofu.db
 
+aws/.aws/sso
+
 mail/.config/vdirsyncer/status
 i3/.config/nitrogen/nitrogen.cfg
