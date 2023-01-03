@@ -12,7 +12,8 @@ alias \
     kc="/home/kbrennan/.krew/store/ctx/v0.9.4/kubectx" \
     kctl="kubectl" \
     kn="/home/kbrennan/.krew/store/ns/v0.9.4/kubens" \
-    awsp="source _awsp" \
+    awsp="export AWS_PROFILE=\$(_awsp)" \
+    awsps="asp \$(_awsp) login"
     bofh="fortune bofh-excuses" \
     se="sudo -E" \
     pbcopy="xclip -selection clipboard" \

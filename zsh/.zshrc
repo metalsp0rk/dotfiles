@@ -71,6 +71,7 @@ ZSH_THEME="agnoster"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  aws
   gpg-agent
   git
   sudo
@@ -128,6 +129,8 @@ source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.
 source /usr/bin/virtualenvwrapper.sh
 
 alias se="sudo -E"
+
+export SHOW_AWS_PROMPT=false
 
 # source ~/.config/shortcutrc
 source ~/.config/aliasrc
