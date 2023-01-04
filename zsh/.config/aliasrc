@@ -31,4 +31,5 @@ alias \
     tp="terraform plan --out=.terraform.tfstate" \
     ta="terraform apply .terraform.tfstate"\
     tip="terraform init && terraform plan --out=.terraform.tfstate" \
-    gclb="git clone --bare "
+    gclb="git clone --bare " \
+    tma="tmux attach"
