@@ -146,6 +146,9 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 export PATH=$PATH:~/.local/bin
 
+for file in $(ls ~/.zenv.d/); do
+  source ~/.zenv.d/$file
+done
 
 kk() {
 	kubectl debug -it $1 --image=lightruncom/koolkits:$2 --image-pull-policy=Never --target=$3
