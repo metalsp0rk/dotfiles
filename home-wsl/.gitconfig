@@ -1,0 +1,8 @@
+[user]
+  name=Kyle Brennan
+  email=kyleb@planetart.com
+  signingkey=8E8273EA77E64D443744EE2D6D7EAF7494B72ECA
+
+
+[commit]
+  gpgsign=true
