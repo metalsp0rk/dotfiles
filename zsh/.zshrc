@@ -117,7 +117,7 @@ export EDITOR='nvim'
 
 bindkey -s ^f "tmux-sessionizer\n"
 bindkey -s '^[d' "tmuxdots\n"
-bindkey -s '^[g' "$HOME/.zsh/plugged/harpoon/scripts/tmux/switch-back-to-nvim"
+# bindkey -s '^[g' "$HOME/.zsh/plugged/harpoon/scripts/tmux/switch-back-to-nvim"
 
 export GOPATH=$HOME/go
 export PATH=${KREW_ROOT:-$HOME/.krew}/bin:~/bin:$HOME/go/bin:$PATH:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.yarn/bin/:$HOME/.gem/ruby/2.7.0/bin:$HOME/.tfenv/bin
