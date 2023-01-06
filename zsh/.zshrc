@@ -117,6 +117,7 @@ export EDITOR='nvim'
 
 bindkey -s ^f "tmux-sessionizer\n"
 bindkey -s '^[d' "tmuxdots\n"
+bindkey -s '^[g' "$HOME/.zsh/plugged/harpoon/scripts/tmux/switch-back-to-nvim"
 
 export GOPATH=$HOME/go
 export PATH=${KREW_ROOT:-$HOME/.krew}/bin:~/bin:$HOME/go/bin:$PATH:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.yarn/bin/:$HOME/.gem/ruby/2.7.0/bin:$HOME/.tfenv/bin
@@ -149,6 +150,8 @@ export PATH=$PATH:~/.local/bin
 for file in $(ls ~/.zenv.d/); do
   source ~/.zenv.d/$file
 done
+
+export DOTFILES=$HOME/.dots
 
 kk() {
 	kubectl debug -it $1 --image=lightruncom/koolkits:$2 --image-pull-policy=Never --target=$3

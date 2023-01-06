@@ -11,15 +11,8 @@ require("harpoon").setup({
   excluded_filetypes = { "harpoon" },
   mark_branch = false,
   projects = {
-    ["$HOME/605/stack-core"] = {
-      term = {
-        cmds = {
-        }
-      }
-    },
-    ["$HOME/605/stack-terraform"] = {
-      term = {
-        cmds = {
+    ["$HOME/code/tf-solution-*"] = {
+      term = { cmds = {
           "terraform init",
           "terraform plan --out=.terraform.tfstate",
           "terraform apply .terraform.tfstate",
@@ -31,11 +24,19 @@ require("harpoon").setup({
 })
 
 nnoremap("<leader>a", function() require("harpoon.mark").add_file() end)
-nnoremap("<C-e>", function() require("harpoon.ui").toggle_quick_menu() end)
+nnoremap("<M-e>", function() require("harpoon.ui").toggle_quick_menu() end)
 nnoremap("<leader>u", function() require("harpoon.cmd-ui").toggle_quick_menu() end)
 
-nnoremap("<C-h>", function() require("harpoon.ui").nav_file(1) end)
-nnoremap("<C-j>", function() require("harpoon.ui").nav_file(2) end)
-nnoremap("<C-k>", function() require("harpoon.ui").nav_file(3) end)
-nnoremap("<C-l>", function() require("harpoon.ui").nav_file(4) end)
+nnoremap("<M-f>", function() require("harpoon.tmux").gotoTerminal(1); end)
+nnoremap("<M-d>", function() require("harpoon.tmux").gotoTerminal(2); end)
+
+nnoremap("<M-h>", function() require("harpoon.ui").nav_file(1); end)
+nnoremap("<M-j>", function() require("harpoon.ui").nav_file(2); end)
+nnoremap("<M-k>", function() require("harpoon.ui").nav_file(3); end)
+nnoremap("<M-l>", function() require("harpoon.ui").nav_file(4); end)
+
+nnoremap("<M-H>", function() require("harpoon.ui").nav_file(5); end)
+nnoremap("<M-J>", function() require("harpoon.ui").nav_file(6); end)
+nnoremap("<M-K>", function() require("harpoon.ui").nav_file(7); end)
+nnoremap("<M-L>", function() require("harpoon.ui").nav_file(8); end)
 
