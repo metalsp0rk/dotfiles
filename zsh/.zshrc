@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/kbrennan/.oh-my-zsh"
+export ZSH="/users/kyleb/.oh-my-zsh"
 
 export DEFAULT_USER=$USER
 
@@ -120,7 +120,7 @@ bindkey -s '^[d' "tmuxdots\n"
 # bindkey -s '^[g' "$HOME/.zsh/plugged/harpoon/scripts/tmux/switch-back-to-nvim"
 
 export GOPATH=$HOME/go
-export PATH=${KREW_ROOT:-$HOME/.krew}/bin:~/bin:$HOME/go/bin:$PATH:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.yarn/bin/:$HOME/.gem/ruby/2.7.0/bin:$HOME/.tfenv/bin
+export PATH=/opt/homebrew/opt/coreutils/libexec/gnubin:${KREW_ROOT:-$HOME/.krew}/bin:~/bin:$HOME/go/bin:$PATH:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.yarn/bin/:$HOME/.gem/ruby/2.7.0/bin:$HOME/.tfenv/bin
 
 export WORKON_HOME=$HOME/.virtualenvs
 
