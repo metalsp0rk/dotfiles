@@ -3,7 +3,7 @@
   "languageserver": {
     "terraform": {
       "command": "terraform-lsp",
-      "filetypes": ["terraform", "hcl"]
+      "filetypes": ["terraform", "tf", "hcl"]
     }
   },
   "snippets.ultisnips.pythonPrompt": false,

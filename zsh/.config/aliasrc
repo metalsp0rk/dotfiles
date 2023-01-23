@@ -9,9 +9,9 @@ alias \
     ccat="highlight --out-format=ansi" \
     ka="killall" \
     z="zathura" \
-    kc="/home/kbrennan/.krew/store/ctx/v0.9.4/kubectx" \
+    kc="/Users/kyleb/.krew/bin/kubectl-ctx" \
     kctl="kubectl" \
-    kn="/home/kbrennan/.krew/store/ns/v0.9.4/kubens" \
+    kn="/Users/kyleb/.krew/bin/kubectl-ns" \
     awsp="export AWS_PROFILE=\$(_awsp)" \
     awslogin="aws sso login --profile login" \
     bofh="fortune bofh-excuses" \
