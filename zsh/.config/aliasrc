@@ -13,7 +13,7 @@ alias \
     kctl="kubectl" \
     kn="/Users/kyleb/.krew/bin/kubectl-ns" \
     awsp="export AWS_PROFILE=\$(_awsp)" \
-    awslogin="aws sso login --profile login" \
+    awsl="aws sso login --profile login" \
     bofh="fortune bofh-excuses" \
     se="sudo -E" \
     gpuo="git push -u origin \$(git rev-parse --abbrev-ref HEAD)" \
@@ -28,6 +28,7 @@ alias \
     taa="tempo alias:add" \
     tad="tempo alias:delete" \
     ti="terraform init" \
+    tir="terraform init -reconfigure" \
     tp="terraform plan --out=.terraform.tfstate" \
     ta="terraform apply .terraform.tfstate"\
     tip="terraform init && terraform plan --out=.terraform.tfstate" \
