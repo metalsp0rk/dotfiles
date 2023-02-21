@@ -1,6 +1,6 @@
 export ZSH="/users/kyleb/.oh-my-zsh"
 
-export FZF_BASE=/opt/homebrew/Cellar/fzf/0.35.1/
+export FZF_BASE=/opt/homebrew/Cellar/fzf/latest/
 export DEFAULT_USER=$USER
 ZSH_THEME="agnoster"
 
