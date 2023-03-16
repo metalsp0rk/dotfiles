@@ -26,7 +26,6 @@ require("harpoon").setup({
 nnoremap("<leader>a", function() require("harpoon.mark").add_file() end)
 nnoremap("<leader>e", function() require("harpoon.ui").toggle_quick_menu() end)
 nnoremap("<leader>u", function() require("harpoon.cmd-ui").toggle_quick_menu() end)
-nnoremap("<leader>tt", function() require("harpoon.tmux").toggle_quick_menu() end)
 
 nnoremap("∂", function() require("harpoon.tmux").gotoTerminal(1); end)
 nnoremap("ƒ", function() require("harpoon.tmux").gotoTerminal(2); end)
