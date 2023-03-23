@@ -3,7 +3,7 @@ require('lualine').setup({
         lualine_a = { "mode" },
         lualine_b = { "branch", { "diff", symbols = { added = " ", modified = "柳", removed = " " } } },
         lualine_c = {
-            { "filetype", padding = { right = 0, left = 2 }, icon_only = true,
+            { "filetype", padding = { right = 0, left = 2 }, icon_only = false,
                 component_separators = { left = "", right = "" } },
             { "filename", padding = { left = 1 }, color = { gui = "bold,italic", fg = "#ebdbb2" } }
         },
