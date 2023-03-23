@@ -14,7 +14,10 @@ Plug("nvim-lua/plenary.nvim")
 Plug("ThePrimeagen/harpoon")
 Plug("nvim-telescope/telescope.nvim")
 Plug("ThePrimeagen/git-worktree.nvim")
+-- LSP SELECT
 Plug("neoclide/coc.nvim", { branch = 'release'})
+-- Plug("hrsh7th/nvim-cmp")
+-- LSP SELECT
 Plug("honza/vim-snippets")
 Plug("phaazon/hop.nvim")
 Plug("unblevable/quick-scope")
@@ -38,12 +41,19 @@ Plug("JoosepAlviste/nvim-ts-context-commentstring")
 Plug("terrortylor/nvim-comment")
 Plug("jvirtanen/vim-hcl")
 Plug("leafOfTree/vim-vue-plugin")
+
+-- COPILOT PILOT
+Plug("github/copilot.vim")
+-- Plug("zbirenbaum/copilot.lua")
+-- COPILOT END
+
 vim.call("plug#end")
 
 require("options")
 require("keyMappings")
 require("autocmds")
 require("textObjects")
+require("plug-config/lualine")
 require("plug-config/gruvbox-baby")
 require("plug-config/nvimTree")
 require("plug-config/lualine")
@@ -59,8 +69,12 @@ require("plug-config/fzf")
 require("plug-config/vimspector")
 require("plug-config/quickScope")
 require("plug-config/whichKey")
+-- LSP SELECT
 require("plug-config/coc")
+-- require("plug-config/cmp")
+-- LSP SELECT
 require("plug-config/ctrlp")
 require("plug-config/harpoon")
 require("plug-config/telescope")
 require("plug-config/vue-plugin")
+require("plug-config/Copilot")
