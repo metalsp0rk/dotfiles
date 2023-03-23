@@ -14,6 +14,7 @@ alias \
     kn="/Users/kyleb/.krew/bin/kubectl-ns" \
     awsp="export AWS_PROFILE=\$(_awsp)" \
     awsl="aws sso login --profile login" \
+    awsu="unset AWS_PROFILE" \
     bofh="fortune bofh-excuses" \
     se="sudo -E" \
     gpuo="git push -u origin \$(git rev-parse --abbrev-ref HEAD)" \
