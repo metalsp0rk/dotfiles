@@ -11,7 +11,10 @@ if [ "${machine}" == "Linux" ]; then
   sudo pacman -S nodejs yarn pynvim --needed
 fi
 if [ "${machine}" == "Mac" ]; then
-  brew install nodejs yarn python-pynvim
+  brew install nodejs yarn python-pynvim ripgrep fd
+  yarn install -g neovim
+  gem install neovim
+  cpan install neovim
 fi
 
 
