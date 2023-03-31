@@ -36,4 +36,10 @@ alias \
     tipa="terraform init && terraform plan --out=.terraform.tfstate && terraform apply .terraform.tfstate" \
     gclb="git clone --bare " \
     tma="tmux attach" \
-    k="kubectl"
+    k="kubectl" \
+    gbrc="git branch --remote | cat" \
+    tv="terraform validate" \
+    gpuof="gpuo --force" \
+    tvis="terraform show -json .terraform.tfstate > .visual.json && terraform-visual --plan=.visual.json && open terraform-visual-report/index.html" \
+    tc="terraform console" \
+    k9s="k9s --screen-dump-dir \"/Users/kyleb/Documents/k9s\" --logoless"

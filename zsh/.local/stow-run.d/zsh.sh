@@ -22,5 +22,6 @@ if [ "${machine}" == "Linux" ]; then
   sudo pacman -S fzf python-virtualenvwrapper --needed
 fi
 if [ "${machine}" == "Mac" ]; then
-  brew install fzf pyenv-virtualenvwrapper
+  brew install fzf pyenv-virtualenvwrapper nodejs npm
+  sudo npm install -g @terraform-visual/cli
 fi
