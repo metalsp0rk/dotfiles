@@ -8,7 +8,7 @@ case "${unameOut}" in
     *)          machine="UNKNOWN:${unameOut}"
 esac
 if [ "${machine}" == "Linux" ]; then
-  sudo pacman -S nodejs yarn pynvim --needed
+  sudo pacman -S nodejs yarn python-pynvim --needed
 fi
 if [ "${machine}" == "Mac" ]; then
   brew install nodejs yarn python-pynvim ripgrep fd

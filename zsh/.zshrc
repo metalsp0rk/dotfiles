@@ -1,4 +1,4 @@
-export ZSH="/users/kyleb/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 export FZF_BASE=/opt/homebrew/Cellar/fzf/latest/
 export DEFAULT_USER=$USER
@@ -81,3 +81,5 @@ EOT
         jq
 }
 export GITHUB_USERNAME="kyleb-planetart"
+
+export CODE="/mnt/c/Users/kyle_/code/"
