@@ -74,12 +74,12 @@ keymap("v", "<", "<gv", opts)
 
 
 -- fugitive rebase shortcuts
-keymap("n", "I", "0cePick<esc>", opts)
-keymap("n", "R", "0ceReword<esc>", opts)
-keymap("n", "E", "0ceEdit<esc>", opts)
-keymap("n", "S", "0ceSquash<esc>", opts)
-keymap("n", "F", "0ceFixup<esc>", opts)
-keymap("n", "A", "0ceExec<esc>", opts)
-keymap("n", "D", "0ceDrop<esc>", opts)
+keymap("n", "I", "0cepick<esc>", opts)
+keymap("n", "R", "0cereword<esc>", opts)
+keymap("n", "E", "0ceedit<esc>", opts)
+keymap("n", "S", "0cesquash<esc>", opts)
+keymap("n", "F", "0cefixup<esc>", opts)
+keymap("n", "A", "0ceexec<esc>", opts)
+keymap("n", "D", "0cedrop<esc>", opts)
 
 
