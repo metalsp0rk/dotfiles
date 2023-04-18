@@ -71,3 +71,15 @@ keymap("n", "<esc>", "<Cmd>noh<return><esc>", opts)
 -- indent and keep stay in visualMode
 keymap("v", ">", ">gv", opts)
 keymap("v", "<", "<gv", opts)
+
+
+-- fugitive rebase shortcuts
+keymap("n", "I", "0cePick<esc>", opts)
+keymap("n", "R", "0ceReword<esc>", opts)
+keymap("n", "E", "0ceEdit<esc>", opts)
+keymap("n", "S", "0ceSquash<esc>", opts)
+keymap("n", "F", "0ceFixup<esc>", opts)
+keymap("n", "A", "0ceExec<esc>", opts)
+keymap("n", "D", "0ceDrop<esc>", opts)
+
+
