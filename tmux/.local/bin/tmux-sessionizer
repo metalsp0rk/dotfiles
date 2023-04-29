@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [[ $# -eq 1 ]]; then
-    selected=$1
+    selected=$(find -L ~/code  -mindepth 1 -maxdepth 1 -type d | sed "s,$HOME/code/,," | fzf -q "$1")
 else
     selected=$(find -L ~/code  -mindepth 1 -maxdepth 1 -type d | sed "s,$HOME/code/,," | fzf)
 fi
