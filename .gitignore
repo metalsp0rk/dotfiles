@@ -1,13 +1,2 @@
-ssh-gpg/.gnupg/private-keys-v1.d/
-ssh-gpg/.gnupg/reader_0.status
-ssh-gpg/.gnupg/.*
-ssh-gpg/.gnupg/random_seed
-ssh-gpg/.gnupg/pubring.kbx
-ssh-gpg/.gnupg/pubring.kbx~
-ssh-gpg/.gnupg/tofu.db
-
 aws/.aws/sso
 aws/.aws/cli
-
-mail/.config/vdirsyncer/status
-i3/.config/nitrogen/nitrogen.cfg

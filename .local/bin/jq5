@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-if [ $# -eq 0 ]; then
-  jq -h
-  exit 1
-fi
-
-json5 <&0 | jq "$@"
