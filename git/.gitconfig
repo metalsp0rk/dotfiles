@@ -1,0 +1,6 @@
+[include]
+  path = ~/.git.d/planetart
+[include]
+  path = ~/.git.d/userconfig
+[url "git@github.com:"]
+  insteadOf = https://github.com/
