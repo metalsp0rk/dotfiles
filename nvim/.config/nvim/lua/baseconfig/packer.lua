@@ -23,7 +23,7 @@ return require('packer').startup(function(use)
     config = function()
       vim.g.rose_pine_variant = 'moon'
       -- vim.g.rose_pine_disable_background = true
-      vim.cmd('colorscheme rose-pine')
+      vim.cmd('colorscheme gruvbox-baby')
     end
   })
   use({'luisiacc/gruvbox-baby'})
