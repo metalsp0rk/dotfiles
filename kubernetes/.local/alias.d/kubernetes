@@ -1,0 +1,5 @@
+alias \
+    kc="${HOME}/.krew/bin/kubectl-ctx" \
+    kn="${HOME}/.krew/bin/kubectl-ns" \
+    k="kubectl" \
+    k9s="k9s --screen-dump-dir \"/Users/kyleb/Documents/k9s\" --logoless"

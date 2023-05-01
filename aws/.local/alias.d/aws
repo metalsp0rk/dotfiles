@@ -1,0 +1,4 @@
+alias \
+    awsp="export AWS_PROFILE=\$(_awsp)" \
+    awsl="aws sso login --profile login" \
+    awsu="unset AWS_PROFILE" \

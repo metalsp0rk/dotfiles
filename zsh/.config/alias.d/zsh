@@ -1,0 +1,12 @@
+alias \
+    cp="cp -iv" \
+    mv="mv -iv" \
+    mkd="mkdir -pv" \
+    ffmpeg="ffmpeg -hide_banner" \
+    ls="ls -hN --color=auto --group-directories-first" \
+    grep="grep --color=auto" \
+    diff="diff --color=auto" \
+    ccat="highlight --out-format=ansi" \
+    ka="killall" \
+    bofh="fortune bofh-excuses" \
+    se="sudo -E" \

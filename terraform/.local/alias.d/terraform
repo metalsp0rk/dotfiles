@@ -1,0 +1,9 @@
+alias \
+    ti="terraform init" \
+    tir="terraform init -reconfigure" \
+    tp="terraform plan --out=.terraform.tfstate" \
+    ta="terraform apply .terraform.tfstate"\
+    tip="terraform init && terraform plan --out=.terraform.tfstate" \
+    tipa="terraform init && terraform plan --out=.terraform.tfstate && terraform apply .terraform.tfstate" \
+    tv="terraform validate" \
+    tc="terraform console" \
