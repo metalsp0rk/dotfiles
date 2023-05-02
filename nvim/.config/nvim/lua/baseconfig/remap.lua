@@ -58,3 +58,6 @@ vim.keymap.set("n", "<esc>", "<Cmd>noh<return><esc>", opts)
 
 -- leader x will chmod +x the current file
 vim.keymap.set("n", "<leader>x", ":!chmod +x %<CR>", opts)
+
+-- Quick SO!
+vim.keymap.set("n", "<leader>so", ":so ~/.config/nvim/init.lua<CR>", opts)
