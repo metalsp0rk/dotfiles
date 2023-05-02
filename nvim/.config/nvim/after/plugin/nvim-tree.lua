@@ -38,7 +38,7 @@ require("nvim-tree").setup({
         dotfiles = false,
         exclude = {},
         -- dotfiles = true, --don't show hidden files
-        custom = { "venv", "__pycache__"} -- ignore folders
+        custom = { "^\\.git$" ,"venv", "__pycache__"} -- ignore folders
     },
     actions = {
         open_file = {
