@@ -8,7 +8,7 @@ setup_signingkey() {
 
 # configure git user settings
 Full_Name=$(scutil <<< "show State:/Users/ConsoleUser" | awk '/LongUserNameKey :/ && ! /loginwindow/ { print $3 " " $4 }')
-Email=$(scutil <<< "show State:/Users/ConsoleUser" | awk '/UserNameKey :/ && ! /LongUserNameKey/ { print $3 }')
+Email=$(scutil <<< "show State:/Users/ConsoleUser" | awk '/UserNameKey :/ && ! /LongUserNameKey/ { print $3 }')@planetart.com
 
 
 while true; do
