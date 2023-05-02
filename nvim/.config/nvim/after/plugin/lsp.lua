@@ -20,6 +20,14 @@ lsp.ensure_installed({
   'terraformls',
 })
 
+lsp.configure("yamlls", {
+  settings = {
+    yaml = {
+      keyOrdering = false,
+    }
+  }
+})
+
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
 local cmp_mappings = lsp.defaults.cmp_mappings({
