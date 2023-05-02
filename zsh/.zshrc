@@ -77,3 +77,5 @@ EOT
         sed 's/"$//' |
         jq
 }
+
+alias tma="tmux attach"
