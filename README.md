@@ -4,7 +4,7 @@ This repository is a collection of tools that make working in the terminal a bre
 
 # Paradigm
 
-This environment is focused on tmux, neovim and zsh as our core building blocks.  If you're not comfortable with vim, you'll probably be happier with vscode
+This environment is focused on tmux, neovim and zsh as our core building blocks.  
 
 # Installation
 
