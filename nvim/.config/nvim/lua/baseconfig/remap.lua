@@ -1,7 +1,7 @@
 local opts = { noremap = true, silent = true }
 local expr_opts = { noremap = true, silent = true, expr = true }
 vim.g.mapleader = " "
-vim.g.maplocalleader = " " vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.g.maplocalleader = " "
 
 
 --- buffer management
