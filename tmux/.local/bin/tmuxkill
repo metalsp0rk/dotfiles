@@ -15,4 +15,9 @@ if [[ -z $selected ]]; then
   exit 0
 fi
 
+if [[  $selected -eq $(tmux display-message -p '#S') ]]; then
+  echo "Current Session selected for destruction, switching to next session"
+  tmux switch-client -n
+fi
+
 tmux kill-session -t $selected_name
