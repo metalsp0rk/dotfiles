@@ -8,11 +8,11 @@ require('gitsigns').setup {
     untracked    = { text = '┆' },
   },
   signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
-  numhl      = false, -- Toggle with `:Gitsigns toggle_numhl`
+  numhl      = true, -- Toggle with `:Gitsigns toggle_numhl`
   linehl     = false, -- Toggle with `:Gitsigns toggle_linehl`
   word_diff  = false, -- Toggle with `:Gitsigns toggle_word_diff`
   watch_gitdir = {interval = 1000, follow_files = true},
-  current_line_blame = false,
+  current_line_blame = true,
   current_line_blame_opts = {
     virt_text = true,
     virt_text_pos = 'eol',
@@ -56,18 +56,19 @@ require('gitsigns').setup {
       return '<Ignore>'
     end, {expr=true})
     -- Actions
-    map('n', '<leader>hs', gs.stage_hunk)
-    map('n', '<leader>hr', gs.reset_hunk)
-    map('v', '<leader>hs', function() gs.stage_hunk {vim.fn.line("."), vim.fn.line("v")} end)
-    map('v', '<leader>hr', function() gs.reset_hunk {vim.fn.line("."), vim.fn.line("v")} end)
-    map('n', '<leader>hS', gs.stage_buffer)
-    map('n', '<leader>hu', gs.undo_stage_hunk)
-    map('n', '<leader>hR', gs.reset_buffer)
-    map('n', '<leader>hp', gs.preview_hunk)
-    map('n', '<leader>hb', function() gs.blame_line{full=true} end)
+    map('n', '<leader>cs', gs.stage_hunk)
+    map('n', '<leader>cr', gs.reset_hunk)
+    map('v', '<leader>cs', function() gs.stage_hunk {vim.fn.line("."), vim.fn.line("v")} end)
+    map('v', '<leader>cr', function() gs.reset_hunk {vim.fn.line("."), vim.fn.line("v")} end)
+    map('n', '<leader>cS', gs.stage_buffer)
+    map('n', '<leader>cu', gs.undo_stage_hunk)
+    map('n', '<leader>cR', gs.reset_buffer)
+    map('n', '<leader>cp', gs.preview_hunk)
+    map('n', '<leader>cb', function() gs.blame_line{full=true} end)
     map('n', '<leader>tb', gs.toggle_current_line_blame)
-    map('n', '<leader>hd', gs.diffthis)
-    map('n', '<leader>hD', function() gs.diffthis('~') end)
+    map('n', '<leader>cd', gs.diffthis)
+    map('n', '<leader>cD', function() gs.diffthis('~') end)
     map('n', '<leader>td', gs.toggle_deleted)
+    map('n', '<leader>tl', gs.toggle_linehl)
   end
 }
