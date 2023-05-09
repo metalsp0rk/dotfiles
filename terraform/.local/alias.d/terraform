@@ -7,3 +7,4 @@ alias \
     tipa="terraform init && terraform plan --out=.terraform.tfstate && terraform apply .terraform.tfstate" \
     tv="terraform validate" \
     tc="terraform console" \
+    rtip="rm -rf .terraform && terraform init && terraform plan --out=.terraform.tfstate" \

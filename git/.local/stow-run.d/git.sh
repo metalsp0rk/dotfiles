@@ -26,3 +26,6 @@ cat << EOF > ~/.git.d/userconfig
     name = $Full_Name
     email = $Email
 EOF
+
+echo "Created git user config:"
+cat ~/.git.d/userconfig | sed 's/^/    /'
