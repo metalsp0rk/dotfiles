@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+if [ $# -lt 1 ]; then
+  echo "Github Git Repo Clone utility"
+  echo "syntax: ggr reponame"
+  exit 1
+fi
+
+git clone --recursive git@github.com:${1}/${2}.git $HOME/code/${2}

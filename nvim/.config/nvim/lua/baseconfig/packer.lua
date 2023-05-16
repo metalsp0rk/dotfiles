@@ -34,12 +34,15 @@ return require('packer').startup(function(use)
   use({'TimUntersberger/neogit'})
   use({'folke/which-key.nvim'})
   use({'github/copilot.vim'})
-  use({'tpope/vim-commentary'})
+  use({'lewis6991/gitsigns.nvim'})
+  use({'terrortylor/nvim-comment'})
   use({'stevearc/aerial.nvim'})
+  use({'jiangmiao/auto-pairs'})
   use({'kyazdani42/nvim-tree.lua'})
   use({'theprimeagen/harpoon'})
   use({'akinsho/bufferline.nvim', tag = 'v2.*'})
   use({'nvim-lualine/lualine.nvim'})
+  use({'ray-x/go.nvim'})
 
   -- LSP
   use({'VonHeikemen/lsp-zero.nvim',

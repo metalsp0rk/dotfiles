@@ -23,8 +23,8 @@ source $ZSH/oh-my-zsh.sh
 
 export EDITOR='nvim'
 bindkey -s ^f "tmux-sessionizer\n"
-bindkey -s '∂' "tmuxdots\n"
-# bindkey -s '^[g' "$HOME/.zsh/plugged/harpoon/scripts/tmux/switch-back-to-nvim"
+bindkey -s '^[d' "tmuxdots\n"
+bindkey -s '^[g' "$HOME/.zsh/plugged/harpoon/scripts/tmux/switch-back-to-nvim"
 
 export GOPATH=$HOME/go
 export PATH=/opt/homebrew/opt/coreutils/libexec/gnubin:${KREW_ROOT:-$HOME/.krew}/bin:~/bin:$HOME/go/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.yarn/bin/:$HOME/.gem/ruby/2.7.0/bin:$HOME/.tfenv/bin:$PATH

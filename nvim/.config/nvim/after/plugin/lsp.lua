@@ -33,6 +33,12 @@ lsp.nvim_workspace()
 cmp_mappings['<Tab>'] = nil
 cmp_mappings['<S-Tab>'] = nil
 
+lsp.configure("yamlls", {
+  settings = {
+    keyOrdering = false,
+  }
+})
+
 lsp.setup_nvim_cmp({
   mapping = cmp_mappings
 })
