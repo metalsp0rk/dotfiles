@@ -38,7 +38,7 @@ require("nvim-tree").setup({
         dotfiles = false,
         exclude = {},
         -- dotfiles = true, --don't show hidden files
-        custom = {".terraform", "venv", "__pycache__", ".git$" } -- ignore folders
+        custom = { "venv", "__pycache__"} -- ignore folders
     },
     actions = {
         open_file = {

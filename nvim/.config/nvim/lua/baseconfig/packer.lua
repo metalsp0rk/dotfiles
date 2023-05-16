@@ -21,11 +21,10 @@ return require('packer').startup(function(use)
     'rose-pine/neovim',
     as = 'rose-pine',
     config = function()
-      vim.g.rose_pine_variant = 'moon'
-      -- vim.g.rose_pine_disable_background = true
-      vim.cmd('colorscheme rose-pine')
+      -- vim.g.rose_pine_variant = 'moon'
     end
   })
+  use({"airblade/vim-gitgutter"})
   use({'luisiacc/gruvbox-baby'})
   use({'nvim-lua/plenary.nvim'})
   use({'nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'}})

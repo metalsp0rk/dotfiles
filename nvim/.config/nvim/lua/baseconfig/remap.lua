@@ -1,8 +1,7 @@
 local opts = { noremap = true, silent = true }
 local expr_opts = { noremap = true, silent = true, expr = true }
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.g.maplocalleader = " " vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 
 --- buffer management
@@ -57,4 +56,5 @@ vim.keymap.set("v", "<", "<gv", opts)
 -- escape: also clears highlighting
 vim.keymap.set("n", "<esc>", "<Cmd>noh<return><esc>", opts)
 
-
+-- leader x will chmod +x the current file
+vim.keymap.set("n", "<leader>x", ":!chmod +x %<CR>", opts)

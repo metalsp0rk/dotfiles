@@ -2,6 +2,14 @@ local lsp = require('lsp-zero')
 
 lsp.preset('recommended')
 
+lsp.configure("yamlls", {
+  settings = {
+    yaml = {
+      keyOrdering = false,
+    }
+  }
+})
+
 lsp.ensure_installed({
   'tsserver',
   'eslint',

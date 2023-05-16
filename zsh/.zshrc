@@ -59,9 +59,6 @@ done
 export DOTFILES=$HOME/.dots
 export PATH=/opt/homebrew/bin:$PATH
 
-kk() {
-	kubectl debug -it $1 --image=lightruncom/koolkits:$2 --image-pull-policy=Never --target=$3
-}
 
 function decode-authorization-failure-message {
     if [ $# -ne 1 ] || [ "$1" = -h ] || [ "$1" = --help ]; then
