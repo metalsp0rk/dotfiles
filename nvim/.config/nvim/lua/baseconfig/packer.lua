@@ -42,6 +42,8 @@ return require('packer').startup(function(use)
   use({'theprimeagen/harpoon'})
   use({'akinsho/bufferline.nvim', tag = 'v2.*'})
   use({'nvim-lualine/lualine.nvim'})
+  use({'kyazdani42/nvim-web-devicons'})
+  use({'christoomey/vim-tmux-navigator'})
 
   -- LSP
   use({'VonHeikemen/lsp-zero.nvim',

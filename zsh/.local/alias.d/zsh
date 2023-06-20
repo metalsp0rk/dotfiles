@@ -10,3 +10,4 @@ alias \
     ka="killall" \
     bofh="fortune bofh-excuses" \
     se="sudo -E" \
+    ls="ls --color=always" \

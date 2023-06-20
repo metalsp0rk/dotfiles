@@ -34,7 +34,6 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
   ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
   ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
   ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-  ['<C-Space>'] = cmp.mapping.complete(),
 })
 -- Fix for undefined global 'vim'
 lsp.nvim_workspace()
@@ -47,6 +46,11 @@ lsp.setup_nvim_cmp({
 
 
 lsp.on_attach = function(client, bufnr)
+  if client.name == "yamlls" then
+    if vim.bo[bufnr].buftype ~= "" or vim.bo[bufnr].filetype == "helm" then
+      vim.diagnostic.disable(bufnr)
+    end
+  end
   local opts = {buffer = bufnr, remap = false}
   vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, {desc = "Go to definition", remap = false,  buffer = bufnr })
   vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
