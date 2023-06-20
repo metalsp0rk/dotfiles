@@ -2,3 +2,4 @@ nvim/.config/nvim/plugin/packer_compiled.lua
 aws/.aws/sso
 aws/.aws/cli
 git/.git.d/userconfig
+git/.git.d/planetart

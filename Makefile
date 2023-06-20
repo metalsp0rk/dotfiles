@@ -105,6 +105,13 @@ configure: assert-stow_configs
 		fi; \
 	done; \
 
+runconf: assert-config
+	@echo "setting up..."; \
+	echo "${RED}running configuration script for ${conf}...${NC}"; \
+	if [ -f "$${HOME}/.local/stow-run.d/$${conf}.sh" ]; then \
+		~/.local/stow-run.d/$${conf}.sh; \
+	fi; \
+
 ###############################################################################
 # BEGIN: Boilerplate and makefile-target `help` and `list`:
 ###############################################################################

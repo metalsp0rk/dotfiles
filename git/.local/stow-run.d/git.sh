@@ -1,9 +1,21 @@
 #!/usr/bin/env bash
 
+echo "WARNING: this script only supports macOS"
+
+
+SIGNING_KEY=""
+INCLUDE_GPGSIGN=false
+
 setup_signingkey() {
-  echo "Signing Key autoconfig Not yet implemented"
-  # $SIGNING_KEY=$(gpg --list-keys | grep -B1 $Email | head -n1 | awk '{print $1}')
-  # echo $SIGNING_KEY
+  cat <<EOF > ~/.git.d/signing
+[commit]
+  gpgsign = true
+[tag]
+  gpgsign = true
+[gpg]
+  format = ssh
+EOF
+  INCLUDE_GPGSIGN=true
 }
 
 # configure git user settings
@@ -12,7 +24,7 @@ Email=$(scutil <<< "show State:/Users/ConsoleUser" | awk '/UserNameKey :/ && ! /
 
 
 while true; do
-  read -p "Set up GPG signing key (y/n)" yn
+  read -p "Set up SSH signing key (y/n)" yn
   case $yn in
     [Yy]* ) setup_signingkey; break;;
     [Nn]* ) break;;
@@ -23,9 +35,19 @@ done
 
 cat << EOF > ~/.git.d/userconfig
 [user]
-    name = $Full_Name
-    email = $Email
+  name = $Full_Name
+  email = $Email
 EOF
+if [ $INCLUDE_GPGSIGN ]; then
+  cat << EOF >> ~/.git.d/userconfig
+[gpg.ssh]
+  default-key-command = ssh-add -L
+EOF
+fi
 
 echo "Created git user config:"
 cat ~/.git.d/userconfig | sed 's/^/    /'
+if [ $INCLUDE_GPGSIGN ]; then
+  echo "Created git signing config:"
+  cat ~/.git.d/signing | sed 's/^/    /'
+fi
