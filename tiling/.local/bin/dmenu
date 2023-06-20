@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+launch_app=$(ls /Applications | sed 's/.app$//g' | dmenu-mac -p "Launch")
+
+if [ -z ${launch_app} ]; then
+  echo "no application selected"
+  exit 1
+fi
+
+open -gna /Applications/${launch_app}.app
+
