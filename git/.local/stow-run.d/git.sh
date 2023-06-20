@@ -40,8 +40,7 @@ cat << EOF > ~/.git.d/userconfig
 EOF
 if [ $INCLUDE_GPGSIGN ]; then
   cat << EOF >> ~/.git.d/userconfig
-[gpg.ssh]
-  default-key-command = ssh-add -L
+  signingkey = ~/.ssh/id_rsa.pub
 EOF
 fi
 
