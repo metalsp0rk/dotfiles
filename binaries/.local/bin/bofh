@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+shuf -n 1 ~/.config/bofh.txt

@@ -45,6 +45,9 @@ return require('packer').startup(function(use)
   use({'kyazdani42/nvim-web-devicons'})
   use({'christoomey/vim-tmux-navigator'})
 
+  use({'dhruvasagar/vim-table-mode'})
+  use({'mzlogin/vim-markdown-toc'})
+
   -- LSP
   use({'VonHeikemen/lsp-zero.nvim',
     branch = 'v2.x',

@@ -8,3 +8,5 @@ alias \
     tv="terraform validate" \
     tc="terraform console" \
     rtip="rm -rf .terraform && terraform init && terraform plan --out=.terraform.tfstate" \
+    tim="terraform init -migrate-state" \
+    rti="rm -rf .terraform && terraform init" \

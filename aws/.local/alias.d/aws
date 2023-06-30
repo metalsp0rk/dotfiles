@@ -2,3 +2,7 @@ alias \
     awsp="export AWS_PROFILE=\$(_awsp)" \
     awsl="aws sso login --profile login" \
     awsu="unset AWS_PROFILE" \
+    awst="source ~/.local/bin/awsgen" \
+    awstu="unset AWS_SHARED_CREDENTIAL_FILE AWS_CONFIG_FILE" \
+    awsw="eval \"\$(aws2-wrap --export)\"" \
+

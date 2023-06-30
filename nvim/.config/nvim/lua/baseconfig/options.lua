@@ -28,3 +28,6 @@ api.nvim_set_var("NERDSpaceDelims", 1)
 --Relative line numbers and line numbers
 set.number = true
 set.relativenumber = true
+
+vim.opt.spelllang = "en_us"
+vim.opt.spell = true

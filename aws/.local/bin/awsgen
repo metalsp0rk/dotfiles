@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+TLD=$(mktemp)
+
+aws2-wrap --generate --profile backend --credentialsfile $TLD/credentials --configfile $TLD/config --outprofile $TLD/backend
+aws2-wrap --generate --profile $(_awsp) --credentialsfile $TLD/credentials --configfile $TLD/config --outprofile $TLD/temp
+
+export AWS_SHARED_CREDENTIALS_FILE=$TLD/credentials
+export AWS_CONFIG_FILE=$TLD/config
+export AWS_PROFILE=temp
+

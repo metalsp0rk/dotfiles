@@ -93,3 +93,8 @@ gg=G
 gg, go line 1.  = format from cursor until.... G jump EOF
 
 
+## Intro guide
+
+Check this video for a quick guide on how to get the most out of the PlanetArt dotfiles
+
+

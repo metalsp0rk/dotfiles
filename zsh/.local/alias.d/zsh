@@ -8,6 +8,5 @@ alias \
     diff="diff --color=auto" \
     ccat="highlight --out-format=ansi" \
     ka="killall" \
-    bofh="fortune bofh-excuses" \
     se="sudo -E" \
     ls="ls --color=always" \

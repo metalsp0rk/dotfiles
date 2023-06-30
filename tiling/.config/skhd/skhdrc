@@ -65,3 +65,7 @@ alt - u  : yabai -m space --layout float
 
 # rebind close window
 alt - q : yabai -m window --close
+
+# bind space left and right
+#ctrl - h : ~
+#ctrl - l : ~
