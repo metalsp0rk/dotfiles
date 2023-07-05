@@ -9,6 +9,10 @@ mkdir ~/.zenv.d/
 
 echo "Homebrew Installed, gathering packages..."
 
-brew install make python@3.10 
+# IF WINDOWS:
+# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+
+brew install make python@3.10 stow
 
 echo "done!"
