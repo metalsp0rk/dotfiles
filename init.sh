@@ -3,6 +3,8 @@ echo "Installing Homebrew"
 curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh > /tmp/brew-install.sh
 
 chmod +x /tmp/brew-install.sh
+
+mkdir ~/.zenv.d/
 /tmp/brew-install.sh
 
 echo "Homebrew Installed, gathering packages..."
