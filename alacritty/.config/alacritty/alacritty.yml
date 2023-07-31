@@ -12,6 +12,7 @@ font:
         family: SauceCodePro Nerd Font Mono
         style: Italic
 window:
+  decorations: none
   opacity: 0.85
 
 colors:
