@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
-brew install yabai skhd dmenu-mac
+brew tap FelixKratz/formulae
+
+brew install yabai skhd dmenu-mac sketchybar ifstat gh jq

@@ -60,6 +60,10 @@ done
 export DOTFILES=$HOME/.dots
 export PATH=/opt/homebrew/bin:$PATH
 
+
+# High Sierra security bs
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
 function decode-authorization-failure-message {
     if [ $# -ne 1 ] || [ "$1" = -h ] || [ "$1" = --help ]; then
         cat <<'EOT'

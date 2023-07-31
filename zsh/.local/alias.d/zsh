@@ -9,4 +9,11 @@ alias \
     ccat="highlight --out-format=ansi" \
     ka="killall" \
     se="sudo -E" \
-    ls="ls --color=always" \
+    ls="ls --color=always"
+
+
+pbsecret () {
+  cat $1 | pbcopy
+  sleep 30
+  echo " " | pbcopy
+}
