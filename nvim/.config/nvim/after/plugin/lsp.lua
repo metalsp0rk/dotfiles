@@ -1,4 +1,6 @@
 local lsp = require('lsp-zero')
+local util = require('lspconfig.util')
+local configs = require('lspconfig.configs')
 
 lsp.preset('recommended')
 
@@ -15,6 +17,7 @@ lsp.ensure_installed({
   'svelte',
   'jdtls',
   'clangd',
+  'helm_ls',
   'cmake',
   'rust_analyzer',
   'terraformls',
@@ -24,9 +27,45 @@ lsp.configure("yamlls", {
   settings = {
     yaml = {
       keyOrdering = false,
+      validate = false,
     }
   }
 })
+
+lsp.configure("lua_ls", {
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = {'vim'},
+      },
+      workspace = {
+        library = {
+          [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+          [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
+        },
+      },
+    },
+  },
+})
+
+
+if not configs.helm_ls then
+  configs.helm_ls = {
+    default_config = {
+      cmd = { "helm_ls", "serve" },
+      filetypes = { "helm" },
+      root_dir = function(fname)
+        return util.root_pattern("Chart.yaml")(fname) or util.find_git_ancestor(fname) or util.path.dirname(fname)
+      end,
+    },
+  }
+end
+
+require('lspconfig').helm_ls.setup({
+  cmd = { "helm_ls", "serve" },
+  filetypes = { "helm" },
+})
+
 
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
@@ -46,6 +85,11 @@ lsp.setup_nvim_cmp({
 
 
 lsp.on_attach = function(client, bufnr)
+  if vim.bo[bufnr].filetype == "helm" then
+    vim.bo[bufnr].buftype = ""
+    vim.diagnostic.disable(bufnr)
+    client.name = "helm_ls"
+  end
   if client.name == "yamlls" then
     if vim.bo[bufnr].buftype ~= "" or vim.bo[bufnr].filetype == "helm" then
       vim.diagnostic.disable(bufnr)
@@ -70,3 +114,4 @@ lsp.setup()
 vim.diagnostic.config({
   virtual_text = true
 })
+

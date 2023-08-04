@@ -64,3 +64,4 @@ vim.keymap.set("n", "<leader>x", ":!chmod +x %<CR>", opts)
 vim.keymap.set("n", "<leader>so", ":so ~/.config/nvim/init.lua<CR>", opts)
 
 vim.keymap.set("n", "<leader>fd", ":filetype detect<CR>", opts)
+vim.keymap.set("n", "<leader>fi", ":LspInfo<CR>", opts)

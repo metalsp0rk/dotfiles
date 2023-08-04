@@ -44,6 +44,8 @@ return require('packer').startup(function(use)
   use({'nvim-lualine/lualine.nvim'})
   use({'kyazdani42/nvim-web-devicons'})
   use({'christoomey/vim-tmux-navigator'})
+  use({'towolf/vim-helm'})
+  use({'nathom/filetype.nvim'})
 
   use({'dhruvasagar/vim-table-mode'})
   use({'mzlogin/vim-markdown-toc'})
