@@ -25,15 +25,17 @@ luamap("n", "<leader>sa", function() require("harpoon.mark").add_file() end, {})
 luamap("n", "<leader>se", function() require("harpoon.ui").toggle_quick_menu() end, {})
 luamap("n", "<leader>su", function() require("harpoon.cmd-ui").toggle_quick_menu() end, {})
 
-luamap("n", "<leader>sd", function() require("harpoon.tmux").gotoTerminal(1); end, {})
-luamap("n", "<leader>sf", function() require("harpoon.tmux").gotoTerminal(2); end, {})
+luamap("n", "<leader>sd", function() require("harpoon.term").gotoTerminal(1); end, {})
+luamap("n", "<leader>sf", function() require("harpoon.term").gotoTerminal(2); end, {})
+-- Terraform commands:
+luamap("n", "<leader>stp", function() require("harpoon.term").sendCommand(1, "cd %:p:h && echo test\n"); end, {})
 
 luamap("n", "<leader>sh", function() require("harpoon.ui").nav_file(1); end, {})
 luamap("n", "<leader>sj", function() require("harpoon.ui").nav_file(2); end, {})
 luamap("n", "<leader>sk", function() require("harpoon.ui").nav_file(3); end, {})
 luamap("n", "<leader>sl", function() require("harpoon.ui").nav_file(4); end, {})
 
--- luamap("n", "<leader>sh", function() require("harpoon.ui").nav_file(5); end, {})
--- luamap("n", "<leader>sj", function() require("harpoon.ui").nav_file(6); end, {})
--- luamap("n", "<leader>sk", function() require("harpoon.ui").nav_file(7); end, {})
--- luamap("n", "<leader>sl", function() require("harpoon.ui").nav_file(8); end, {})
+luamap("n", "<leader>sH", function() require("harpoon.ui").nav_file(5); end, {})
+luamap("n", "<leader>sJ", function() require("harpoon.ui").nav_file(6); end, {})
+luamap("n", "<leader>sK", function() require("harpoon.ui").nav_file(7); end, {})
+luamap("n", "<leader>sL", function() require("harpoon.ui").nav_file(8); end, {})

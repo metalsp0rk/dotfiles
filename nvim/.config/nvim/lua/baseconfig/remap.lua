@@ -33,7 +33,7 @@ vim.keymap.set("i", "jj", "<esc>j", opts)
 --- tab management
 
 vim.keymap.set("n", "S", ":%s//g<Left><Left>", {noremap = true})
-vim.keymap.set("v", "S", ":'<,'>s//g<Left><Left>", {noremap = true})
+vim.keymap.set("v", "S", ":s//g<Left><Left>", {noremap = true})
 
 -- paste text on new line, if there is already linebreak do not insert a new one
 vim.keymap.set("n", "<leader>p", [[match(getreg(), "\n$") == -1 ? "o<esc>p" : "p"]], expr_opts)

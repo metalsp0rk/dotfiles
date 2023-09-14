@@ -1,0 +1,140 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+PROFILES="Payments,PersonalCreations-stage,PersonalCreations,PlanetArt-Shared,CafePress-Prod,CafePress-NonProd,DevOps"
+
+TAG_DEV="planetart.com/ami-promote/dev"
+TAG_STAGE="planetart.com/ami-promote/stage"
+TAG_PROD="planetart.com/ami-promote/prod"
+
+help () {
+  cat <<EOF
+Usage: ami-promote [options] <ami-id> <dev|stage|prod> [version-tag]
+
+Options:
+  -r, --region    AWS region (default: us-east-1)
+  -p, --profile   AWS profiles, comma-separated (default: )
+  -h, --help      Show this help message and exit
+  -v, --verbose   Show verbose output
+  -d, --dry-run   Show what would be done, but don't actually do it
+  -u, --undo      Undo the promotion
+
+EOF
+}
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    -h|--help)
+      help
+      exit 0
+      ;;
+    -v|--verbose)
+      set -x
+      shift
+      ;;
+    -d|--dry-run)
+      DRY_RUN=1
+      shift
+      ;;
+    -r|--region)
+      REGION="$2"
+      shift 2
+      ;;
+    -R|--remove)
+      REMOVE=1
+      shift
+      ;;
+    -p|--profile)
+      PROFILES="$2"
+      shift 2
+      ;;
+    *)
+      if [[ -z "${AMI_ID:-}" ]]; then
+        AMI_ID=$1
+      else
+        if [[ -z "${PROMOTE_TO:-}" ]]; then
+          PROMOTE_TO="$1"
+        else
+          VERSION_TAG="$1"
+        fi
+      fi
+      shift
+      ;;
+  esac
+done
+
+if [[ -z "${AMI_ID:-}" ]]; then
+  echo "ERROR: Must specify an AMI ID"
+  exit 1
+fi
+
+if [[ -z "${PROMOTE_TO:-}" ]]; then
+  echo "ERROR: Must specify a target environment (dev, stage, or prod)"
+  exit 1
+fi
+
+if [[ -z "${REGION:-}" ]]; then
+  REGION="us-east-1"
+fi
+
+if [[ -z "${PROFILES:-}" ]]; then
+  PROFILES="Payments,PersonalCreations-stage,PersonalCreations,PlanetArt-Shared,CafePress-Prod,CafePress-NonProd"
+fi
+
+if [[ -z "${DRY_RUN:-}" ]]; then
+  DRY_RUN=0
+fi
+
+if [[ -z "${REMOVE:-}" ]]; then
+  REMOVE=0
+fi
+
+if [[ "$PROMOTE_TO" != "dev" && "$PROMOTE_TO" != "stage" && "$PROMOTE_TO" != "prod" ]]; then
+  echo "ERROR: Invalid target environment: $PROMOTE_TO"
+  exit 1
+fi
+
+if [[ "$PROMOTE_TO" == "dev" ]]; then
+  TAG="$TAG_DEV"
+elif [[ "$PROMOTE_TO" == "stage" ]]; then
+  TAG="$TAG_STAGE"
+elif [[ "$PROMOTE_TO" == "prod" ]]; then
+  TAG="$TAG_PROD"
+fi
+
+IFS=,
+for AWS_PROFILE in $PROFILES; do
+  if [[ "$REMOVE" == "1" ]]; then
+    if [[ "$DRY_RUN" == "1" ]]; then
+      echo "Would remove $AMI_ID from $PROMOTE_TO in $AWS_PROFILE"
+    else
+      echo "Removing $AMI_ID from $PROMOTE_TO in $AWS_PROFILE"
+      aws ec2 delete-tags \
+        --region "$REGION" \
+        --resources "$AMI_ID" \
+        --tags "Key=$TAG,Value=true" \
+        --profile "$AWS_PROFILE"
+    fi
+  else
+    if [[ "$DRY_RUN" == "1" ]]; then
+      echo "Would promote $AMI_ID to $PROMOTE_TO in $AWS_PROFILE"
+      echo "Would tag $AMI_ID with EKS Version $VERSION_TAG in $AWS_PROFILE"
+    else
+      echo "Promoting $AMI_ID to $PROMOTE_TO in $AWS_PROFILE"
+      aws ec2 create-tags \
+        --region "$REGION" \
+        --resources "$AMI_ID" \
+        --tags "Key=$TAG,Value=true" \
+        --profile "$AWS_PROFILE"
+      if [[ -n "${VERSION_TAG:-}" ]]; then
+        echo "Tagging $AMI_ID with EKS Version $VERSION_TAG in $AWS_PROFILE"
+        aws ec2 create-tags \
+          --region "$REGION" \
+          --resources "$AMI_ID" \
+          --tags "Key=planetart.com/eks-version,Value=$VERSION_TAG" \
+          --profile "$AWS_PROFILE"
+      fi
+    fi
+  fi
+done

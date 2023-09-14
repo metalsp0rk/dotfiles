@@ -1,0 +1,49 @@
+#!/usr/bin/env zsh
+
+KEYS_PROFILE="PlanetArt-Shared"
+
+function help() {
+  cat <<EOF
+jump - A tool to quickly, statelessly connect to an AWS host
+
+Usage: jump [options] ip|instance_id 
+
+
+Options:
+  -h, --help    Show this help message and exit
+  -p, --profile AWS profile to use
+
+EOF
+}
+
+function assert_profile() {
+  if [ -z $AWS_PROFILE  ]; then
+    export AWS_PROFILE=$(_awsp)
+  fi
+}
+
+
+
+if [ $# -eq 0 ]; then
+  help
+  exit 1
+fi
+
+
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    -h|--help)
+      help
+      exit 0
+      ;;
+    -p|--profile)
+      shift
+      AWS_PROFILE=$1
+      ;;
+    *)
+      assert_profile
+      aws ssm start-session --target $1 --profile $AWS_PROFILE
+      exit 0
+      ;;
+  esac
+done

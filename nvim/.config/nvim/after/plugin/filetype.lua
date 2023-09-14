@@ -1,8 +1,10 @@
 require("filetype").setup({
   overrides = {
-    -- complex = {
-    --   [".*/templates/.*\\.yaml"] = "helm",
-    -- }
+    extensions = {
+      tf = "terraform",
+      tfvars = "terraform",
+      terraform = "terraform",
+    },
     function_extensions = {
       ["yaml"] = function()
         local check = vim.fs.find("Chart.yaml", { path = vim.fn.expand("%:p:h"), upward = true })
