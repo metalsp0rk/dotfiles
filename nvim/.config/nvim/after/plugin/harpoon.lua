@@ -28,7 +28,9 @@ luamap("n", "<leader>su", function() require("harpoon.cmd-ui").toggle_quick_menu
 luamap("n", "<leader>sd", function() require("harpoon.term").gotoTerminal(1); end, {})
 luamap("n", "<leader>sf", function() require("harpoon.term").gotoTerminal(2); end, {})
 -- Terraform commands:
-luamap("n", "<leader>stp", function() require("harpoon.term").sendCommand(1, "cd %:p:h && echo test\n"); end, {})
+luamap("n", "<leader>stip", function() require("harpoon.term").sendCommand(1, "cd " .. vim.fn.expand('%:p:h') .. " && terraform init && terraform plan -out=.terraform.tfstate\n"); end, {})
+luamap("n", "<leader>sta", function() require("harpoon.term").sendCommand(1, "cd " .. vim.fn.expand('%:p:h') .. " && terraform apply .terraform.tfstate\n"); end, {})
+luamap("n", "<leader>stp", function() require("harpoon.term").sendCommand(1, "cd " .. vim.fn.expand('%:p:h') .. " && terraform init && terraform plan -out=.terraform.tfstate\n"); end, {})
 
 luamap("n", "<leader>sh", function() require("harpoon.ui").nav_file(1); end, {})
 luamap("n", "<leader>sj", function() require("harpoon.ui").nav_file(2); end, {})

@@ -29,6 +29,8 @@ vim.keymap.set("n", "<C-l>", ":winc l<CR>", opts)
 vim.keymap.set("i", "kk", "<esc>k", opts)
 vim.keymap.set("i", "jj", "<esc>j", opts)
 
+vim.keymap.set("t", "<C-\\>", "<C-\\><C-N>", opts)
+
 
 --- tab management
 
