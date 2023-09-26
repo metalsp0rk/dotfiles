@@ -69,19 +69,38 @@ require('lspconfig').helm_ls.setup({
 
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
-local cmp_mappings = lsp.defaults.cmp_mappings({
-  ['<C-k>'] = cmp.mapping.select_prev_item(cmp_select),
-  ['<C-j'] = cmp.mapping.select_next_item(cmp_select),
-  ['<C-Return>'] = cmp.mapping.confirm({ select = true }),
+cmp.setup({
+  snippet = {
+    expand = function(args)
+      require('luasnip').lsp_expand(args.body)
+    end
+  },
+  window = {
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
+  },
+  mapping = cmp.mapping.preset.insert({
+    ['<C-k>'] = cmp.mapping.select_prev_item(cmp_select),
+    ['<C-j']  = cmp.mapping.select_next_item(cmp_select),
+    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-e>'] = cmp.mapping.close(),
+    ['<CR>']  = cmp.mapping.confirm({ select = false }),
+  }),
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    { name = 'luasnip' },
+    { name = 'buffer' },
+  }, {
+    { name = 'buffer' },
+  }),
+
 })
+
+
+
 -- Fix for undefined global 'vim'
 lsp.nvim_workspace()
-cmp_mappings['<Tab>'] = nil
-cmp_mappings['<S-Tab>'] = nil
-
-lsp.setup_nvim_cmp({
-  mapping = cmp_mappings
-})
 
 
 lsp.on_attach = function(client, bufnr)
