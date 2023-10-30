@@ -4,6 +4,7 @@ require("filetype").setup({
       tf = "terraform",
       tfvars = "terraform",
       terraform = "terraform",
+      sh = "bash",
     },
     function_extensions = {
       ["yaml"] = function()

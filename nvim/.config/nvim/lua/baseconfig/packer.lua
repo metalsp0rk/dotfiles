@@ -33,7 +33,25 @@ return require('packer').startup(function(use)
   use({'phaazon/hop.nvim'})
   use({'NeogitOrg/neogit'})
   use({'folke/which-key.nvim'})
-  use({'github/copilot.vim'})
+  use({
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({
+        suggestion = { enabled = true },
+        panel = { enabled = false }
+      })
+    end
+  })
+  use({
+    "zbirenbaum/copilot-cmp",
+    after = { "copilot.lua" },
+    config = function ()
+      require("copilot_cmp").setup({
+      })
+    end
+  })
   use({"lewis6991/gitsigns.nvim"})
   use({'terrortylor/nvim-comment'})
   use({'stevearc/aerial.nvim'})
