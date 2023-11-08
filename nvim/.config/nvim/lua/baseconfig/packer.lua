@@ -22,18 +22,37 @@ return require('packer').startup(function(use)
     as = 'rose-pine',
     config = function()
       -- vim.g.rose_pine_variant = 'moon'
+      -- vim.g.rose_pine_disable_background = true
+      vim.cmd('colorscheme rose-pine')
     end
   })
-  use({"airblade/vim-gitgutter"})
   use({'luisiacc/gruvbox-baby'})
   use({'nvim-lua/plenary.nvim'})
   use({'nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'}})
   use({'nvim-treesitter/nvim-treesitter-textobjects'})
   use({'phaazon/hop.nvim'})
-  use({'TimUntersberger/neogit'})
+  use({'NeogitOrg/neogit'})
   use({'folke/which-key.nvim'})
-  use({'github/copilot.vim'})
-  use({'lewis6991/gitsigns.nvim'})
+  use({
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({
+        suggestion = { enabled = true },
+        panel = { enabled = false }
+      })
+    end
+  })
+  use({
+    "zbirenbaum/copilot-cmp",
+    after = { "copilot.lua" },
+    config = function ()
+      require("copilot_cmp").setup({
+      })
+    end
+  })
+  use({"lewis6991/gitsigns.nvim"})
   use({'terrortylor/nvim-comment'})
   use({'stevearc/aerial.nvim'})
   use({'jiangmiao/auto-pairs'})
@@ -41,7 +60,13 @@ return require('packer').startup(function(use)
   use({'theprimeagen/harpoon'})
   use({'akinsho/bufferline.nvim', tag = 'v2.*'})
   use({'nvim-lualine/lualine.nvim'})
-  use({'ray-x/go.nvim'})
+  use({'kyazdani42/nvim-web-devicons'})
+  use({'christoomey/vim-tmux-navigator'})
+  use({'towolf/vim-helm'})
+  use({'nathom/filetype.nvim'})
+
+  use({'dhruvasagar/vim-table-mode'})
+  use({'mzlogin/vim-markdown-toc'})
 
   -- LSP
   use({'VonHeikemen/lsp-zero.nvim',

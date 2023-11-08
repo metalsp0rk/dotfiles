@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+if [[ $# -eq 1 ]]; then
+  selected=$1
+else
+  selected=$(tmux list-sessions | sed 's/: .*$//g' | fzf)
+fi
+
+selected_name=$selected
+
+tmux_running=$(pgrep tmux)
+
+if [[ -z $selected ]]; then
+  echo "no session selected"
+  exit 0
+fi
+
+if [[  $selected -eq $(tmux display-message -p '#S') ]]; then
+  echo "Current Session selected for destruction, switching to next session"
+  tmux switch-client -n
+fi
+
+tmux kill-session -t $selected_name
