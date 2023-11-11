@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+unameOut="$(uname -s)"
+case "${unameOut}" in
+    Linux*)     machine=Linux;;
+    Darwin*)    machine=Mac;;
+    CYGWIN*)    machine=Cygwin;;
+    MINGW*)     machine=MinGw;;
+    *)          machine="UNKNOWN:${unameOut}"
+esac
+
+if  [ "${machine}" == "Linux" ] ;
+then
+  sudo pacman -S --needed base-devel git
+  # install and configure interception
+  yay -S --needed interception-tools interception-caps2esc interception-dual-function-keys
+  sudo mkdir -pv /etc/interception/udevmon.d /etc/interception/dual-function-keys/
+  cat <<EOF | sudo tee /etc/interception/udevmon.d/caps.yaml
+- JOB: "intercept -g \$DEVNODE | dual-function-keys -c /etc/interception/dual-function-keys/caps.yaml | uinput -d \$DEVNODE"
+  DEVICE:
+    NAME: "AT Translated Set 2 keyboard"
+EOF
+  cat <<EOF | sudo tee /etc/interception/dual-function-keys/caps.yaml
+MAPPINGS:
+  - KEY: KEY_CAPSLOCK
+    TAP: KEY_ESC
+    HOLD: KEY_LEFTMETA
+EOF
+  sudo systemctl enable udevmon
+  sudo systemctl restart udevmon
+fi
+
+
+

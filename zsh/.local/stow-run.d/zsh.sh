@@ -20,6 +20,13 @@ case "${unameout}" in
 esac
 if [ "${machine}" == "Linux" ]; then
   sudo pacman -S fzf python-virtualenvwrapper --needed
+  if ! command -v yay &> /dev/null
+  then
+    git clone https://aur.archlinux.org/yay.git ~/.yay-install
+    pushd ~/.yay-install
+    makepkg -si
+    popd
+  fi
 fi
 if [ "${machine}" == "Mac" ]; then
   brew install fzf pyenv-virtualenvwrapper nodejs npm

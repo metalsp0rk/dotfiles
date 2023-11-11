@@ -270,6 +270,11 @@ _G.packer_plugins = {
     path = "/home/spork/.local/share/nvim/site/pack/packer/start/rose-pine",
     url = "https://github.com/rose-pine/neovim"
   },
+  ["swayconfig.vim"] = {
+    loaded = true,
+    path = "/home/spork/.local/share/nvim/site/pack/packer/start/swayconfig.vim",
+    url = "https://github.com/jamespeapen/swayconfig.vim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/spork/.local/share/nvim/site/pack/packer/start/telescope.nvim",
