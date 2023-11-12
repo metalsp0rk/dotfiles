@@ -13,8 +13,10 @@ if  [ "${machine}" == "Linux" ] ;
 then
   sudo pacman -S --needed base-devel git
   # install and configure interception
-  yay -S --needed interception-tools interception-caps2esc interception-dual-function-keys
+  yay -S --needed interception-tools interception-caps2esc interception-dual-function-keys waybar wttrbar powerbar light mako
   sudo mkdir -pv /etc/interception/udevmon.d /etc/interception/dual-function-keys/
+  echo "Adding user to video group for backlight control"
+  sudo usermod -aG video $(whoami)
   cat <<EOF | sudo tee /etc/interception/udevmon.d/caps.yaml
 - JOB: "intercept -g \$DEVNODE | dual-function-keys -c /etc/interception/dual-function-keys/caps.yaml | uinput -d \$DEVNODE"
   DEVICE:
@@ -28,6 +30,8 @@ MAPPINGS:
 EOF
   sudo systemctl enable udevmon
   sudo systemctl restart udevmon
+  systemctl --user enable mako
+  systemctl --user start mako
 fi
 
 
