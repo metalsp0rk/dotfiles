@@ -58,6 +58,7 @@ done
 
 export DOTFILES=$HOME/.dots
 export PATH=/opt/homebrew/bin:$PATH
+export MOZ_DBUS_REMOTE=1
 
 
 function decode-authorization-failure-message {
