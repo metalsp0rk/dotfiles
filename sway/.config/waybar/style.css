@@ -41,10 +41,14 @@ window#waybar.solo {
     color:      rgba(238, 46, 36, 1);
 }
 
-#mode, #battery, #cpu, #memory, #network, #pulseaudio, #idle_inhibitor, #backlight, #custom-storage, #custom-spotify, #custom-weather, #custom-mail {
+#mode, #battery, #cpu, #wireplumber, #memory, #network, #pulseaudio, #idle_inhibitor, #backlight, #custom-storage, #custom-spotify, #custom-weather, #custom-mail {
     padding-right: 10px;
     margin:     0px 6px 0px 0px;
     min-width:  25px;
+}
+
+#tray {
+  padding-right: 20px;
 }
 
 #clock {

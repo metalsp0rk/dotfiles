@@ -13,7 +13,7 @@ if  [ "${machine}" == "Linux" ] ;
 then
   sudo pacman -S --needed base-devel git
   # install and configure interception
-  yay -S --needed interception-tools interception-caps2esc interception-dual-function-keys waybar wttrbar powerbar light mako
+  yay -S --needed interception-tools interception-caps2esc interception-dual-function-keys waybar wttrbar powerbar light mako noto-fonts-emoji wlsunset
   sudo mkdir -pv /etc/interception/udevmon.d /etc/interception/dual-function-keys/
   echo "Adding user to video group for backlight control"
   sudo usermod -aG video $(whoami)
