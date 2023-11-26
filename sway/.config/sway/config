@@ -82,6 +82,9 @@ bindsym $mod+Shift+bracketleft exec --no-startup-id mpc seek -120
 bindsym $mod+bracketright exec --no-startup-id mpc seek +10
 bindsym $mod+bracketleft exec --no-startup-id mpc seek -10
 bindsym $mod+Shift+m exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
 
 exec swayidle -w \
