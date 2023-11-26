@@ -4,13 +4,13 @@ env:
 font:
     size: 10
     normal:
-        family: SauceCodePro Nerd Font Mono
+        family: SauceCodePro NFM
         style: Regular
     bold:
-        family: SauceCodePro Nerd Font Mono
+        family: SauceCodePro NFM
         style: Bold
     italic:
-        family: SauceCodePro Nerd Font Mono
+        family: SauceCodePro NFM
         style: Italic
 window:
   opacity: 0.85

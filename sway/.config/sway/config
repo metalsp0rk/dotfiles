@@ -48,6 +48,21 @@ bindsym XF86MonBrightnessDown exec light -U 5
 
 exec_always killall wlsunset; sleep 1; wlsunset -l 33.402556 -L -117.059627 -t 4800
 
+# Emoji selector
+
+bindsym $mod+grave exec --no-startup-id emojiselect
+
+bindsym $mod+F9 exec --no-startup-id sudo virsh start win10
+bindsym $mod+F10 exec --no-startup-id sudo virsh destroy win10
+
+
+# Volume Control
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+
 # Notification control
 
 bindsym Control+grave exec --no-startup-id makoctl restore
@@ -55,6 +70,18 @@ bindsym Control+space exec --no-startup-id makoctl dismiss
 bindsym Control+Shift+space exec --no-startup-id makoctl menu dmenu
 
 bindsym $mod+Control+l exec --no-startup-id looking-glass-client
+
+# Music Control
+bindsym $mod+p exec --no-startup-id mpc toggle
+bindsym $mod+Shift+p exec --no-startup-id mpc pause
+bindsym $mod+comma exec --no-startup-id mpc prev
+bindsym $mod+period exec --no-startup-id mpc next
+bindsym $mod+Shift+comma exec --no-startup-id mpc seek 0%
+bindsym $mod+Shift+bracketright exec --no-startup-id mpc seek +120
+bindsym $mod+Shift+bracketleft exec --no-startup-id mpc seek -120
+bindsym $mod+bracketright exec --no-startup-id mpc seek +10
+bindsym $mod+bracketleft exec --no-startup-id mpc seek -10
+bindsym $mod+Shift+m exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 
 exec swayidle -w \
