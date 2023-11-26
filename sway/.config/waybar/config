@@ -1,104 +1,105 @@
 {
   "layer": "bottom",
-    "position": "top",
-    "height": 30,
+  "position": "top",
+  "height": 30,
 
-    "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-center": ["sway/window"],
-    "modules-right": ["mpris", "tray", "backlight", "network", "idle_inhibitor", "battery", "clock"],
-    "sway/mode": {
-      "format": " {}"
+  "modules-left": ["sway/workspaces", "sway/mode"],
+  "modules-center": ["sway/window"],
+  "modules-right": ["wireplumber", "mpris", "tray", "backlight", "network", "idle_inhibitor", "battery", "clock"],
+  "sway/mode": {
+    "format": " {}"
+  },
+  "sway/workspaces": {
+    "format": "{name}",
+    "disable-scroll": true
+  },
+  "sway/window": {
+    "max-length": 80,
+    "tooltip": false
+  },
+  "clock": {
+    "format": "{:%a %d %b %H:%M}",
+    "tooltip": false
+  },
+  "mpris": {
+    "format": " {player_icon}  {dynamic}",
+    "format-paused": "{status_icon} <i>{dynamic}</i>",
+    "player-icons": {
+      "default": "",
+      "spotify": "",
+      "youtube": ""
     },
-    "sway/workspaces": {
-      "format": "{name}",
-      "disable-scroll": true
+    "status-icons": {
+      "paused": ""
+    }
+  },
+  "battery": {
+    "format": "{capacity}% {icon}",
+    "format-alt": "{time} {icon}",
+    "format-icons": ["", "", "", "", ""],
+    "format-charging": "{capacity}% ",
+    "interval": 30,
+    "states": {
+      "warning": 25,
+      "critical": 10
     },
-    "sway/window": {
-      "max-length": 80,
-      "tooltip": false
+    "tooltip": false
+  },
+  "pulseaudio": {
+    "format": "{volume}% {icon}",
+    "format-bluetooth": "{volume}% {icon}",
+    "format-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", ""]
     },
-    "clock": {
-      "format": "{:%a %d %b %H:%M}",
-      "tooltip": false
+    "scroll-step": 1,
+    "on-click": "pavucontrol",
+    "ignored-sinks": ["Easy Effects Sink"]
+  },
+  "wireplumber": {
+    "format": "{volume} {icon}",
+    "format-muted": "",
+    "on-click": "helvium",
+    "max-volume": 150,
+    "scroll-step": 0.2,
+    "format-icons": ["", "", ""]
+  },
+  "network": {
+    "format": "{essid} {icon}",
+    "format-ethernet": "{ipaddr}/{cidr} {icon}",
+    "format-alt": "{ipaddr}/{cidr} {icon}",
+    "format-alt-click": "click-right",
+    "format-icons": {
+      "wifi": ["", "" ,""],
+      "ethernet": [""],
+      "disconnected": [""]
     },
-    "mpris": {
-      "format": " {player_icon}  {dynamic}",
-      "format-paused": "{status_icon} <i>{dynamic}</i>",
-      "player-icons": {
-        "default": "",
-        "spotify": "",
-        "youtube": ""
-      },
-      "status-icons": {
-        "paused": ""
-      }
+    "on-click": "alacritty -e nmtui",
+    "tooltip": false
+  },
+  "backlight": {
+    "format": "{percent}% {icon}",
+    "format-alt": "{icon}",
+    "format-alt-click": "click-right",
+    "format-icons": ["", ""],
+    "on-scroll-down": "light -A 1",
+    "on-scroll-up": "light -U 1"
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
     },
-    "battery": {
-      "format": "{capacity}% {icon}",
-      "format-alt": "{time} {icon}",
-      "format-icons": ["", "", "", "", ""],
-      "format-charging": "{capacity}% ",
-      "interval": 30,
-      "states": {
-        "warning": 25,
-        "critical": 10
-      },
-      "tooltip": false
-    },
-    "pulseaudio": {
-      "format": "{volume}% {icon}",
-      "format-bluetooth": "{volume}% {icon}",
-      "format-muted": "",
-      "format-icons": {
-        "headphone": "",
-        "hands-free": "",
-        "headset": "",
-        "phone": "",
-        "portable": "",
-        "car": "",
-        "default": ["", ""]
-      },
-      "scroll-step": 1,
-      "on-click": "pavucontrol",
-      "ignored-sinks": ["Easy Effects Sink"]
-    },
-    "wireplumber": {
-      "format": "{volume} {icon}",
-      "format-muted": "",
-      "on-click": "helvium",
-      "max-volume": 150,
-      "scroll-step": 0.2,
-      "format-icons": ["", "", ""]
-    },
-      "network": {
-        "format": "{essid} {icon}",
-        "format-alt": "{ipaddr}/{cidr} {icon}",
-        "format-alt-click": "click-right",
-        "format-icons": {
-          "wifi": ["", "" ,""],
-          "ethernet": [""],
-          "disconnected": [""]
-        },
-        "on-click": "alacritty -e nmtui",
-        "tooltip": false
-      },
-      "backlight": {
-        "format": "{percent}% {icon}",
-        "format-alt": "{icon}",
-        "format-alt-click": "click-right",
-        "format-icons": ["", ""],
-        "on-scroll-down": "light -A 1",
-        "on-scroll-up": "light -U 1"
-      },
-      "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-          "activated": "",
-          "deactivated": ""
-        },
-        "tooltip": false
-      },
-      "tray": {
-        "icon-size": 18
-      }
+    "tooltip": false
+  },
+  "tray": {
+    "icon-size": 18
+  }
 }
