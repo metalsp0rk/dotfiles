@@ -22,8 +22,8 @@
     "tooltip": false
   },
   "mpris": {
-    "format": " {player_icon}  {dynamic}",
-    "format-paused": "{status_icon} <i>{dynamic}</i>",
+    "format": " {player_icon}  {title} - {artist} [{position}/{length}]",
+    "format-paused": "{status_icon} <i>{title} - {artist} [{position}/{length}]</i>",
     "player-icons": {
       "default": "",
       "spotify": "",

@@ -235,3 +235,6 @@ libxss
 cmake
 dep
 wayland
+K3S
+ansible
+an
