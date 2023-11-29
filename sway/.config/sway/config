@@ -65,9 +65,9 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 # Notification control
 
-bindsym Control+grave exec --no-startup-id makoctl restore
-bindsym Control+space exec --no-startup-id makoctl dismiss
-bindsym Control+Shift+space exec --no-startup-id makoctl menu dmenu
+bindsym Alt+grave exec --no-startup-id makoctl restore
+bindsym Alt+space exec --no-startup-id makoctl dismiss
+bindsym Alt+Shift+grave exec --no-startup-id makoctl menu dmenu
 
 bindsym $mod+Control+l exec --no-startup-id looking-glass-client
 
