@@ -52,6 +52,14 @@ exec_always killall wlsunset; sleep 1; wlsunset -l 33.402556 -L -117.059627 -t 4
 
 bindsym $mod+grave exec --no-startup-id emojiselect
 
+# screenshot
+
+bindsym Print exec screenie full
+bindsym $mod+Print exec screenie region
+bindsym $mod+Control+Print exec screenie window
+
+# vm controls
+
 bindsym $mod+F9 exec --no-startup-id sudo virsh start win10
 bindsym $mod+F10 exec --no-startup-id sudo virsh destroy win10
 
@@ -65,9 +73,9 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 # Notification control
 
-bindsym Alt+grave exec --no-startup-id makoctl restore
-bindsym Alt+space exec --no-startup-id makoctl dismiss
-bindsym Alt+Shift+grave exec --no-startup-id makoctl menu dmenu
+bindsym Ctrl+grave exec --no-startup-id makoctl restore
+bindsym Ctrl+space exec --no-startup-id makoctl dismiss
+bindsym Ctrl+Shift+grave exec --no-startup-id makoctl menu dmenu
 
 bindsym $mod+Control+l exec --no-startup-id looking-glass-client
 

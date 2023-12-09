@@ -5,13 +5,18 @@
 
   "modules-left": ["sway/workspaces", "sway/mode"],
   "modules-center": ["sway/window"],
-  "modules-right": ["wireplumber", "mpris", "tray", "backlight", "network", "idle_inhibitor", "battery", "clock"],
+  "modules-right": [ "custom/vm", "wireplumber", "mpris", "tray", "backlight", "network", "idle_inhibitor", "battery", "clock"],
   "sway/mode": {
     "format": " {}"
   },
   "sway/workspaces": {
     "format": "{name}",
     "disable-scroll": true
+  },
+  "custom/vm": {
+    "exec" :"~/.config/waybar/windows.sh",
+    "on-click": "looking-glass-client",
+    "interval": 10
   },
   "sway/window": {
     "max-length": 80,
