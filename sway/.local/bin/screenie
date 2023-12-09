@@ -1,0 +1,60 @@
+#!/usr/bin/env bash
+
+print_help () {
+  cat <<EOF
+usage: screenie [STYLE]
+
+Commands:
+    region         Capture a region of the screen
+    window         Capture the active window
+    full           (Default) Capture all active monitors
+
+Options:
+    -h|--help      Print this help message
+
+EOF
+}
+
+capture_full () {
+  notify-send "Screenie" "Capturing all"
+  grim -t png - | wl-copy -t image/png
+}
+
+capture_region () {
+  notify-send "Screenie" "Capturing region"
+  grim -t png -g "$(slurp)" - | wl-copy -t image/png
+}
+
+capture_window () {
+  notify-send "Screenie" "Capturing active window"
+  grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') -t png - | wl-copy -t image/png
+}
+
+if [ $# -eq 0 ]; then
+  print_help
+  exit 1
+fi
+
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    -h|--help)
+      print_help
+      exit 0
+      ;;
+    "region")
+      capture_region
+      exit 0
+      ;;
+    "window")
+      capture_window
+      exit 0
+      ;;
+    "full")
+      capture_full
+      exit 0
+      ;;
+    *)
+      shift
+      ;;
+  esac
+done
