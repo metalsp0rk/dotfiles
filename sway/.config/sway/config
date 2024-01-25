@@ -28,7 +28,8 @@ set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
+# set $menu dmenu_path | dmenu | xargs swaymsg exec --
+set $menu bemenu-run
 
 exec waybar
 
@@ -110,6 +111,11 @@ input "2362:628:PIXA3854:00_093A:0274_Touchpad" {
 }
 
 input "1240:61138:Massdrop_Inc._CTRL_Keyboard" {
+  repeat_delay 250
+  repeat_rate 30
+}
+
+input "1:1:AT_Translated_Set_2_keyboard" {
   repeat_delay 250
   repeat_rate 30
 }
