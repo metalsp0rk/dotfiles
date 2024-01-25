@@ -9,9 +9,9 @@ alias \
     ccat="highlight --out-format=ansi" \
     ka="killall" \
     z="zathura" \
-    kc="/Users/kyleb/.krew/bin/kubectl-ctx" \
+    kc="~/.krew/bin/kubectl-ctx" \
     kctl="kubectl" \
-    kn="/Users/kyleb/.krew/bin/kubectl-ns" \
+    kn="~/.krew/bin/kubectl-ns" \
     awsp="export AWS_PROFILE=\$(_awsp)" \
     awsl="aws sso login --profile login" \
     awsu="unset AWS_PROFILE" \
