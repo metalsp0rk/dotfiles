@@ -20,6 +20,7 @@ case "${unameout}" in
 esac
 if [ "${machine}" == "Linux" ]; then
   sudo pacman -S fzf python-virtualenvwrapper --needed
+  sudo pacman -S xdotool xclip --noconfirm --needed
   if ! command -v yay &> /dev/null
   then
     git clone https://aur.archlinux.org/yay.git ~/.yay-install

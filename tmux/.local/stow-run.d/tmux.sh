@@ -13,6 +13,6 @@ if [ "${machine}" == "Mac" ]; then
   brew install tmux fzf
 fi
 
-if [ "${machine}" ]; then
-  sudo pacman -S tmux fzf
+if [ "${machine}" == "Linux" ]; then
+  sudo pacman -S tmux fzf --needed --noconfirm
 fi
