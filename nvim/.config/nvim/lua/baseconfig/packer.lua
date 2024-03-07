@@ -32,7 +32,7 @@ return require('packer').startup(function(use)
   use({'jamespeapen/swayconfig.vim'})
   use({'nvim-treesitter/nvim-treesitter-textobjects'})
   use({'phaazon/hop.nvim'})
-  use({'kayazdani42/nvim-web-devicons'})
+  use({'nvim-tree/nvim-web-devicons'})
   use({'NeogitOrg/neogit'})
   use({'folke/which-key.nvim'})
   use({
