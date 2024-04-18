@@ -12,4 +12,3 @@ keymap("n", "D", "0cedrop<esc>", opts)
 
 keymap("n", "<leader>gbf", ":g/fixup/normal 0cefixup<esc>", opts)
 keymap("n", "<leader>gbs", ":g/squash/normal 0cesquash<esc>", opts)
-

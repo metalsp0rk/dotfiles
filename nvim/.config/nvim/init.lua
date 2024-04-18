@@ -1,1 +1,1 @@
-require("baseconfig")
+require("metalspork.core")
