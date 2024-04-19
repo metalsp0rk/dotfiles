@@ -5,12 +5,15 @@ vim.g.maplocalleader = " "
 
 
 --- buffer management
-vim.keymap.set("n", "<leader>l", ":bnext<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>h", ":bprev<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>q", ":quit<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>w", ":w<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>Q", ":qall<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>d", ":bdelete<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>l", ":bnext<CR>", { noremap = true, silent = true, desc = "Next Buffer" })
+vim.keymap.set("n", "<leader>h", ":bprev<CR>", { noremap = true, silent = true, desc = "Previous Buffer"})
+vim.keymap.set("n", "<leader>H", ":tabp<CR>", { noremap = true, silent = true, desc = "Previous Tab" })
+vim.keymap.set("n", "<leader>L", ":tabn<CR>", { noremap = true, silent = true, desc = "Next Tab"})
+vim.keymap.set("n", "<leader>C", ":tabnew<CR>", { noremap = true, silent = true, desc = "Next Tab"})
+vim.keymap.set("n", "<leader>Q", ":qall<CR>", { noremap = true, silent = true, desc = "Quit all"})
+vim.keymap.set("n", "<leader>w", ":w<CR>", { noremap = true, silent = true, desc = "Save Buffer" })
+vim.keymap.set("n", "<leader>q", ":tabclose<CR>", { noremap = true, silent = true, desc = "Close Tab" })
+vim.keymap.set("n", "<leader>d", ":bdelete<CR>", { noremap = true, silent = true, desc = "Close Buffer" })
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
 vim.keymap.set("n", "n", "nzzzv", { noremap = true, silent = true })
