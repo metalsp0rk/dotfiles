@@ -1,0 +1,34 @@
+return {
+  "nvim-treesitter/nvim-treesitter",
+  event = "BufReadPre",
+  dependencies = {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    "nvim-treesitter/nvim-treesitter-context",
+  },
+  config = function()
+    require('nvim-treesitter.configs').setup (
+    {
+      ensure_installed = {
+        "c",
+        "lua",
+        "vim",
+        "vimdoc",
+        "query",
+        "yaml",
+        "go",
+        "terraform",
+        "bash",
+        "nix",
+        "json",
+        "markdown",
+        "helm",
+      },
+      ignore_install = { "javascript" },
+      sync_install = false,
+      auto_install = true,
+      highlight = {
+        enable = true,
+      }
+    })
+  end
+}
