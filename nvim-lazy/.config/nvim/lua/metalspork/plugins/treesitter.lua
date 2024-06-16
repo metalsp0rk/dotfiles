@@ -4,6 +4,7 @@ return {
   dependencies = {
     "nvim-treesitter/nvim-treesitter-textobjects",
     "nvim-treesitter/nvim-treesitter-context",
+    "folke/neodev.nvim"
   },
   config = function()
     require('nvim-treesitter.configs').setup (

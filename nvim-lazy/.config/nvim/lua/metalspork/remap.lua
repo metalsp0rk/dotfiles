@@ -39,7 +39,7 @@ vim.keymap.set("n", "S", ":%s//g<Left><Left>", {noremap = true})
 vim.keymap.set("v", "S", ":s//g<Left><Left>", {noremap = true})
 
 -- paste text on new line, if there is already linebreak do not insert a new one
-vim.keymap.set("n", "<leader>p", [[match(getreg(), "\n$") == -1 ? "o<esc>p" : "p"]], { noremap = true, silent = true, expr = true })
+-- vim.keymap.set("n", "<leader>p", [[match(getreg(), "\n$") == -1 ? "o<esc>p" : "p"]], { noremap = true, silent = true, expr = true })
 vim.keymap.set("n", "<leader>P", [[match(getreg(), "\n$") == -1 ? "O<esc>p" : "P"]], { noremap = true, silent = true, expr = true })
 
 vim.keymap.set("v", "p", [[mode() ==# "V" && match(getreg(), "\n$") == -1 ? "\"_dd<esc>O<esc>p" : "\"_dP"]], { noremap = true, silent = true, expr = true })
@@ -59,9 +59,6 @@ vim.keymap.set("v", "<", "<gv", { noremap = true, silent = true })
 
 -- escape: also clears highlighting
 vim.keymap.set("n", "<esc>", "<Cmd>noh<return><esc>", { noremap = true, silent = true })
-
--- leader x will chmod +x the current file
-vim.keymap.set("n", "<leader>x", ":!chmod +x %<CR>", { desc="Make file executable", noremap = true, silent = true })
 
 -- Quick SO!
 vim.keymap.set("n", "<leader>so", ":so ~/.config/nvim/init.lua<CR>", { desc="Reload configuration", noremap = true, silent = true })
