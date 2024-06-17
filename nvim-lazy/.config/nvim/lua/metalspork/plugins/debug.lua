@@ -71,12 +71,12 @@ return {
   keys = {
 
     {mode = 'n', '<leader>bt', function() require('dap').toggle_breakpoint() end, desc="Debugger: Toggle Breakpoint"},
-    {'n', '<leader>bc', function() require('dap').continue() end, desc="Debugger: Continue"},
-    {'n', '<leader>bo', function() require('dap').step_over() end, desc="Debugger: Step Over"},
-    {'n', '<leader>bu', function() require('dap').step_out() end, desc="Debugger: Step Out"},
-    {'n', '<leader>bi', function() require('dap').step_into() end, desc="Debugger: Step Into"},
-    {'n', '<leader>bx', function() require('dap').terminate() end, desc="Debugger: Terminate"},
-    {'n', '<leader>td', function() require('dapui').toggle() end, desc="Debugger: Toggle UI"},
-    {'n', '<leader>br', function() require('dap').repl.open() end, desc="Debugger: Open REPL"},
+    {mode = 'n', '<leader>bc', function() require('dap').continue() end, desc="Debugger: Continue"},
+    {mode = 'n', '<leader>bo', function() require('dap').step_over() end, desc="Debugger: Step Over"},
+    {mode = 'n', '<leader>bu', function() require('dap').step_out() end, desc="Debugger: Step Out"},
+    {mode = 'n', '<leader>bi', function() require('dap').step_into() end, desc="Debugger: Step Into"},
+    {mode = 'n', '<leader>bx', function() require('dap').terminate() end, desc="Debugger: Terminate"},
+    {mode = 'n', '<leader>td', function() require('dapui').toggle() end, desc="Debugger: Toggle UI"},
+    {mode = 'n', '<leader>br', function() require('dap').repl.open() end, desc="Debugger: Open REPL"},
   }
 }
