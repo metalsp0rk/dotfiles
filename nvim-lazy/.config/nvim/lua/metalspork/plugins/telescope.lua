@@ -17,6 +17,6 @@ return {
     { mode = {'n'}, "<C-p>", function() require('telescope.builtin').git_files() end, desc = "Telescope: Git Files"},
     { mode = {'n'}, "<C-o>", function() require('telescope.builtin').buffers() end, desc = "Telescope: Buffers"},
     { mode = {'n'}, "<leader>fe", "<CMD>Telescope glyph<CR>", desc = "Telescope: Emoji"},
-    { mode = {'n'}, "ps", function() require('telescope.builtin').grep_string({search = vim.fn.input('Grep > ')}) end, desc = "Telescope: Grep"},
+    { mode = {'n'}, "<leader>ps", function() require('telescope.builtin').grep_string({search = vim.fn.input('Grep > ')}) end, desc = "Telescope: Grep"},
   }
 }
