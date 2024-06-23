@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+if [ $# -lt 2 ]; then
+  echo "Wallpaper youtube-dl-er"
+  echo "syntax: wallpaper youtube-video-url filename"
+  exit 1
+fi
+
+pushd $HOME/wallpapers
+
+yt-dlp -f 'bestvideo[ext=webm]+bestaudio[ext=webm]/best[ext=webm]' --merge-output-format webm $1 -o "$2.webm"
+ffmpeg -i $2.webm $2.gif
+
+rm $2.webm
+popd

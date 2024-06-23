@@ -27,7 +27,7 @@ bindkey -s '^[d' "tmuxdots\n"
 bindkey -s '^[g' "$HOME/.zsh/plugged/harpoon/scripts/tmux/switch-back-to-nvim"
 
 export GOPATH=$HOME/go
-export PATH=/opt/homebrew/opt/coreutils/libexec/gnubin:${KREW_ROOT:-$HOME/.krew}/bin:~/bin:$HOME/go/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.yarn/bin/:$HOME/.gem/ruby/2.7.0/bin:$HOME/.tfenv/bin:$PATH
+export PATH=/opt/homebrew/opt/coreutils/libexec/gnubin:${KREW_ROOT:-$HOME/.krew}/bin:~/bin:$HOME/go/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.yarn/bin/:$HOME/.gem/ruby/2.7.0/bin:$HOME/.tfenv/bin:$PATH:/var/lib/flatpak/exports/bin
 
 export WORKON_HOME=$HOME/.virtualenvs
 
