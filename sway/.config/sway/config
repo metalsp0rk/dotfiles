@@ -28,12 +28,13 @@ set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-# set $menu dmenu_path | dmenu | xargs swaymsg exec --
-set $menu bemenu-run
-
-exec waybar
+set $menu dmenu_path | wmenu | xargs swaymsg exec --
+# set $menu bemenu-run
 
 exec_always killall waybar ; sleep 2 ; waybar
+
+## Only needed for alpine wireplumber
+exec_always /usr/libexe/pipewire-launcher
 
 ### Output configuration
 #
@@ -286,5 +287,7 @@ bindsym $mod+Shift+x mode "(e)xit, (r)estart (s)hutdown s(l)eep (h)ibernate"
 #         inactive_workspace #32323200 #32323200 #5c5c5c
 #     }
 # }
+
+for_window [shell="xwayland"] title_format "[XWayland] %title"
 
 include /etc/sway/config.d/*
