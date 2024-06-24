@@ -37,6 +37,7 @@ adopt-config: assert-config
 install-base:
 	@mkdir ~/.zenv.d/ || true
 	@mkdir -pv ~/.local/stow-run.d/ || true
+	@sudo pacman -S stow
 
 install: assert-stow_configs
 	@source ~/.zenv.d/stow.env; \
