@@ -1,10 +1,10 @@
 profile "Framework docked" {
-  output eDP-1 disable
   output "LG Electronics LG HDR WQHD 0x0006C281" mode 3840x1600@74.996 position 0,0
+  output "BOE 0x095F Unknown" disabled
 }
 
 profile "framework mobile" {
-  output "BOE 0x095F Unknown" mode 2256x1504 position 0,0
+  output "BOE 0x095F Unknown" mode 2256x1504 position 0,0 scale 1.5
 }
 
 profile "Desktop" {

@@ -1,8 +1,5 @@
 [user]
-	email = kbrennan@605.tv
+	email = kyle@metalspork.xyz
 	name = Kyle Brennan
-	signingkey = 8F080E9BF300A483
 [init]
 	defaultBranch = master
-[commit]
-	gpgsign = true

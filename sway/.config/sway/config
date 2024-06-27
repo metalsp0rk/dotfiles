@@ -254,8 +254,8 @@ bindsym $mod+r mode "resize"
 
 mode "(e)xit, (r)estart (s)hutdown s(l)eep (h)ibernate" {
     bindsym e exec swaymsg exit
-    bindsym r exec reboot
-    bindsym s exec shutdown -h now
+    bindsym r exec sudo reboot
+    bindsym s exec sudo shutdown -h now
     bindsym l exec notify-send "unable to sleep" "NOT YET IMPLEMENTED"
     bindsym h exec notify-send "unable to hibernate" "NOT YET IMPLEMENTED"
 

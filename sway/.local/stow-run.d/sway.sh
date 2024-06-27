@@ -11,9 +11,9 @@ esac
 
 if  [ "${machine}" == "Linux" ] ;
 then
-  sudo pacman -S --needed base-devel git
+  sudo pacman -S --needed --noconfirm base-devel git
   # install and configure interception
-  yay -S --needed interception-tools interception-caps2esc interception-dual-function-keys waybar wttrbar light mako noto-fonts-emoji wlsunset kanshi
+  yay -S --needed --noconfirm interception-tools interception-caps2esc interception-dual-function-keys waybar wttrbar light mako noto-fonts-emoji wlsunset kanshi wmenu swww
   sudo mkdir -pv /etc/interception/udevmon.d /etc/interception/dual-function-keys/
   echo "Adding user to video group for backlight control"
   sudo usermod -aG video $(whoami)
@@ -34,5 +34,9 @@ EOF
   systemctl --user start mako
 fi
 
-
-
+## fonts:
+yay -S --noconfirm --needed ttf-sourcecodepro-nerd
+yay -S --noconfirm --needed newaita-icons-git
+yay -S --noconfirm --needed ttf-md-fonts-git
+yay -S --noconfirm --needed ttf-font-awesome
+yay -S --noconfirm --needed awesome-terminal-fonts
