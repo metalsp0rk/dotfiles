@@ -27,6 +27,7 @@ bindkey -s '^[g' "$HOME/.zsh/plugged/harpoon/scripts/tmux/switch-back-to-nvim"
 
 export GOPATH=$HOME/go
 export WORKON_HOME=$HOME/.virtualenvs
+alias vim=nvim
 
 export SHOW_AWS_PROMPT=true
 
