@@ -32,6 +32,7 @@ EOF
   sudo systemctl restart udevmon
   systemctl --user enable mako
   systemctl --user start mako
+
 fi
 
 ## fonts:

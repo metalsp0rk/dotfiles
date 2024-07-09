@@ -1,6 +1,6 @@
 profile "Framework docked" {
   output "LG Electronics LG HDR WQHD 0x0006C281" mode 3840x1600@74.996 position 0,0
-  output "BOE 0x095F Unknown" disabled
+  output "BOE 0x095F Unknown" disable
 }
 
 profile "framework mobile" {

@@ -31,7 +31,6 @@ set $term alacritty
 # set $menu dmenu_path | wmenu | xargs swaymsg exec --
 set $menu wmenu-run
 
-exec_always killall waybar ; sleep 2 ; waybar
 
 ### Output configuration
 #
@@ -283,6 +282,8 @@ bindsym $mod+Shift+x mode "(e)xit, (r)estart (s)hutdown s(l)eep (h)ibernate"
 #         inactive_workspace #32323200 #32323200 #5c5c5c
 #     }
 # }
+
+bar swaybar_command waybar
 
 for_window [shell="xwayland"] title_format "[XWayland] %title"
 
