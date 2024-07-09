@@ -5,7 +5,7 @@
 
   "modules-left": ["sway/workspaces", "sway/mode"],
   "modules-center": ["sway/window"],
-  "modules-right": [ "wireplumber", "mpris", "tray", "backlight", "network", "idle_inhibitor", "battery", "clock"],
+  "modules-right": [ "tray", "wireplumber", "mpris", "backlight", "network", "idle_inhibitor", "battery", "clock"],
   "sway/mode": {
     "format": " {}"
   },
@@ -35,9 +35,9 @@
   },
   "battery": {
     "format": "{capacity}% {icon}",
-    "format-alt": "{time} {icon}",
+    "format-alt": "{time} {capacity}% {icon}",
     "format-icons": ["", "", "", "", ""],
-    "format-charging": "{capacity}% ",
+    "format-charging": "{capacity}% 󱐋",
     "interval": 30,
     "states": {
       "warning": 25,
@@ -76,9 +76,9 @@
     "format-alt": "{ipaddr}/{cidr} {icon}",
     "format-alt-click": "click-right",
     "format-icons": {
-      "wifi": ["", "" ,""],
+      "wifi": ["󰤟", "󰤢" ,"󰤥", "󰤨"],
       "ethernet": [""],
-      "disconnected": [""]
+      "disconnected": ["󰖪"]
     },
     "on-click": "alacritty -e nmtui",
     "tooltip": false
@@ -87,7 +87,7 @@
     "format": "{percent}% {icon}",
     "format-alt": "{icon}",
     "format-alt-click": "click-right",
-    "format-icons": ["", ""],
+    "format-icons": ["󱩎", "󱩏", "󱩐", "󱩑", "󱩒", "󱩓", "󱩔", "󱩕", "󱩖", "󰛨"],
     "on-scroll-down": "light -A 1",
     "on-scroll-up": "light -U 1"
   },
