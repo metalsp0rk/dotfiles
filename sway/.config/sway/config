@@ -35,7 +35,7 @@ set $menu wmenu-run
 ### Output configuration
 #
 # Display management
-exec kanshi
+exec_always killall kanshi; sleep 1; kanshi
 exec swww-daemon
 
 # Brightness control
