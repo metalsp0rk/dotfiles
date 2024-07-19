@@ -36,3 +36,6 @@ set.relativenumber = true
 set.spelllang = "en_us"
 set.spell = true
 vim.g.did_load_filetypes = 1
+
+vim.o.timeoutlen = 0
+vim.o.timeout = true
