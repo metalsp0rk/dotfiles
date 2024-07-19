@@ -15,7 +15,9 @@
   },
   "sway/window": {
     "max-length": 80,
-    "tooltip": false
+    "rewrite": {
+      "(.*) - Mozilla Firefox": " $1",
+    }
   },
   "clock": {
     "format": "{:%a %d %b %H:%M}",

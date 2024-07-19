@@ -10,3 +10,8 @@ profile "framework-mobile" {
 profile "desktop" {
   output "LG Electronics LG HDR WQHD 0x0006C281" mode 3840x1600@74.996 position 0,0
 }
+
+profile "framework-asus-external" {
+  output "BOE 0x095F Unknown" mode 2256x1504 position 0,0 scale 1.5
+  output "ASUSTek COMPUTER INC ASUS MB166C RALMTF032373" mode 1920x1080 position 2256,0 scale 1
+}
