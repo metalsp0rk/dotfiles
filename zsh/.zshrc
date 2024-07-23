@@ -41,11 +41,14 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 export PATH=$PATH:~/.local/bin
+export PATH=$PATH:~/.yarn/bin
 
-for file in $(ls ~/.zenv.d/ | grep -v ".no"); do
+for file in $(ls ~/.zenv.d/ | grep -v ".disabled"); do
   source ~/.zenv.d/$file
 done
 
 export DOTFILES=$HOME/.dots
 
 export CODE="/mnt/c/Users/kyle_/code/"
+
+export MANGOHUD="1"

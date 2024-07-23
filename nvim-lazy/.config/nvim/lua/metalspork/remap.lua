@@ -65,4 +65,3 @@ vim.keymap.set("n", "<leader>so", ":so ~/.config/nvim/init.lua<CR>", { desc="Rel
 
 vim.keymap.set("n", "<leader>fd", ":filetype detect<CR>", { desc="Force re-dection of filetype", noremap = true, silent = true })
 vim.keymap.set("n", "<leader>fi", ":LspInfo<CR>", { desc="Get LSP Information", noremap = true, silent = true })
-vim.keymap.set("n", "<leader>tl", "<CMD>Lazy<CR>", { desc="Open Lazy Dialog", noremap = true, silent = true })

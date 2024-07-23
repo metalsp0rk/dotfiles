@@ -34,7 +34,7 @@ return {
       map('n', '<leader>tb', gs.toggle_current_line_blame, {desc = "toggle line blame"})
       map('n', '<leader>gD', gs.diffthis, {desc = "Diff this file"})
       map('n', '<leader>td', gs.toggle_deleted, {desc = "toggle viewing of deleted lines"})
-      map('n', '<leader>tl', gs.toggle_linehl, {desc = "toggle line change highlights"})
+      map('n', '<leader>th', gs.toggle_linehl, {desc = "toggle line change highlights"})
     end,
   }
 }

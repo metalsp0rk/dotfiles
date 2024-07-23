@@ -86,7 +86,7 @@
     "tooltip": false
   },
   "backlight": {
-    "format": "{percent}% {icon}",
+    "format": "{percent} {icon}",
     "format-alt": "{icon}",
     "format-alt-click": "click-right",
     "format-icons": ["󱩎", "󱩏", "󱩐", "󱩑", "󱩒", "󱩓", "󱩔", "󱩕", "󱩖", "󰛨"],

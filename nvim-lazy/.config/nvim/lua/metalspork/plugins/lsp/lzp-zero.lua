@@ -44,6 +44,7 @@ return {
         'svelte',
         'jdtls',
         'clangd',
+        'volar',
         'helm_ls',
         'cmake',
         'rust_analyzer',
@@ -51,20 +52,20 @@ return {
       },
       handlers = {
         function(server_name)
-          require('lspconfig')[server_name].setup({})
+          local opts = {}
+          local require_ok, server = pcall(require, "metalspork.plugins.lsp.settings." .. server_name)
+          if require_ok then
+            opts = vim.tbl_deep_extend("force", server, opts)
+          end
+          require('lspconfig')[server_name].setup(opts)
         end,
 
         -- Custom Handlers now
         yamlls = function()
           require('lspconfig').yamlls.setup({
-            settings = {
-              yaml = {
-                keyOrdering = false,
-                validate = false
-              }
-            }
           })
         end
+
       }
     })
 
