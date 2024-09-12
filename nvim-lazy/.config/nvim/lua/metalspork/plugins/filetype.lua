@@ -7,6 +7,7 @@ return {
         tfvars = "terraform",
         terraform = "terraform",
         sh = "bash",
+        sql = "sql",
       },
       function_extensions = {
         ["yaml"] = function()

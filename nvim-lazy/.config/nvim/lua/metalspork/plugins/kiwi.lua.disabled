@@ -1,0 +1,22 @@
+return {
+  'serenevoid/kiwi.nvim',
+  dependencies = {
+    "nvim-lua/plenary.nvim"
+  },
+  opts = {
+    {
+      name = "work",
+      path = "/home/spork/wiki/work",
+    },
+    {
+      name = "personal",
+      path = "/home/spork/wiki/personal"
+    }
+  },
+  keys = {
+    { mode={"n"}, "<leader>ww", function() require("kiwi").open_wiki_index("work") end, desc="Open Work Wiki"},
+    { mode={"n"}, "<leader>wp", function() require("kiwi").open_wiki_index("personal") end, desc="Open Personal Wiki"},
+    { mode={"n"}, "<leader>wt", function() require("kiwi").todo.toggle() end, desc="Open TODO"}
+  },
+  lazy = true,
+}

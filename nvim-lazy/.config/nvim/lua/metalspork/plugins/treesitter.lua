@@ -16,6 +16,7 @@ return {
         "vimdoc",
         "query",
         "yaml",
+        "sql",
         "go",
         "terraform",
         "bash",

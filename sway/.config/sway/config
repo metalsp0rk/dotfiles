@@ -33,9 +33,16 @@ set $menu wmenu-run
 
 
 ### Output configuration
+
+output "LG Electronics LG HDR WQHD 0x0006C281" mode 3840x1600@75Hz pos 1080,160
+output "Dell Inc. DELL U2424HE FQ1X3X3" mode --custom 1920x1080@74.997Hz pos 0,0 transform 90
+output "Dell Inc. DELL U2424H 787H5Z3" mode --custom 1920x1080@74.997Hz pos 4920,0 transform 270
+exec_always xrandr --output DP-1 --primary
+
+
 #
 # Display management
-exec_always killall kanshi; sleep 1; kanshi
+# exec_always killall kanshi; sleep 1; kanshi
 exec swww-daemon
 
 # Brightness control
@@ -57,8 +64,8 @@ bindsym $mod+Control+Print exec screenie window
 
 # vm controls
 
-bindsym $mod+F9 exec --no-startup-id sudo virsh start win10
-bindsym $mod+F10 exec --no-startup-id sudo virsh destroy win10
+# bindsym $mod+F9 exec --no-startup-id sudo virsh start win10
+# bindsym $mod+F10 exec --no-startup-id sudo virsh destroy win10
 
 
 # Volume Control
@@ -73,8 +80,6 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 bindsym Ctrl+grave exec --no-startup-id makoctl restore
 bindsym Ctrl+space exec --no-startup-id makoctl dismiss
 bindsym Ctrl+Shift+grave exec --no-startup-id makoctl menu dmenu
-
-bindsym $mod+Control+l exec --no-startup-id looking-glass-client
 
 # Music Control
 bindsym $mod+p exec --no-startup-id mpc toggle
@@ -187,6 +192,14 @@ input "1:1:AT_Translated_Set_2_keyboard" {
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+    # Workspaces stuck to monitors
+    workspace 1 output DP-1
+    workspace 2 output DP-1
+    workspace 3 output DP-1
+    workspace 4 output DP-1
+    workspace 8 output DP-4
+    workspace 9 output DP-4
+    workspace 10 output DP-6
 #
 # Layout stuff:
 #

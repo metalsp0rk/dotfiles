@@ -1,11 +1,11 @@
-{
+[{
   "layer": "bottom",
   "position": "top",
   "height": 30,
-
-  "modules-left": ["sway/workspaces", "sway/mode"],
+  "output": "!DP-1",
+  "modules-left": ["sway/workspaces"],
   "modules-center": ["sway/window"],
-  "modules-right": [ "tray", "wireplumber", "mpris", "backlight", "network", "idle_inhibitor", "battery", "clock"],
+  "modules-right": ["wireplumber", "backlight", "battery", "custom/clock"],
   "sway/mode": {
     "format": " {}"
   },
@@ -19,9 +19,101 @@
       "(.*) - Mozilla Firefox": " $1",
     }
   },
-  "clock": {
-    "format": "{:%a %d %b %H:%M}",
+  "custom/clock": {
+    "exec": "date +\"%a %d %b %H:%M\"",
+    "interval": 30
+  },
+  "battery": {
+    "format": "{capacity}% {icon}",
+    "format-alt": "{time} {capacity}% {icon}",
+    "format-icons": ["", "", "", "", ""],
+    "format-charging": "{capacity}% {icon}󱐋",
+    "interval": 30,
+    "states": {
+      "warning": 25,
+      "critical": 10
+    },
     "tooltip": false
+  },
+  "pulseaudio": {
+    "format": "{volume}% {icon}",
+    "format-bluetooth": "{volume}% {icon}",
+    "format-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", ""]
+    },
+    "scroll-step": 1,
+    "on-click": "pavucontrol",
+    "ignored-sinks": ["Easy Effects Sink"]
+  },
+  "wireplumber": {
+    "format": "{volume} {icon}",
+    "format-muted": "",
+    "on-click": "helvium",
+    "max-volume": 150,
+    "scroll-step": 0.2,
+    "format-icons": ["", "", ""]
+  },
+  "network": {
+    "format": "{essid} {icon}",
+    "format-ethernet": "{ipaddr}/{cidr} {icon}",
+    "format-alt": "{ipaddr}/{cidr} {icon}",
+    "format-alt-click": "click-right",
+    "format-icons": {
+      "wifi": ["󰤟", "󰤢" ,"󰤥", "󰤨"],
+      "ethernet": [""],
+      "disconnected": ["󰖪"]
+    },
+    "on-click": "alacritty -e nmtui",
+    "tooltip": false
+  },
+  "backlight": {
+    "format": "{percent} {icon}",
+    "format-alt": "{icon}",
+    "format-alt-click": "click-right",
+    "format-icons": ["󱩎", "󱩏", "󱩐", "󱩑", "󱩒", "󱩓", "󱩔", "󱩕", "󱩖", "󰛨"],
+    "on-scroll-down": "light -A 1",
+    "on-scroll-up": "light -U 1"
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    },
+    "tooltip": false
+  },
+},
+{
+  "layer": "bottom",
+  "position": "top",
+  "height": 30,
+  "output": "DP-1",
+  "modules-left": ["sway/workspaces", "sway/mode"],
+  "modules-center": ["sway/window"],
+  "modules-right": [ "tray", "wireplumber", "mpris", "backlight", "network", "idle_inhibitor", "battery", "custom/clock"],
+  "sway/mode": {
+    "format": " {}"
+  },
+  "sway/workspaces": {
+    "format": "{name}",
+    "disable-scroll": true
+  },
+  "sway/window": {
+    "max-length": 80,
+    "rewrite": {
+      "(.*) - Mozilla Firefox": " $1",
+    }
+  },
+  "custom/clock": {
+    "exec": "date +\"%a %d %b %H:%M\"",
+    "interval": 30
   },
   "mpris": {
     "format": " {player_icon}  {title} - {artist} [{position}/{length}]",
@@ -104,4 +196,4 @@
   "tray": {
     "icon-size": 18
   }
-}
+}]

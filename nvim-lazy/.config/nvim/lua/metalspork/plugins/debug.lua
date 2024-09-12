@@ -4,10 +4,29 @@ return {
     "rcarriga/nvim-dap-ui",
     "leoluz/nvim-dap-go",
     "nvim-neotest/nvim-nio",
+    "theHamsta/nvim-dap-virtual-text",
   },
   config = function()
     local dap = require('dap')
+    local dap_virtual_text = require('nvim-dap-virtual-text')
     local dapui = require('dapui')
+    local function get_project_root()
+      local current_dir = vim.loop.cwd()
+      local git_repo = io.popen("git rev-parse --show-toplevel 2>/dev/null"):read("*line")
+      if git_repo ~= nil then
+        return git_repo
+      else
+        return current_dir
+      end
+    end
+
+    dap_virtual_text.setup {
+      enabled_commands = true,
+      highlight_new_as_changed = true,
+      highlight_changed_variables = true,
+      show_stop_reason = true,
+      only_first_definition = true,
+    }
     dapui.setup()
     local map = vim.keymap.set
     -- {'n', '<leader>')
@@ -28,9 +47,26 @@ return {
     dap.configurations.go = {
       {
         type = "delve",
+        name = "Debug Project",
+        request = "launch",
+        program = function()
+          return get_project_root() .. "/main.go"
+        end
+      },
+      {
+        type = "delve",
         name = "Debug",
         request = "launch",
         program = "${file}"
+      },
+      {
+        type = "delve",
+        name = "Debug Test Project",
+        request = "launch",
+        mode = "test",
+        program = function()
+          return get_project_root() .."/main_test.go"
+        end
       },
       {
         type = "delve",
@@ -77,6 +113,8 @@ return {
     {mode = 'n', '<leader>bi', function() require('dap').step_into() end, desc="Debugger: Step Into"},
     {mode = 'n', '<leader>bx', function() require('dap').terminate() end, desc="Debugger: Terminate"},
     {mode = 'n', '<leader>td', function() require('dapui').toggle() end, desc="Debugger: Toggle UI"},
+    {mode = 'n', '<leader>bh', function() require('dapui').open({reset = true}) end, desc="Debugger: Reset UI"},
     {mode = 'n', '<leader>br', function() require('dap').repl.open() end, desc="Debugger: Open REPL"},
+    {mode = 'n', '<leader>bv', function() require('nvim-dap-virtual-text').toggle() end, desc="Debugger: toggle virtual text"},
   }
 }

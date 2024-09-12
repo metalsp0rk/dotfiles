@@ -10,7 +10,7 @@ case "${unameout}" in
 esac
 
 if [ "${machine}" == "Linux" ]; then
-  yay -S --needed --noconfirm neovim yarn nodejs rubygems perl npm zip unzip lua-language-server luarocks vue-language-server lua-language-server
+  yay -S --needed --noconfirm neovim yarn nodejs rubygems perl npm zip unzip lua-language-server luarocks vue-language-server lua-language-server delve
 fi
 
 if [ "${machine}" == "Mac" ]; then

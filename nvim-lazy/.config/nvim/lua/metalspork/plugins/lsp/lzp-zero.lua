@@ -43,6 +43,8 @@ return {
         'jsonls',
         'svelte',
         'jdtls',
+        'sqls',
+        'sql-formatter',
         'clangd',
         'volar',
         'helm_ls',

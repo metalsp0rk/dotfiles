@@ -1,1 +1,1 @@
-curl -s wttr.in/92592?format="%l:+%c+%t+%h"
+curl -s wttr.in/92592?format="+%c+%t+%h"
