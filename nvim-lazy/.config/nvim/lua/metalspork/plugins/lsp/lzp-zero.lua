@@ -28,7 +28,7 @@ return {
     local map = vim.keymap.set
     map('n', '<leader>tm', "<CMD>Mason<CR>", {silent = true, desc = "Open Mason Dialog"})
     map('n', '<leader>tl', "<CMD>Lazy<CR>", {silent = true, desc = "Open Lazy Dialog"})
-    lsp.preset('recommended')
+    -- lsp.preset('recommended')
     require('mason').setup({})
     require('mason-lspconfig').setup({
       ensure_installed = {
@@ -44,7 +44,6 @@ return {
         'svelte',
         'jdtls',
         'sqls',
-        'sql-formatter',
         'clangd',
         'volar',
         'helm_ls',
@@ -99,6 +98,7 @@ return {
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
         { name = 'buffer' },
+        { name = 'copilot' },
       }, {
         { name = 'buffer' },
       }),

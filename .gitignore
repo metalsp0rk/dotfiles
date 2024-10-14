@@ -11,3 +11,4 @@ aws/.aws/cli
 
 mail/.config/vdirsyncer/status
 i3/.config/nitrogen/nitrogen.cfg
+aws/.aws/credentials

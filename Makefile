@@ -98,6 +98,9 @@ enabled: assert-stow_configs
 
 configure: assert-stow_configs
 	@[ -f "$${HOME}/.zenv.d/stow.env" ] && source ~/.zenv.d/stow.env; \
+	echo "Installing required packages"; \
+	./install-packages.sh;\
+	done; \
 	echo "running configuration scripts..."; \
 	for config in $$(echo $$stow_configs | sed "s/,/ /g"); do \
 		if [ -f "$${HOME}/.local/stow-run.d/$${config}.sh" ]; then \

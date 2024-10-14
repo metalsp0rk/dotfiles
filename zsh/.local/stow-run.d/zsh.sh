@@ -7,6 +7,7 @@ if [ -d "$HOME/.oh-my-zsh/.git" ]; then
   popd
 else
   git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh -b master
+  git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 fi
 
 unameout="$(uname -s)"
@@ -31,5 +32,4 @@ if [ "${machine}" == "Linux" ]; then
 fi
 if [ "${machine}" == "Mac" ]; then
   brew install fzf pyenv-virtualenvwrapper nodejs npm
-  sudo npm install -g @terraform-visual/cli
 fi
