@@ -4,7 +4,7 @@ return {
     overrides = {
       extensions = {
         tf = "terraform",
-        tfvars = "terraform",
+        tfvars = "terraform-vars",
         terraform = "terraform",
         sh = "bash",
         sql = "sql",

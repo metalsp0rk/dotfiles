@@ -10,13 +10,15 @@ case "${unameout}" in
 esac
 
 if [ "${machine}" == "Linux" ]; then
+  echo "running mac install"
   yay -S --needed --noconfirm neovim yarn nodejs rubygems perl npm zip unzip lua-language-server luarocks vue-language-server lua-language-server delve
 fi
 
 if [ "${machine}" == "Mac" ]; then
-brew install neovim terraform-ls lua-language-server golang rust python@3.10 ripgrep python-pynvim fd yarn
+  echo "running mac install"
+  brew install neovim terraform-ls lua-language-server golang rust python@3.10 ripgrep fd yarn npm luarocks lua wget unzip openjdk php composer pylint
 fi
-yarn install -g neovim
+npm install -g neovim
 gem install neovim
 cpan install neovim
 

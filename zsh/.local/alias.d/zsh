@@ -42,5 +42,5 @@ alias \
     gpuof="gpuo --force" \
     tvis="terraform show -json .terraform.tfstate > .visual.json && terraform-visual --plan=.visual.json && open terraform-visual-report/index.html" \
     tc="terraform console" \
-    k9s="k9s --screen-dump-dir \"/Users/kyleb/Documents/k9s\" --logoless" \
+    k9s="k9s --screen-dump-dir \"/Users/kbrennan/Documents/k9s\" --logoless" \
     gbf="git checkout \$(git branch --remote | sed 's,origin/,,' | fzf)"

@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+
+# fa-ca-root-all.pem
+# fa-ca-root.pem
+
+
+
+CERT_DIR=/Users/$(whoami)/code/certs
+mkdir -pv ${CERT_DIR}
+printf "cert direcetory: %s\n" ${CERT_DIR}
+
+CERTS=(fa-ca-root-all.pem fa-ca-root.pem FirstAmericanInternalRootCA.crt)
+printf "certs: %s\n" "${CERTS[@]}"
+
+
+unset SSL_CERT_FILE AWS_CA_BUNDLE REQUESTS_CA_BUNDLE npm_config_cafile
+
+if [ -f ${CERT_DIR}/fa-ca-root.pem ]; then
+    printf "Backing up fa-ca-root.pem\n"
+    cp -v ${CERT_DIR}/fa-ca-root.pem ${CERT_DIR}/fa-ca-root.pem."$( date -I )"
+    rm -v ${CERT_DIR}/fa-ca-root.pem
+fi
+if [ ! -f ${CERT_DIR}/fa-ca-root.pem ]; then
+    printf "Refreshing fa-ca-root.pem\n"
+    /usr/bin/curl --fail --silent --show-error \
+    --location "https://ies.firstam.com/integral/v1/get_script?file=fa-ca-root.pem" \
+    --output ${CERT_DIR}/fa-ca-root.pem 
+fi
+
+if [ -f ${CERT_DIR}/fa-ca-root-all.pem ]; then
+    printf "Backing up fa-ca-root-all.pem\n"
+    cp -v ${CERT_DIR}/fa-ca-root-all.pem ${CERT_DIR}/fa-ca-root-all.pem."$( date -I )"
+    rm -v ${CERT_DIR}/fa-ca-root-all.pem
+fi
+if [ ! -f ${CERT_DIR}/fa-ca-root-all.pem ]; then
+    printf "Refreshing fa-ca-root-all.pem\n"
+    /usr/bin/curl --fail --silent --show-error \
+        --location "https://ies.firstam.com/integral/v1/get_script?file=fa-ca-root-all.pem" \
+        --output ${CERT_DIR}/fa-ca-root-all.pem
+fi
+
+
+if [ -f ${CERT_DIR}/FirstAmericanInternalRootCA.crt ]; then
+    printf "Backing up FirstAmericanInternalRootCA.crt\n"
+    cp -v ${CERT_DIR}/FirstAmericanInternalRootCA.crt ${CERT_DIR}/FirstAmericanInternalRootCA.crt."$( date -I )"
+    rm -v ${CERT_DIR}/FirstAmericanInternalRootCA.crt
+fi
+if [ ! -f ${CERT_DIR}/fa-ca-root-all.pem ]; then
+    printf "Refreshing fFirstAmericanInternalRootCA.crt\n"
+    /usr/bin/curl --fail --silent --show-error \
+        --location "http://crl.pkiservice.firstam.com/FirstAmericanInternalRootCA.crt" \
+        --output ${CERT_DIR}/FirstAmericanInternalRootCA.crt
+fi
+
+export SSL_CERT_FILE=/Users/$(whoami)/code/certs/fa-ca-root.pem
+export REQUESTS_CA_BUNDLE=/Users/$(whoami)/code/certs/fa-ca-root-all.pem
+export AWS_CA_BUNDLE=/Users/$(whoami)/code/certs/fa-ca-root-all.pem
+export npm_config_cafile=/Users/$(whoami)/code/certs/fa-ca-root-all.pem
