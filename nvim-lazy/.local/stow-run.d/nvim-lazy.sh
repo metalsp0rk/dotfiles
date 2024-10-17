@@ -16,7 +16,8 @@ fi
 
 if [ "${machine}" == "Mac" ]; then
   echo "running mac install"
-  brew install neovim terraform-ls lua-language-server golang rust python@3.10 ripgrep fd yarn npm luarocks lua wget unzip openjdk php composer pylint
+  brew install neovim terraform-ls lua-language-server golang rust python@3.10 ripgrep fd yarn npm luarocks lua wget unzip openjdk php composer pylint microsoft-openjdk
+  python3.10 -m pip install --upgrade neovim
 fi
 npm install -g neovim
 gem install neovim

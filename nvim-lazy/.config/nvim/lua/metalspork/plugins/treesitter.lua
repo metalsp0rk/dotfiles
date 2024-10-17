@@ -19,6 +19,7 @@ return {
         "sql",
         "go",
         "terraform",
+        "hcl",
         "bash",
         "nix",
         "json",

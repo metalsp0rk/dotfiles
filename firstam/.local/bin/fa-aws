@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+
+print_help () {
+  cat <<EOF
+FirstAm AWS account switcher tool
+usage: fa-aws [opts] ACCOUNT
+
+Options:
+    -g|--gpg-id    GPG key ID to use for encryption
+    -h|--help      Print this help message
+    
+EOF
+}
+
+
+if [ $# -eq 0 ]; then
+  print_help
+  exit 1
+fi
+
+
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    -h|--help)
+      print_help
+      exit 0
+      ;;
+    -g|--gpg-id)
+      GPG_ID=$2
+      shift
+      shift
+      ;;
+    *)
+      if [ -z "$ACCOUNT" ]; then
+        ACCOUNT=$1
+      else
+        echo "Unknown argument: $1 (already have ACCOUNT)"
+        exit 1
+      fi
+      shift
+      ;;
+  esac
+done
