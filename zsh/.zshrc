@@ -70,3 +70,13 @@ PERL_MM_OPT="INSTALL_BASE=/home/spork/perl5"; export PERL_MM_OPT;
 
 export GIT_SSH_COMMAND="ssh -i ~/.ssh/id_ed25519"
 eval "$(zoxide init zsh)"
+export VENV_WRAPPER_SHELL=zsh
+function venv() {
+    local result
+    result="$(venv-wrapper $@)"
+
+    if test -n "$result"; then
+        eval "$result"
+    fi
+}
+export PATH=$PATH:/opt/android-sdk/platform-tools/

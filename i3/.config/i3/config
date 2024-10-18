@@ -44,10 +44,13 @@ exec_always --no-startup-id nitrogen --restore
 exec_always --no-startup-id xinput --set-prop "TPPS/2 Elan TrackPoint" "libinput Accel Speed" 1.0
 exec --no-startup-id dunst
 exec --no-startup-id mpd
+exec --no-startup-id xset s on
+exec --no-startup-id xset s 600
+exec --no-startup-id xset dpms 0 0 620
 exec --no-startup-id xss-lock --transfer-sleep-lock -- blurlock
 exec --no-startup-id flameshot
 exec --no-startup-id lxqt-policykit-agent
-exec_always --no-startup-id run_keybase -a
+exec --no-startup-id autorandr -c
 #exec_always --no-startup-id i3-msg 'workspace 10; exec /usr/bin/slack'
 
 ## DUNST BINDS
