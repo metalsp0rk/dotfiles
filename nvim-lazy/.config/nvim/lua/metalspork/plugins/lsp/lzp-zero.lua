@@ -9,7 +9,7 @@ return {
     'hrsh7th/nvim-cmp',
     'hrsh7th/cmp-buffer',
     'hrsh7th/cmp-path',
-    'saadparwaiz1/cmp_luasnip',
+    { 'saadparwaiz1/cmp_luasnip', run = "make install_jsregexp" },
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-nvim-lua',
     'nvim-lua/lsp-status.nvim',
@@ -32,7 +32,6 @@ return {
     require('mason').setup({})
     require('mason-lspconfig').setup({
       ensure_installed = {
-        'tsserver',
         'eslint',
         'bashls',
         'dockerls',

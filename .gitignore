@@ -8,6 +8,7 @@ ssh-gpg/.gnupg/tofu.db
 
 aws/.aws/sso
 aws/.aws/cli
+aws/.aws/chromium
 
 mail/.config/vdirsyncer/status
 i3/.config/nitrogen/nitrogen.cfg

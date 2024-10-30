@@ -3,6 +3,7 @@ return {
   event = "VeryLazy",
   dependencies = {
     "nvim-lua/plenary.nvim",
+    "AndreM222/copilot-lualine",
   },
   config = true,
   opts = {
@@ -14,7 +15,11 @@ return {
         component_separators = { left = "", right = "" } },
         { "filename", padding = { left = 1 }, color = { gui = "bold,italic", fg = "#ebdbb2" } }
       },
-      lualine_x = { "encoding", "fileformat" },
+      lualine_x = {
+        "copilot",
+        "encoding",
+        "fileformat"
+      },
       lualine_y = {
         {
           "diagnostics",

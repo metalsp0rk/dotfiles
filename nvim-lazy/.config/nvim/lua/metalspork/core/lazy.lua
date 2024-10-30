@@ -12,13 +12,14 @@ end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   { import="metalspork.plugins" },
-  { import="metalspork.plugins.lsp" }
+  { import="metalspork.plugins.lsp" },
+  -- { import="metalspork.plugins.lsp-new" }
 }, {
-  install = {
-    colorscheme = {
-      "rose-pine",
-    },
-  },
+  -- install = {
+  --   colorscheme = {
+  --     "rose-pine",
+  --   },
+  -- },
   checker = {
     enabled = true,
     notify = false,
