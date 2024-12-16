@@ -1,0 +1,5 @@
+vim.keymap.set("n", "<leader>l", ":bnext<CR>", { noremap = true, silent = true, desc = "Next Buffer" })
+vim.keymap.set("n", "<leader>h", ":bprev<CR>", { noremap = true, silent = true, desc = "Previous Buffer" })
+vim.keymap.set("n", "<leader>bw", ":w<CR>", { noremap = true, silent = true, desc = "Save File" })
+vim.keymap.set("n", "<leader>tl", ":Lazy<CR>", { noremap = true, silent = true, desc = "Toggle Lazy" })
+vim.keymap.set("n", "<leader>te", ":LazyExtras<CR>", { noremap = true, silent = true, desc = "Toggle Lazy Extras" })
