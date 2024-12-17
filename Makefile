@@ -17,7 +17,7 @@ assert-stow_configs:
 	fi
 
 adopt-config: assert-config
-	@stow -v --adopt $${config}; \
+	@stow -v --target=$$HOME --adopt $${config}; \
 	[ -f "$${HOME}/.zenv.d/stow.env" ] && source ~/.zenv.d/stow.env; \
 	x=""; if [ -z "$${stow_configs+x}" ]; then \
 		echo "export stow_configs=${config}" > ~/.zenv.d/stow.env; \
@@ -43,20 +43,20 @@ install: assert-stow_configs
 	@source ~/.zenv.d/stow.env; \
 	for i in $$(echo $$stow_configs | sed "s/,/ /g"); do \
 		echo "Stowing $$i"; \
-		stow -S -v $$i; \
+		stow  -Sv --target=$$HOME $$i; \
 	done
 
 uninstall: assert-stow_configs
 	@source ~/.zenv.d/stow.env; \
 	for i in $$(echo $$stow_configs | sed "s/,/ /g"); do \
-		stow -v -D $$i; \
+		stow  -vD --target=$$HOME $$i; \
 	done
 
 update: assert-stow_configs
 	@source ~/.zenv.d/stow.env; \
 	for i in $$(echo $$stow_configs | sed "s/,/ /g"); do \
 		echo "$$i"; \
-		stow -R -v $$i; \
+		stow  -Rv --target=$$HOME $$i; \
 	done
 
 add:
@@ -64,7 +64,7 @@ add:
 	x=""; if [ -z "$${stow_configs+x}" ]; then \
 		echo "export stow_configs=${config}" > ~/.zenv.d/stow.env; \
 		echo "enabling config ${config}"; \
-		stow -S -v $${config}; \
+		stow -Sv --target=$$HOME $${config}; \
 		exit 0; \
 	fi; \
 	if echo "$${stow_configs}" | grep "$${config}">/dev/null; then \
@@ -73,7 +73,7 @@ add:
 	fi; \
 	echo "enabling config ${config}"; \
 	echo "export stow_configs=$${stow_configs},$${config}" > ~/.zenv.d/stow.env; \
-	stow -v -S $${config}; \
+	stow  -vS --target=$$HOME $${config}; \
 	source ~/.zenv.d/stow.env
 
 delete: rm
@@ -84,7 +84,7 @@ rm: assert-config
 		echo "disabling config ${config}"; \
 		echo "export stow_configs=$$(echo $${stow_configs} | sed -E "s/$${config}[,]?//g")" > ~/.zenv.d/stow.env; \
 		echo "destowing..."; \
-		stow -D $${config}; \
+		stow -Dv --target=$$HOME $${config}; \
 		exit 0; \
 	fi; \
 	echo "config already disabled"; \
