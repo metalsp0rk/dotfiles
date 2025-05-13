@@ -6,3 +6,4 @@ set.shiftwidth = 2 --this determines indent guide and formating (invalid [--pyth
 set.expandtab = true
 set.splitbelow = true
 set.splitright = true
+-- vim.g.lazyvim_python_lsp = "basedpyright"

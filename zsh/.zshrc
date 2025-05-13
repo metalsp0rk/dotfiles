@@ -80,3 +80,14 @@ function venv() {
     fi
 }
 export PATH=$PATH:/opt/android-sdk/platform-tools/
+
+# Composer
+export PATH=$HOME/.config/composer/vendor/bin:$PATH
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /home/spork/.config/.dart-cli-completion/zsh-config.zsh ]] && . /home/spork/.config/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/spork/.lmstudio/bin"

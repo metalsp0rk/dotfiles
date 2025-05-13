@@ -3,8 +3,6 @@ local expr_opts = { noremap = true, silent = true, expr = true }
 vim.g.mapleader = " "
 
 vim.keymap.set("n", "<leader>bw", ":w<CR>", { noremap = true, silent = true, desc = "Save buffer" })
-vim.keymap.set("n", "<leader>l", ":bnext<CR>", { noremap = true, silent = true, desc = "Next buffer" })
-vim.keymap.set("n", "<leader>h", ":bprev<CR>", { noremap = true, silent = true, desc = "Previous buffer" })
 vim.keymap.set("n", "<leader>te", ":LazyExtras<CR>", { noremap = true, silent = true, desc = "Toggle Lazy Extras" })
 vim.keymap.set("n", "<leader>tl", ":Lazy<CR>", { noremap = true, silent = true, desc = "Toggle Lazy" })
 

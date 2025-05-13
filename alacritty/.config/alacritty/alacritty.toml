@@ -23,7 +23,7 @@ background = "0x282828"
 foreground = "0xebdbb2"
 
 [font]
-size = 14
+size = 11
 
 [font.bold]
 family = "SauceCodePro NFM"
@@ -39,7 +39,6 @@ style = "Regular"
 
 [window]
 opacity = 0.85
-
 
 
 [[keyboard.bindings]]
