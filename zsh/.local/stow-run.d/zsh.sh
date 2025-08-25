@@ -13,22 +13,22 @@ fi
 unameout="$(uname -s)"
 
 case "${unameout}" in
-  Linux*)	machine=Linux;;
-  Darwin*)	machine=Mac;;
-  CYGWIN*)	machine=Cygwin;;
-  MINGW*)	machine=MinGw;;
-  *)		machine="UNKNOWN:${unameout}";;
+Linux*) machine=Linux ;;
+Darwin*) machine=Mac ;;
+CYGWIN*) machine=Cygwin ;;
+MINGW*) machine=MinGw ;;
+*) machine="UNKNOWN:${unameout}" ;;
 esac
 if [ "${machine}" == "Linux" ]; then
-  sudo pacman -S fzf python-virtualenvwrapper --needed
-  sudo pacman -S xdotool xclip --noconfirm --needed
-  if ! command -v yay &> /dev/null
-  then
+  sudo pacman -S fzf python-virtualenvwrapper xdotool xclip pyenv --needed --noconfirm
+  if ! command -v yay &>/dev/null; then
     git clone https://aur.archlinux.org/yay.git ~/.yay-install
     pushd ~/.yay-install
     makepkg -si
     popd
   fi
+  pyenv install 3.13.7
+  pyenv global 3.13.7
 fi
 if [ "${machine}" == "Mac" ]; then
   brew install fzf pyenv-virtualenvwrapper nodejs npm
