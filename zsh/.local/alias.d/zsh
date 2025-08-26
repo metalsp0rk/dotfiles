@@ -22,25 +22,9 @@ alias \
     gus="export CD=\$PWD; cd \$(git rev-parse --show-toplevel); git restore --staged \$(git diff --name-only --cached); cd \$CD" \
     resticprof="resticprofile -c profiles.yml" \
     gsur="git submodule update --recursive" \
-    tl="tempo l" \
-    tls="tempo ls" \
-    td="tempo d" \
-    tal="tempo alias:list" \
-    taa="tempo alias:add" \
-    tad="tempo alias:delete" \
-    ti="terraform init" \
-    tir="terraform init -reconfigure" \
-    tp="terraform plan --out=.terraform.tfstate" \
-    ta="terraform apply .terraform.tfstate"\
-    tip="terraform init && terraform plan --out=.terraform.tfstate" \
-    tipa="terraform init && terraform plan --out=.terraform.tfstate && terraform apply .terraform.tfstate" \
     gclb="git clone --bare " \
     tma="tmux attach" \
-    k="kubectl" \
     gbrc="git branch --remote | cat" \
-    tv="terraform validate" \
     gpuof="gpuo --force" \
-    tvis="terraform show -json .terraform.tfstate > .visual.json && terraform-visual --plan=.visual.json && open terraform-visual-report/index.html" \
-    tc="terraform console" \
     k9s="k9s --screen-dump-dir \"/Users/kbrennan/Documents/k9s\" --logoless" \
     gbf="git checkout \$(git branch --remote | sed 's,origin/,,' | fzf)"
