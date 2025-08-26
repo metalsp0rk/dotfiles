@@ -1,0 +1,29 @@
+profile "framework-docked" {
+  output "LG Electronics LG HDR WQHD 0x0006C281" mode 3840x1600@74.996 position 0,0
+  output "BOE 0x095F Unknown" disable
+}
+
+profile "framework-mobile" {
+  output "BOE 0x095F Unknown" mode 2256x1504 position 0,0 scale 1.5
+}
+
+profile "desktop-1080lol" {
+  output "Dell Inc. DELL U2424HE FQ1X3X3" mode 1920x1080@120 position 0,0
+  output "Dell Inc. DELL U2424H 787H5Z3" mode 1920x1080@120 position 1920,0
+}
+
+profile "desktop" {
+  output "LG Electronics LG HDR WQHD 0x0006C281" mode 3840x1600@74.996 position 1080,160
+  output "Dell Inc. DELL U2424HE FQ1X3X3" mode 1920x1080@60 position 0,0 transform 270
+  output "Dell Inc. DELL U2424H 787H5Z3" mode 1920x1080@60 position 4920,0 transform 90
+}
+
+profile "framework-asus-external" {
+  output "BOE 0x095F Unknown" mode 2256x1504 position 0,0 scale 1.5
+  output "ASUSTek COMPUTER INC ASUS MB166C RALMTF032373" mode 1920x1080 position 2256,0 scale 1
+}
+
+profile "desktop-asus-external" {
+  output "LG Electronics LG HDR WQHD 0x0006C281" mode 3840x1600@74.996 position 0,0
+  output "ASUSTek COMPUTER INC ASUS MB166C RALMTF032373" mode 1920x1080 position 0,1600 scale 1
+}
