@@ -1,0 +1,3 @@
+directory: /mnt/music/Library/
+library: ~/.local/beets/library.db
+plugins: inline convert spotify discogs
