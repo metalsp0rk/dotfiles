@@ -11,12 +11,7 @@ esac
 
 if [ "${machine}" == "Linux" ]; then
 
-  yay --noconfirm --needed -S noto-fonts-emoji waybar wttrbar light wlsunset kanshi wmenu swww
-  yay -S --noconfirm --needed ttf-sourcecodepro-nerd
-  yay -S --noconfirm --needed newaita-icons-git
-  yay -S --noconfirm --needed ttf-md-fonts-git
-  yay -S --noconfirm --needed ttf-font-awesome
-  yay -S --noconfirm --needed awesome-terminal-fonts
+  yay --noconfirm --needed -S noto-fonts-emoji waybar wttrbar light wlsunset kanshi wmenu swww ttf-sourcecodepro-nerd newaita-icons-git ttf-md-fonts-git ttf-font-awesome awesome-terminal-fonts
   hyprpm update
   hyprpm add https://github.com/outfoxxed/hy3
   hyprpm update
