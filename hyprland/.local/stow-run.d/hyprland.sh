@@ -17,5 +17,9 @@ if [ "${machine}" == "Linux" ]; then
   yay -S --noconfirm --needed ttf-md-fonts-git
   yay -S --noconfirm --needed ttf-font-awesome
   yay -S --noconfirm --needed awesome-terminal-fonts
+  hyprpm update
+  hyprpm add https://github.com/outfoxxed/hy3
+  hyprpm update
+  hyprpm enable hy3
 
 fi
