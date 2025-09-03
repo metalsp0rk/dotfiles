@@ -1,0 +1,47 @@
+
+force_keyboard_focus = true
+close_when_open = true
+selection_wrap = true
+global_argument_delimiter = "#"
+
+[shell]
+anchor_top = true
+anchor_left = true
+
+[providers]
+default = ["desktopapplications", "calc", "runner", "menus", "websearch"]
+empty = ["desktopapplications"]
+
+[[providers.prefixes]]
+prefix = ";"
+provider = "providerlist"
+
+[[providers.prefixes]]
+prefix = "/"
+provider = "files"
+
+[[providers.prefixes]]
+prefix = "."
+provider = "symbols"
+
+[[providers.prefixes]]
+prefix = "!"
+provider = "todo"
+
+[[providers.prefixes]]
+prefix = "="
+provider = "calc"
+
+[[providers.prefixes]]
+prefix = "@"
+provider = "websearch"
+
+[[providers.prefixes]]
+prefix = ":"
+provider = "clipboard"
+
+[providers.calc]
+click = "copy"
+copy = "enter"
+save = "ctrl s"
+delete = "ctrl d"

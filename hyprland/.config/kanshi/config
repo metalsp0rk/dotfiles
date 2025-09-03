@@ -8,7 +8,7 @@ profile "framework-mobile" {
 }
 
 profile "desktop-1080lol" {
-  output "Dell Inc. DELL U2424HE FQ1X3X3" mode 1920x1080@120 position 0,0
+  output "Dell Inc. DELL U2424HE FQ1X3X3" mode 1920x1080@120 position 0,0 primary
   output "Dell Inc. DELL U2424H 787H5Z3" mode 1920x1080@120 position 1920,0
 }
 

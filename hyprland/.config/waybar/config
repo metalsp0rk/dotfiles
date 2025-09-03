@@ -1,294 +1,177 @@
 [
   {
-    "layer": "bottom",
+    "layer": "top",
     "position": "top",
-    "height": 30,
-    "output": "!DP-1",
+    // "height": 30,
+    // "output": "!DP-1",
     "modules-left": [
-      "hyprland/workspaces"
+      "mpris#song",
+      "custom/arrow1",
+      "mpris#artist",
+      "custom/arrow2"
     ],
     "modules-center": [
-      "hyprland/window"
+      "custom/arrow3",
+      "hyprland/submap",
+      "hyprland/workspaces",
+      "custom/arrow4"
     ],
     "modules-right": [
+      "custom/arrow5",
       "wireplumber",
-      "backlight",
-      "battery",
-      "custom/clock"
-    ],
-    "sway/mode": {
-      "format": " {}"
-    },
-    "sway/workspaces": {
-      "format": "{name}",
-      "disable-scroll": true
-    },
-    "sway/window": {
-      "max-length": 80,
-      "rewrite": {
-        "(.*) - Mozilla Firefox": " $1",
-      }
-    },
-    "custom/clock": {
-      "exec": "date +\"%a %d %b %H:%M\"",
-      "interval": 30
-    },
-    "battery": {
-      "format": "{capacity}% {icon}",
-      "format-alt": "{time} {capacity}% {icon}",
-      "format-icons": [
-        "",
-        "",
-        "",
-        "",
-        ""
-      ],
-      "format-charging": "{capacity}% {icon}󱐋",
-      "interval": 30,
-      "states": {
-        "warning": 25,
-        "critical": 10
-      },
-      "tooltip": false
-    },
-    "pulseaudio": {
-      "format": "{volume}% {icon}",
-      "format-bluetooth": "{volume}% {icon}",
-      "format-muted": "",
-      "format-icons": {
-        "headphone": "",
-        "hands-free": "",
-        "headset": "",
-        "phone": "",
-        "portable": "",
-        "car": "",
-        "default": [
-          "",
-          ""
-        ]
-      },
-      "scroll-step": 1,
-      "on-click": "pavucontrol",
-      "ignored-sinks": [
-        "Easy Effects Sink"
-      ]
-    },
-    "wireplumber": {
-      "format": "{volume} {icon}",
-      "format-muted": "",
-      "on-click": "helvium",
-      "max-volume": 150,
-      "scroll-step": 0.2,
-      "format-icons": [
-        "",
-        "",
-        ""
-      ]
-    },
-    "network": {
-      "format": "{essid} {icon}",
-      "format-ethernet": "{ipaddr}/{cidr} {icon}",
-      "format-alt": "{ipaddr}/{cidr} {icon}",
-      "format-alt-click": "click-right",
-      "format-icons": {
-        "wifi": [
-          "󰤟",
-          "󰤢",
-          "󰤥",
-          "󰤨"
-        ],
-        "ethernet": [
-          ""
-        ],
-        "disconnected": [
-          "󰖪"
-        ]
-      },
-      "on-click": "alacritty -e nmtui",
-      "tooltip": false
-    },
-    "backlight": {
-      "format": "{percent} {icon}",
-      "format-alt": "{icon}",
-      "format-alt-click": "click-right",
-      "format-icons": [
-        "󱩎",
-        "󱩏",
-        "󱩐",
-        "󱩑",
-        "󱩒",
-        "󱩓",
-        "󱩔",
-        "󱩕",
-        "󱩖",
-        "󰛨"
-      ],
-      "on-scroll-down": "light -A 1",
-      "on-scroll-up": "light -U 1"
-    },
-    "idle_inhibitor": {
-      "format": "{icon}",
-      "format-icons": {
-        "activated": "",
-        "deactivated": ""
-      },
-      "tooltip": false
-    },
-  },
-  {
-    "layer": "bottom",
-    "position": "top",
-    "height": 30,
-    "output": "DP-1",
-    "modules-left": [
-      "sway/workspaces",
-      "sway/mode"
-    ],
-    "modules-center": [
-      "sway/window"
-    ],
-    "modules-right": [
+      "custom/arrow6",
+      "cpu",
+      "custom/arrow7",
+      "memory",
+      "custom/arrow8",
+      "temperature",
+      "custom/arrow9",
+      "network#ethernet",
+      "network#wifi",
       "tray",
-      "wireplumber",
-      "mpris",
-      "backlight",
-      "network",
-      "idle_inhibitor",
-      "battery",
-      "custom/clock"
+      "custom/arrow10",
+      "clock#time"
     ],
-    "sway/mode": {
-      "format": " {}"
-    },
-    "sway/workspaces": {
-      "format": "{name}",
-      "disable-scroll": true
-    },
-    "sway/window": {
-      "max-length": 80,
-      "rewrite": {
-        "(.*) - Mozilla Firefox": " $1",
-      }
-    },
-    "custom/clock": {
-      "exec": "date +\"%a %d %b %H:%M\"",
-      "interval": 30
-    },
-    "mpris": {
-      "format": " {player_icon}  {title} - {artist} [{position}/{length}]",
-      "format-paused": "{status_icon} <i>{title} - {artist} [{position}/{length}]</i>",
-      "player-icons": {
-        "default": "",
-        "spotify": "",
-        "youtube": ""
-      },
-      "status-icons": {
-        "paused": ""
-      }
-    },
-    "battery": {
-      "format": "{capacity}% {icon}",
-      "format-alt": "{time} {capacity}% {icon}",
-      "format-icons": [
-        "",
-        "",
-        "",
-        "",
-        ""
-      ],
-      "format-charging": "{capacity}% {icon}󱐋",
-      "interval": 30,
-      "states": {
-        "warning": 25,
-        "critical": 10
-      },
-      "tooltip": false
-    },
-    "pulseaudio": {
-      "format": "{volume}% {icon}",
-      "format-bluetooth": "{volume}% {icon}",
-      "format-muted": "",
-      "format-icons": {
-        "headphone": "",
-        "hands-free": "",
-        "headset": "",
-        "phone": "",
-        "portable": "",
-        "car": "",
-        "default": [
-          "",
-          ""
-        ]
-      },
-      "scroll-step": 1,
-      "on-click": "pavucontrol",
-      "ignored-sinks": [
-        "Easy Effects Sink"
-      ]
-    },
-    "wireplumber": {
-      "format": "{volume} {icon}",
-      "format-muted": "",
-      "on-click": "helvium",
-      "max-volume": 150,
-      "scroll-step": 0.2,
-      "format-icons": [
-        "",
-        "",
-        ""
-      ]
-    },
-    "network": {
-      "format": "{essid} {icon}",
-      "format-ethernet": "{ipaddr}/{cidr} {icon}",
-      "format-alt": "{ipaddr}/{cidr} {icon}",
-      "format-alt-click": "click-right",
-      "format-icons": {
-        "wifi": [
-          "󰤟",
-          "󰤢",
-          "󰤥",
-          "󰤨"
-        ],
-        "ethernet": [
-          ""
-        ],
-        "disconnected": [
-          "󰖪"
-        ]
-      },
-      "on-click": "alacritty -e nmtui",
-      "tooltip": false
-    },
-    "backlight": {
-      "format": "{percent} {icon}",
-      "format-alt": "{icon}",
-      "format-alt-click": "click-right",
-      "format-icons": [
-        "󱩎",
-        "󱩏",
-        "󱩐",
-        "󱩑",
-        "󱩒",
-        "󱩓",
-        "󱩔",
-        "󱩕",
-        "󱩖",
-        "󰛨"
-      ],
-      "on-scroll-down": "light -A 1",
-      "on-scroll-up": "light -U 1"
-    },
-    "idle_inhibitor": {
+    "hyprland/workspaces": {
       "format": "{icon}",
       "format-icons": {
-        "activated": "",
-        "deactivated": ""
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": "",
+        "6": "",
+        "7": "",
+        "8": "",
+        "9": "",
+        "10": ""
       },
+      "max-length": 15,
+      "disable-scroll": true,
+      "all-outputs": true,
+      "swap-icon-label": false,
+      "tooltip": false
+    },
+    "hyprland/submap": {
+      "format": "{}",
+      "format-default": "",
+      "tooltip": false
+    },
+    "clock#time": {
+      "interval": 10,
+      "format": "  {:%H:%M}",
       "tooltip": false
     },
     "tray": {
-      "icon-size": 18
+      "spacing": 4
+    },
+    "temperature": {
+      "interval": "1",
+      "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+      "critical-threshold": 45,
+      "format-critical": "  {temperatureC}°C",
+      "format": "{icon}  {temperatureC}°C",
+      "format-icons": [
+        "",
+        "",
+        ""
+      ],
+      "max-length": 8,
+      "min-length": 7,
+      "tooltip": false
+    },
+    "memory": {
+      "interval": 10,
+      "format": " {}%",
+      "max-length": 12,
+      "tooltip": false
+    },
+    "cpu": {
+      "interval": 1,
+      "format": " {usage:2}%"
+    },
+    "wireplumber": {
+      "format": "{volume} {icon}",
+      "format-muted": "",
+      "max-volume": 150,
+      "scroll-step": 0.2,
+      "format-icons": [
+        " ",
+        " ",
+        " "
+      ]
+    },
+    "mpris#song": {
+      "format": "▶ {player_icon} {title}",
+      "format-paused": " {player_icon} {title}",
+      "player-icons": {
+        "default": "▶",
+        "mpv": "🎵",
+        "spotify": ""
+      }
+    },
+    "mpris#artist": {
+      "format": "{artist}"
+    },
+    "network#wifi": {
+      "interface": "wlan0",
+      "format-wifi": " {essid} {ipaddr}",
+      "format-disconnected": "",
+      "tooltip": false
+    },
+    "network#ethernet": {
+      "interface": "enp4s0",
+      "format-ethernet": " {ipaddr}/{cidr}",
+      "format-disconnected": "",
+      "tooltip": false
+    },
+    "custom/arrow1": {
+      "format": "",
+      "tooltip": false
+    },
+    "custom/arrow2": {
+      "format": "",
+      "tooltip": false
+    },
+    "custom/arrow3": {
+      "format": "",
+      "tooltip": false
+    },
+    "custom/arrow4": {
+      "format": "",
+      "tooltip": false
+    },
+    "custom/arrow5": {
+      "format": "",
+      "tooltip": false
+    },
+    "custom/arrow6": {
+      "format": "",
+      "tooltip": false
+    },
+    "custom/arrow7": {
+      "format": "",
+      "tooltip": false
+    },
+    "custom/arrow8": {
+      "format": "",
+      "tooltip": false
+    },
+    "custom/arrow9": {
+      "format": "",
+      "tooltip": false
+    },
+    "custom/arrow10": {
+      "format": "",
+      "tooltip": false
+    },
+    "custom/arrow11": {
+      "format": "",
+      "tooltip": false
+    },
+    "custom/arrow12": {
+      "format": "",
+      "tooltip": false
     }
   }
 ]
