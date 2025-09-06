@@ -4,7 +4,7 @@ profile "framework-docked" {
 }
 
 profile "framework-mobile" {
-  output "BOE 0x095F Unknown" mode 2256x1504 position 0,0 scale 1.175
+  output "BOE 0x095F Unknown" mode 2256x1504 position 0,0 scale 1
 }
 
 profile "desktop-1080lol" {
