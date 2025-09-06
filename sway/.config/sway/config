@@ -34,15 +34,14 @@ set $menu wmenu-run
 
 ### Output configuration
 
-output "LG Electronics LG HDR WQHD 0x0006C281" mode 3840x1600@75Hz pos 1080,160
-output "Dell Inc. DELL U2424HE FQ1X3X3" mode --custom 1920x1080@74.997Hz pos 0,0 transform 90
-output "Dell Inc. DELL U2424H 787H5Z3" mode --custom 1920x1080@74.997Hz pos 4920,0 transform 270
-exec_always xrandr --output DP-1 --primary
+# output "LG Electronics LG HDR WQHD 0x0006C281" mode 3840x1600@74.996Hz pos 1080,160
+# output "Dell Inc. DELL U2424H 787H5Z3" mode --custom 1920x1080@60Hz pos 3840,0 
+# exec_always xrandr --output DP-1 --primary
 
 
 #
 # Display management
-# exec_always killall kanshi; sleep 1; kanshi
+exec_always killall kanshi; sleep 1; kanshi
 exec swww-daemon
 
 # Brightness control
@@ -193,13 +192,13 @@ input "1:1:AT_Translated_Set_2_keyboard" {
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
     # Workspaces stuck to monitors
-    workspace 1 output DP-1
-    workspace 2 output DP-1
-    workspace 3 output DP-1
-    workspace 4 output DP-1
-    workspace 8 output DP-4
-    workspace 9 output DP-4
-    workspace 10 output DP-6
+    # workspace 1 output DP-1
+    # workspace 2 output DP-1
+    # workspace 3 output DP-1
+    # workspace 4 output DP-1
+    # workspace 8 output DP-4
+    # workspace 9 output DP-4
+    # workspace 10 output DP-6
 #
 # Layout stuff:
 #
