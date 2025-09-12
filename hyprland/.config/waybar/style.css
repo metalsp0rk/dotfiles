@@ -242,10 +242,15 @@
     color: @yellow;
     background: @bg;
 }
+#custom-arrow3-5 {
+    font-size: 2em;
+    color: @orange;
+    background: @bg;
+}
 #custom-arrow3 {
     font-size: 2em;
     color: @better-magenta;
-    background: @bg;
+    background: @orange;
 }
 #custom-arrow4 {
     font-size: 2em;
@@ -352,8 +357,9 @@
 }
 
 #submap {
-  background: @red;
-  color: @font_gruv_normal;
+  background: @orange;
+  /* color: @font_gruv_normal; */
+  color: @bg;
   padding: 0em 1.2em;
   min-width: 1.5em;
 }

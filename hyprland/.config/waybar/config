@@ -11,8 +11,9 @@
       "custom/arrow2"
     ],
     "modules-center": [
-      "custom/arrow3",
+      "custom/arrow3-5",
       "hyprland/submap",
+      "custom/arrow3",
       "hyprland/workspaces",
       "custom/arrow4"
     ],
@@ -54,8 +55,9 @@
     },
     "hyprland/submap": {
       "format": "{}",
-      "format-default": "",
-      "tooltip": false
+      "tooltip": false,
+      "always-on": true,
+      "default-submap": "Normal"
     },
     "clock#time": {
       "interval": 10,
@@ -131,6 +133,10 @@
     },
     "custom/arrow2": {
       "format": "",
+      "tooltip": false
+    },
+    "custom/arrow3-5": {
+      "format": "",
       "tooltip": false
     },
     "custom/arrow3": {
