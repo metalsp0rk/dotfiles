@@ -279,10 +279,15 @@
 }
 #custom-arrow9 {
     font-size: 2em;
-    color: @bg;
+    color: @battery;
     background: @bluetint;
 }
 #custom-arrow10 {
+    font-size: 2em;
+    color: @bg;
+    background: @battery;
+}
+#custom-arrow11 {
     font-size: 2em;
     color: @font_gruv_faded;
     background: @bg;
@@ -424,8 +429,10 @@
     color: @light;
     background: @mode;
 }
+
 #battery {
-    background: @battery;
+    background: @green;
+    color: @font_gruv_normal;
 }
 
 #backlight {
