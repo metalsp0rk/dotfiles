@@ -27,4 +27,5 @@ alias \
     gbrc="git branch --remote | cat" \
     gpuof="gpuo --force" \
     k9s="k9s --screen-dump-dir \"/Users/kbrennan/Documents/k9s\" --logoless" \
-    gbf="git checkout \$(git branch --remote | sed 's,origin/,,' | fzf)"
+    gbf="git checkout \$(git branch --remote | sed 's,origin/,,' | fzf)" \
+    k="kubectl" 
