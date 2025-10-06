@@ -18,6 +18,8 @@
       "custom/arrow4"
     ],
     "modules-right": [
+      "custom/arrow5-1",
+      "custom/mousebattery",
       "custom/arrow5",
       "wireplumber",
       "custom/arrow6",
@@ -127,6 +129,12 @@
       "format-disconnected": "",
       "tooltip": false
     },
+    "custom/mousebattery": {
+      "format": " {text}",
+      "exec": "~/.config/waybar/scripts/mouse-battery.sh",
+      "interval": 300,
+      "tooltip": false
+    },
     "custom/arrow1": {
       "format": "",
       "tooltip": false
@@ -145,6 +153,10 @@
     },
     "custom/arrow4": {
       "format": "",
+      "tooltip": false
+    },
+    "custom/arrow5-1": {
+      "format": "",
       "tooltip": false
     },
     "custom/arrow5": {

@@ -228,6 +228,7 @@
     background: @date;
 }*/
 
+
 #custom-arrow1 {
     font-size: 2em;
     color: @yellow-light;
@@ -253,10 +254,21 @@
     color: @better-magenta;
     background: @bg;
 }
+#custom-arrow5-1 {
+    font-size: 2em;
+    color: @yellow;
+    background: @bg;
+}
+#custom-mousebattery {
+    /* font-size: 2em; */
+    color: @nord_dark_font;
+    /* color: @font_gruv_faded; */
+    background: @yellow;
+}
 #custom-arrow5 {
     font-size: 2em;
     color: @sound;
-    background: @bg;
+    background: @yellow;
 }
 #custom-arrow6 {
     font-size: 2em;
