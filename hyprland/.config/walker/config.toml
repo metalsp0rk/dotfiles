@@ -9,7 +9,7 @@ anchor_top = true
 anchor_left = true
 
 [providers]
-default = ["desktopapplications", "calc", "runner", "menus", "websearch"]
+default = ["desktopapplications", "calc", "runner", "menus", "websearch", "bin"]
 empty = ["desktopapplications"]
 
 [[providers.prefixes]]

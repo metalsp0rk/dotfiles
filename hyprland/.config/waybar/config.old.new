@@ -1,0 +1,195 @@
+[
+  {
+    "layer": "top",
+    "position": "top",
+    // "height": 30,
+    // "output": "!DP-1",
+    "modules-left": [
+      "mpris#song",
+      "custom/arrow1",
+      "mpris#artist",
+      "custom/arrow2"
+    ],
+    "modules-center": [
+      "custom/arrow3-5",
+      "hyprland/submap",
+      "custom/arrow3",
+      "hyprland/workspaces",
+      "custom/arrow4"
+    ],
+    "modules-right": [
+      "custom/arrow5-1",
+      "custom/mousebattery",
+      "custom/arrow5",
+      "wireplumber",
+      "custom/arrow6",
+      "cpu",
+      "custom/arrow7",
+      "memory",
+      "custom/arrow8",
+      "temperature",
+      "custom/arrow9",
+      "network#ethernet",
+      "network#wifi",
+      "tray",
+      "custom/arrow10",
+      "clock#time"
+    ],
+    "hyprland/workspaces": {
+      "format": "{icon}",
+      "format-icons": {
+        "1": "1 ",
+        "2": "2 ",
+        "3": "3 ",
+        "4": "4 ",
+        "5": "5 ",
+        "6": "6 ",
+        "7": "7 ",
+        "8": "8 ",
+        "9": "9 ",
+        "10": "0 "
+      },
+      "max-length": 15,
+      "disable-scroll": true,
+      "all-outputs": true,
+      "swap-icon-label": false,
+      "tooltip": false
+    },
+    "hyprland/submap": {
+      "format": "{}",
+      "tooltip": false,
+      "always-on": true,
+      "default-submap": "Normal"
+    },
+    "clock#time": {
+      "interval": 10,
+      "format": "  {:%H:%M}",
+      "tooltip": false
+    },
+    "tray": {
+      "spacing": 4
+    },
+    "temperature": {
+      "interval": "1",
+      "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+      "critical-threshold": 45,
+      "format-critical": "  {temperatureC}°C",
+      "format": "{icon}  {temperatureC}°C",
+      "format-icons": [
+        "",
+        "",
+        ""
+      ],
+      "max-length": 8,
+      "min-length": 7,
+      "tooltip": false
+    },
+    "memory": {
+      "interval": 10,
+      "format": " {}%",
+      "max-length": 12,
+      "tooltip": false
+    },
+    "cpu": {
+      "interval": 1,
+      "format": " {usage:2}%"
+    },
+    "wireplumber": {
+      "format": "{volume} {icon}",
+      "format-muted": "",
+      "max-volume": 150,
+      "scroll-step": 0.2,
+      "format-icons": [
+        " ",
+        " ",
+        " "
+      ]
+    },
+    "mpris#song": {
+      "format": "▶ {player_icon} {title}",
+      "format-paused": " {player_icon} {title}",
+      "player-icons": {
+        "default": "▶",
+        "mpv": "🎵",
+        "spotify": ""
+      }
+    },
+    "mpris#artist": {
+      "format": "{artist}"
+    },
+    "network#wifi": {
+      "interface": "wlan0",
+      "format-wifi": " {essid} {ipaddr}",
+      "format-disconnected": "",
+      "tooltip": false
+    },
+    "network#ethernet": {
+      "interface": "enp4s0",
+      "format-ethernet": " {ipaddr}/{cidr}",
+      "format-disconnected": "",
+      "tooltip": false
+    },
+    "custom/mousebattery": {
+      "format": " {text}",
+      "exec": "~/.config/waybar/scripts/mouse-battery.sh",
+      "interval": 300,
+      "tooltip": false
+    },
+    "custom/arrow1": {
+      "format": "",
+      "tooltip": false
+    },
+    "custom/arrow2": {
+      "format": "",
+      "tooltip": false
+    },
+    "custom/arrow3-5": {
+      "format": "",
+      "tooltip": false
+    },
+    "custom/arrow3": {
+      "format": "",
+      "tooltip": false
+    },
+    "custom/arrow4": {
+      "format": "",
+      "tooltip": false
+    },
+    "custom/arrow5-1": {
+      "format": "",
+      "tooltip": false
+    },
+    "custom/arrow5": {
+      "format": "",
+      "tooltip": false
+    },
+    "custom/arrow6": {
+      "format": "",
+      "tooltip": false
+    },
+    "custom/arrow7": {
+      "format": "",
+      "tooltip": false
+    },
+    "custom/arrow8": {
+      "format": "",
+      "tooltip": false
+    },
+    "custom/arrow9": {
+      "format": "",
+      "tooltip": false
+    },
+    "custom/arrow10": {
+      "format": "",
+      "tooltip": false
+    },
+    "custom/arrow11": {
+      "format": "",
+      "tooltip": false
+    },
+    "custom/arrow12": {
+      "format": "",
+      "tooltip": false
+    }
+  }
+]

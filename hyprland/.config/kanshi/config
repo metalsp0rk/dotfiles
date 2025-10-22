@@ -42,8 +42,15 @@ output "Dell Inc. DELL U2424H 787H5Z3" {
   alias $DELL_24_H
 }
 
+output "BOE 0x095F Unknown" {
+  mode 2256x1504@60.00
+  position 0,0
+  alias $FRAMEWORK_BUILTIN
+}
+
 profile "framework-docked" {
-  output "LG Electronics LG HDR WQHD 0x0006C281" mode 3840x1600@74.996 position 0,0
+  output $3440_UW_OLED mode 3440x1440@119.99 enable
+  output $DELL_24_H enable
   output "BOE 0x095F Unknown" disable
 }
 
