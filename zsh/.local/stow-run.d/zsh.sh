@@ -20,7 +20,7 @@ MINGW*) machine=MinGw ;;
 *) machine="UNKNOWN:${unameout}" ;;
 esac
 if [ "${machine}" == "Linux" ]; then
-  sudo pacman -S fzf python-virtualenvwrapper xdotool xclip pyenv --needed --noconfirm
+  sudo pacman -S fzf python-virtualenvwrapper xdotool xclip ttf-sourcecodepro-nerd --noconfirm --needed
   if ! command -v yay &>/dev/null; then
     git clone https://aur.archlinux.org/yay.git ~/.yay-install
     pushd ~/.yay-install
