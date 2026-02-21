@@ -1,19 +1,19 @@
 #!/usr/bin/ruby
 
-ENV['GOOGLE_APPLICATION_CREDENTIALS'] = "/home/kbrennan/.config/gcloud/legacy_credentials/kyle.brennan@velopayments.com/adc.json"
+ENV['GOOGLE_APPLICATION_CREDENTIALS'] = ""
 
 # AWS CLI proxy that handles temporary authentication
 
-User = 'kyle'
-ApiSecretId = 'AKIAYGOCUDTKTKZUZRGD'  # The credentials to use as the user login to try to then get the CLI admin role.
-ApiSecret = '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'    #   if nil, don't export -- let the configured ones from the normal `aws` tool be used.
+User = ''
+ApiSecretId = ''  # The credentials to use as the user login to try to then get the CLI admin role.
+ApiSecret = ''    #   if nil, don't export -- let the configured ones from the normal `aws` tool be used.
 
 # TryTokenCommand = '~/bin/2fa -q aws'  # Command that may return the 6-digit TOTP token on this machine
 TryTokenCommand = false # set this if you want to manually do things
 RealAwsCommand = '/usr/bin/aws' # path to your aws command e.g '/Users/roland/Library/Python/2.7/bin/aws'
 
-MfaTokenArn = "arn:aws:iam::563585752277:mfa/kyle"
-RoleArn = "arn:aws:iam::#{ENV['AWS_ACCT'] || '155782053665'}:role/AdminAccessRole"  # /NormalHumanAccessRole if dev not devops
+MfaTokenArn = ""
+RoleArn = "arn:aws:iam::#{ENV['AWS_ACCT'] || ''}:role/AdminAccessRole"  # /NormalHumanAccessRole if dev not devops
 
 RemainingSecsThreshold = 5*60
 

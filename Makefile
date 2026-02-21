@@ -24,7 +24,7 @@ adopt-config: assert-config
 		echo "enabling config ${config}"; \
 		exit 0; \
 	fi; \
-	if echo "$${stow_configs}" | grep "$${config}">/dev/null; then \
+	if echo "$${stow_configs}" | grep -qw "$${config}"; then \
 		echo "config already enabled"; \
 		exit 0; \
 	fi; \
@@ -35,62 +35,71 @@ adopt-config: assert-config
 
 
 install-base:
-	@mkdir ~/.zenv.d/ || true
+	@mkdir -p ~/.zenv.d/ || true
 	@mkdir -pv ~/.local/stow-run.d/ || true
-	@sudo pacman -S stow
-	@if ! command -v yay &>/dev/null; then \
+	@touch ~/.zenv.d/stow.env
+	@if ! command -v stow &>/dev/null; then \
+		if command -v pacman &>/dev/null; then sudo pacman -S --noconfirm stow; \
+		elif command -v apt-get &>/dev/null; then sudo apt-get install -y stow; \
+		elif command -v dnf &>/dev/null; then sudo dnf install -y stow; \
+		elif command -v brew &>/dev/null; then brew install stow; \
+		else echo "Please install 'stow' manually."; exit 1; \
+		fi; \
+	fi
+	@if ! command -v yay &>/dev/null && command -v pacman &>/dev/null; then \
 		git clone https://aur.archlinux.org/yay.git ~/.yay-install; \
 		pushd ~/.yay-install; \
-		makepkg -si; \
+		makepkg -si --noconfirm; \
 		popd; \
+		rm -rf ~/.yay-install; \
 	fi
 
 install: assert-stow_configs
 	@source ~/.zenv.d/stow.env; \
 	for i in $$(echo $$stow_configs | sed "s/,/ /g"); do \
 		echo "Stowing $$i"; \
-		stow  -Sv --target=$$HOME $$i; \
+		stow -Sv --target=$$HOME $$i; \
 	done
 
 uninstall: assert-stow_configs
 	@source ~/.zenv.d/stow.env; \
 	for i in $$(echo $$stow_configs | sed "s/,/ /g"); do \
-		stow  -vD --target=$$HOME $$i; \
+		stow -vD --target=$$HOME $$i; \
 	done
 
 update: assert-stow_configs
 	@source ~/.zenv.d/stow.env; \
 	for i in $$(echo $$stow_configs | sed "s/,/ /g"); do \
 		echo "$$i"; \
-		stow  -Rv --target=$$HOME $$i; \
+		stow -Rv --target=$$HOME $$i; \
 	done
 
 add:
 	@[ -f "$${HOME}/.zenv.d/stow.env" ] && source ~/.zenv.d/stow.env; \
 	x=""; if [ -z "$${stow_configs+x}" ]; then \
-		echo "export stow_configs=${config}" > ~/.zenv.d/stow.env; \
+		stow -Sv --target=$$HOME $${config} && \
+		echo "export stow_configs=${config}" > ~/.zenv.d/stow.env && \
 		echo "enabling config ${config}"; \
-		stow -Sv --target=$$HOME $${config}; \
 		exit 0; \
 	fi; \
-	if echo "$${stow_configs}" | grep "$${config}">/dev/null; then \
+	if echo "$${stow_configs}" | grep -qw "$${config}"; then \
 		echo "config already enabled"; \
 		exit 0; \
 	fi; \
-	echo "enabling config ${config}"; \
-	echo "export stow_configs=$${stow_configs},$${config}" > ~/.zenv.d/stow.env; \
-	stow  -vS --target=$$HOME $${config}; \
+	stow -vS --target=$$HOME $${config} && \
+	echo "enabling config ${config}" && \
+	echo "export stow_configs=$${stow_configs},$${config}" > ~/.zenv.d/stow.env && \
 	source ~/.zenv.d/stow.env
 
 delete: rm
 remove: rm
 rm: assert-config
 	@[ -f "$${HOME}/.zenv.d/stow.env" ] && source ~/.zenv.d/stow.env; \
-	if echo "$${stow_configs}" | grep "$${config}">/dev/null; then \
+	if echo "$${stow_configs}" | grep -qw "$${config}"; then \
 		echo "disabling config ${config}"; \
-		echo "export stow_configs=$$(echo $${stow_configs} | sed -E "s/$${config}[,]?//g")" > ~/.zenv.d/stow.env; \
 		echo "destowing..."; \
-		stow -Dv --target=$$HOME $${config}; \
+		stow -Dv --target=$$HOME $${config} && \
+		echo "export stow_configs=$$(echo $${stow_configs} | sed -E "s/(^|,)$${config}(,|$)/\1/g; s/^,//; s/,$$//")" > ~/.zenv.d/stow.env; \
 		exit 0; \
 	fi; \
 	echo "config already disabled"; \
