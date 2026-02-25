@@ -13,3 +13,5 @@ aws/.aws/chromium
 mail/.config/vdirsyncer/status
 i3/.config/nitrogen/nitrogen.cfg
 aws/.aws/credentials
+
+**/lazy-lock.json
