@@ -37,12 +37,12 @@ output "Dell Inc. AW3425DW 80WF274" {
   alias $3440_UW_OLED
 }
 output "Dell Inc. DELL U2424H 787H5Z3" {
-  mode 1920x1080@120
+  mode 1920x1080@60.00
   position 3440,0
   alias $DELL_24_H
 }
 
-output "BOE 0x095F Unknown" {
+output "BOE 0x095F" {
   mode 2256x1504@60.00
   position 0,0
   alias $FRAMEWORK_BUILTIN
@@ -51,29 +51,16 @@ output "BOE 0x095F Unknown" {
 profile "framework-docked" {
   output $3440_UW_OLED mode 3440x1440@119.99 enable
   output $DELL_24_H enable
-  output "BOE 0x095F Unknown" disable
+  output $FRAMEWORK_BUILTIN disable
 }
 
 profile "framework-mobile" {
   output "BOE 0x095F Unknown" mode 2256x1504 position 0,0 scale 1
 }
 
-profile "desktop-1080lol" {
-  output "Dell Inc. DELL U2424HE FQ1X3X3" mode 1920x1080@120 position 0,0
-  output "Dell Inc. DELL U2424H 787H5Z3" mode 1920x1080@120 position 1920,0
-}
 
 profile "desktop" {
   output $3440_UW_OLED enable
   output $DELL_24_H enable
 }
 
-profile "framework-asus-external" {
-  output "BOE 0x095F Unknown" mode 2256x1504 position 0,0 scale 1.5
-  output "ASUSTek COMPUTER INC ASUS MB166C RALMTF032373" mode 1920x1080 position 2256,0 scale 1
-}
-
-profile "desktop-asus-external" {
-  output "LG Electronics LG HDR WQHD 0x0006C281" mode 3840x1600@74.996 position 0,0
-  output "ASUSTek COMPUTER INC ASUS MB166C RALMTF032373" mode 1920x1080 position 0,1600 scale 1
-}

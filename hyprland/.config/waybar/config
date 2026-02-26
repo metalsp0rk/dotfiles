@@ -6,6 +6,14 @@
   "include": [
     "~/.config/waybar/modules.json"
   ],
+  "hyprland/submap": {
+    "format": "{}"
+  },
+  "custom/kanshictl": {
+    "format": "{}",
+    "interval": 180,
+    "exec": "~/.config/waybar/scripts/kanshictl.sh"
+  },
   "hyprland/workspaces": {
     "format": "{icon}",
     "format-icons": {
@@ -19,7 +27,12 @@
         2,
         3,
         4,
-        5
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
       ]
     }
   },
@@ -37,12 +50,13 @@
     "modules": [
       "custom/expand",
       "custom/filemanager"
-    ],
+    ]
   },
   // Modules Left
   "modules-left": [
     "clock",
-    "group/expand",
+    "hyprland/submap",
+    "custom/expand"
   ],
   // Modules Center
   "modules-center": [
@@ -51,6 +65,7 @@
   // Modules Right
   "modules-right": [
     "custom/updates",
+    "custom/kanshictl",
     "pulseaudio",
     "bluetooth",
     "network",

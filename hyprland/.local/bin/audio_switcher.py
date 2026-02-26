@@ -58,7 +58,7 @@ for items in sinks:
         output += f"{items['sink_name']}\n"
 
 # Call wofi and show the list. take the selected sink name and set it as the default sink
-wofi_command = f"echo '{output}' | wmenu -l 4 -i -p 'Select Audio Sink:'"
+wofi_command = f"echo '{output}' | walker -d -p 'Select Audio Sink:'"
 wofi_process = subprocess.run(
     wofi_command,
     shell=True,

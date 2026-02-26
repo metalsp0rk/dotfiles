@@ -1,0 +1,70 @@
+#!/usr/bin/env bash
+
+if [ -z "$1" ]; then
+  action="toggle"
+else
+  action=$1
+fi
+
+show_help() {
+
+  cat <<EOF
+Intel CPU Turbo toggling utility
+
+Usage: intel_turbo [action]
+
+valid actions:
+    on
+    off
+    toggle (default)
+EOF
+
+  exit 1
+}
+
+turbo_on() {
+  turbo_state=0
+  if ! echo "${turbo_state}" | sudo tee /sys/devices/system/cpu/intel_pstate/no_turbo >/dev/null; then
+    echo "Error attempting to enable turbo"
+    exit 1
+  fi
+}
+
+turbo_off() {
+  turbo_state=1
+  if ! echo "${turbo_state}" | sudo tee /sys/devices/system/cpu/intel_pstate/no_turbo >/dev/null; then
+    echo "Error attempting to disable turbo"
+    exit 1
+  fi
+}
+
+toggle_turbo() {
+  turbo_state=$(cat /sys/devices/system/cpu/intel_pstate/no_turbo)
+  ((turbo_state = !$turbo_state))
+
+  if ! echo "${turbo_state}" | sudo tee /sys/devices/system/cpu/intel_pstate/no_turbo >/dev/null; then
+    echo "Error attempting to toggle turbo state"
+    exit 1
+  fi
+  if [ "$turbo_state" -eq "0" ]; then
+    echo "Turbo Enabled"
+  else
+    echo "Turbo Disabled"
+  fi
+}
+
+case $action in
+toggle)
+  toggle_turbo
+  ;;
+on)
+  turbo_on
+  ;;
+off)
+  turbo_off
+  ;;
+*)
+  show_help
+  ;;
+
+esac

@@ -25,7 +25,7 @@
     "interval": 1800,
     "signal": 1,
     "hide-empty-text": true,
-    "on-click": "ghostty --class=local.floating -e update-perform"
+    "on-click": "alacritty --class=local.floating -e update-perform"
   },
   // Hypridle
   "custom/hypridle": {
@@ -46,12 +46,6 @@
     "exec": "playerctl metadata --format='{{ title }} - {{artist}}'",
     "on-click": "playerctl play-pause",
     "max-length": 50
-  },
-  // Exit
-  "custom/exit": {
-    "format": "",
-    "tooltip-format": "Exit menu",
-    "on-click": "walker --theme menus -m menus:system --width 150 --minheight 1 --maxheight 600"
   },
   // Clock
   "clock": {
@@ -149,15 +143,5 @@
     "interval": 3,
     "spacing": 1,
     "on-click": "ghostty --class=local.impala -e impala"
-  },
-  // Quicklinks
-  "custom/brightness": {
-    "format": "",
-    "on-click": "ddc-brightness-popup"
-  },
-  "custom/filemanager": {
-    "format": "",
-    "on-click": "nautilus",
-    "tooltip-format": "Open Filemanager"
   }
 }
