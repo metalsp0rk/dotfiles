@@ -99,6 +99,3 @@ export PYENV_ROOT="$HOME/.pyenv"
 eval "$(pyenv init --path - zsh)"
 
 export PATH="$HOME/.npm-global/bin:$PATH"
-
-# OpenClaw Completion
-source "/home/spork/.openclaw/completions/openclaw.zsh"
